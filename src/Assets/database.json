@@ -1,0 +1,62 @@
+{
+    "data": [
+        {
+            "number": 1.1,
+            "error": "Revne",
+            "remark": "",
+            "thickness": [
+                {
+                    "t": 0.5,
+                    "quality": {
+                        "D": "Ikke tilladt",
+                        "C": "Ikke tilladt",
+                        "B": "Ikke tilladt"
+                    }
+                }
+            ]
+        },
+        {
+            "number": 1.2,
+            "error": "Kraterevne",
+            "remark": "",
+            "thickness": [
+                {
+                    "t": 0.5,
+                    "quality": {
+                        "D": "Ikke tilladt",
+                        "C": "Ikke tilladt",
+                        "B": "Ikke tilladt"
+                    }
+                }
+            ]
+        },
+        {
+            "number": 1.3,
+            "error": "Overfladepore ",
+            "remark": "Max. dimension af enkelt pore:",
+            "thickness": [
+                {
+                    "t": 0.5,
+                    "quality": {
+                        "D": "Stumpsøm: d ≤ 0.3s, Kantsøm: d ≤ 0.3a",
+                        "C": "Ikke tilladt",
+                        "B": "Ikke tilladt"
+                    }
+                },
+                {
+                    "t": 3,
+                    "quality": {
+                        "D": "Stumpsøm: d ≤ 0.3s (Max: 3mm), Kantsøm: d ≤ 0.3a (Max: 3mm)",
+                        "C": "Ikke tilladt",
+                        "B": "Ikke tilladt"
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+
+
+
+// 35 cases
