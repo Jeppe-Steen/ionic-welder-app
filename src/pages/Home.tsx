@@ -1,5 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonList, IonItem, IonInput, IonSelect, IonSelectOption, IonCheckbox, IonLabel } from '@ionic/react';
 import './Home.css';
 
 const Home: React.FC = () => {
@@ -11,12 +10,29 @@ const Home: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Blank</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <ExploreContainer />
+       <IonList>
+       <IonItem>
+            <IonSelect value="" placeholder="Vælg svejsning">
+              <IonSelectOption value="FW">Kantsøm</IonSelectOption> 
+              <IonSelectOption value="BW">Stumpsøm</IonSelectOption> 
+            </IonSelect>
+          </IonItem>
+          <IonItem>
+            <IonInput placeholder="Pladetykkelse"></IonInput>
+          </IonItem>
+          <IonItem>
+            <IonLabel>D (Moderat)</IonLabel>
+            <IonCheckbox></IonCheckbox>
+          </IonItem>
+          <IonItem>
+            <IonLabel>C (Mellem)</IonLabel>
+            <IonCheckbox></IonCheckbox>
+          </IonItem>
+          <IonItem>
+            <IonLabel>B (Skærpet)</IonLabel>
+            <IonCheckbox></IonCheckbox>
+          </IonItem>
+       </IonList>
       </IonContent>
     </IonPage>
   );
