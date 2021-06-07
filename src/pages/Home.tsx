@@ -1,39 +1,53 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonList, IonItem, IonInput, IonSelect, IonSelectOption, IonCheckbox, IonLabel } from '@ionic/react';
 import './Home.css';
+import Logo from "../img/logo.svg"
+import Techcollege from "../img/techcollege.svg"
 
 const Home: React.FC = () => {
   return (
-    <IonPage>
+    <IonPage className="mainpage">
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Blank</IonTitle>
+          <IonTitle className="Title-logo">
+            <img src={Logo} alt=""></img>
+          </IonTitle>
+          <IonTitle className="Title-Techcollege">
+            <img src={Techcollege} alt=""></img>
+          </IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent fullscreen>
+
+
+      <IonContent className="Content-section" fullscreen>
        <IonList>
-       <IonItem>
-            <IonSelect value="" placeholder="Vælg svejsning">
+          <IonItem className="Ion-items">
+            <IonSelect className="Select" value="" placeholder="Vælg svejsning">
               <IonSelectOption value="FW">Kantsøm</IonSelectOption> 
               <IonSelectOption value="BW">Stumpsøm</IonSelectOption> 
             </IonSelect>
           </IonItem>
-          <IonItem>
-            <IonInput placeholder="Pladetykkelse"></IonInput>
+
+          <IonItem className="Ion-items">
+            <IonLabel className="Input-label">Pladetykkelse</IonLabel>
+            <IonInput className="Input" placeholder="Pladetykkelse"></IonInput>
           </IonItem>
-          <IonItem>
-            <IonLabel>D (Moderat)</IonLabel>
-            <IonCheckbox></IonCheckbox>
+
+          <IonItem className="Ion-items">
+            <IonLabel className="Checkbox-label">D (Moderat)</IonLabel>
+            <IonCheckbox className="Checkbox"></IonCheckbox>
           </IonItem>
-          <IonItem>
-            <IonLabel>C (Mellem)</IonLabel>
-            <IonCheckbox></IonCheckbox>
+          <IonItem className="Ion-items">
+            <IonLabel className="Checkbox-label">C (Mellem)</IonLabel>
+            <IonCheckbox className="Checkbox"></IonCheckbox>
           </IonItem>
-          <IonItem>
-            <IonLabel>B (Skærpet)</IonLabel>
-            <IonCheckbox></IonCheckbox>
+          <IonItem className="Ion-items">
+            <IonLabel className="Checkbox-label">B (Skærpet)</IonLabel>
+            <IonCheckbox className="Checkbox"></IonCheckbox>
           </IonItem>
+
        </IonList>
       </IonContent>
+
     </IonPage>
   );
 };

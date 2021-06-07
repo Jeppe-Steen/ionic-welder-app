@@ -1,0 +1,25 @@
+.Title-logo {
+    height: 70px !important;
+    background-color: black !important;
+    display: grid !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.Title-logo img{
+    height: 50px !important;
+}
+
+.Title-Techcollege {
+    background: white !important;
+    height: 45px !important;
+    display: grid !important;
+    justify-content: center !important;
+    align-items: center !important;
+    border-bottom: 1px black solid !important;
+}
+
+.Title-Techcollege img {
+    height: 100% !important;
+}
+
