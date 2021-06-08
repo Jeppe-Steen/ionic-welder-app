@@ -1,7 +1,47 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonList, IonItem, IonInput, IonSelect, IonSelectOption, IonCheckbox, IonLabel } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonList, IonItem, IonInput, IonSelect, IonSelectOption, IonCheckbox, IonLabel, IonButton } from '@ionic/react';
+import { useEffect, useState } from 'react';
 import './Home.css';
 
-const Home: React.FC = () => {
+const Home: React.FC<any> = () => {
+  const [tykkelse, setTykkelse] = useState(Number);
+  const [select, setSelect] = useState('');
+
+  const [filter, setFilter] = useState(Array);
+
+  const array = [
+    {
+      id: 1.1,
+      type: ["BW"],
+      calc: (t: number) => {
+        if (t >= 3) {
+          return t
+        } else {
+          return 'fejl'
+        }
+      }
+    },
+    {
+      id: 1.2,
+      type: ["FW"],
+      calc: (t: number) => {
+        return t;
+      }
+    },
+  ];
+
+  const handleTykkelse = (e: any) => {
+    setTykkelse(e.target.value);
+  }
+
+  const handleSelect = (e: any) => {
+    setSelect(e.target.value);
+  }
+
+  const handleClick = () => {
+    const filterForSelect = array.filter(elements => elements.type.includes(select))
+    setFilter(filterForSelect)
+  }
+
   return (
     <IonPage>
       <IonHeader>
@@ -12,26 +52,32 @@ const Home: React.FC = () => {
       <IonContent fullscreen>
        <IonList>
        <IonItem>
-            <IonSelect value="" placeholder="Vælg svejsning">
+            <IonSelect placeholder="Vælg svejsning" onIonChange={(e) => {handleSelect(e)}}>
               <IonSelectOption value="FW">Kantsøm</IonSelectOption> 
               <IonSelectOption value="BW">Stumpsøm</IonSelectOption> 
             </IonSelect>
           </IonItem>
           <IonItem>
-            <IonInput placeholder="Pladetykkelse"></IonInput>
+            <IonInput onKeyUp={(e) => {handleTykkelse(e)}} placeholder="Pladetykkelse"></IonInput>
           </IonItem>
-          <IonItem>
-            <IonLabel>D (Moderat)</IonLabel>
-            <IonCheckbox></IonCheckbox>
-          </IonItem>
-          <IonItem>
-            <IonLabel>C (Mellem)</IonLabel>
-            <IonCheckbox></IonCheckbox>
-          </IonItem>
-          <IonItem>
-            <IonLabel>B (Skærpet)</IonLabel>
-            <IonCheckbox></IonCheckbox>
-          </IonItem>
+       </IonList>
+       <IonButton onClick={handleClick} expand="full">test</IonButton>
+       <IonList>
+         <IonHeader>
+           <IonToolbar>
+            <IonTitle>
+              liste
+            </IonTitle>
+           </IonToolbar>
+         </IonHeader>
+         {filter && filter.map((item: any, index: any) => {
+           return (
+             <IonItem key={index}>
+               <p>{item.id}</p>
+               <p>{item.calc(tykkelse)}</p>
+             </IonItem>
+           )
+         })}
        </IonList>
       </IonContent>
     </IonPage>
