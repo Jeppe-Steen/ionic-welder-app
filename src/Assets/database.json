@@ -4,9 +4,11 @@
             "number": 1.1,
             "error": "Revne",
             "remark": "",
+            "type": ["FW", "BW"],
             "thickness": [
                 {
                     "t": 0.5,
+                    "type": [],
                     "quality": {
                         "D": "Ikke tilladt",
                         "C": "Ikke tilladt",
@@ -19,9 +21,11 @@
             "number": 1.2,
             "error": "Kraterevne",
             "remark": "",
+            "type": ["FW", "BW"],
             "thickness": [
                 {
                     "t": 0.5,
+                    "type": [],
                     "quality": {
                         "D": "Ikke tilladt",
                         "C": "Ikke tilladt",
@@ -32,11 +36,13 @@
         },
         {
             "number": 1.3,
-            "error": "Overfladepore ",
+            "error": "Overfladepore",
             "remark": "Max. dimension af enkelt pore:",
+            "type": ["FW", "BW"],
             "thickness": [
                 {
                     "t": 0.5,
+                    "type": [],
                     "quality": {
                         "D": "Stumpsøm: d ≤ 0.3s, Kantsøm: d ≤ 0.3a",
                         "C": "Ikke tilladt",
@@ -45,18 +51,702 @@
                 },
                 {
                     "t": 3,
+                    "type": [],
                     "quality": {
                         "D": "Stumpsøm: d ≤ 0.3s (Max: 3mm), Kantsøm: d ≤ 0.3a (Max: 3mm)",
+                        "C": "Stumpsøm: d ≤ 0.2s (Max: 3mm), Kantsøm: d ≤ 0.2a (Max: 3mm)",
+                        "B": "Ikke tilladt"
+                    }
+                }
+            ]
+        },
+        {
+            "number": 1.4,
+            "error": "Åben kantpore",
+            "remark": "",
+            "type": ["FW", "BW"],
+            "thickness": [
+                {
+                    "t": 0.5,
+                    "type": [],
+                    "quality": {
+                        "D": "h ≤ 0.3t",
                         "C": "Ikke tilladt",
                         "B": "Ikke tilladt"
+                    }
+                },
+                {
+                    "t": 3,
+                    "type": [],
+                    "quality": {
+                        "D": "h ≤ 0.2t (Max: 2mm)",
+                        "C": "h ≤ 0.1t (Max: 1mm)",
+                        "B": "Ikke tilladt"
+                    }
+                }
+            ]
+        },
+        {
+            "number": 1.5,
+            "error": "Bindingsfejl",
+            "remark": "",
+            "type": ["FW", "BW"],
+            "thickness": [
+                {
+                    "t": 0.5,
+                    "type": [],
+                    "quality": {
+                        "D": "Ikke tilladt",
+                        "C": "Ikke tilladt",
+                        "B": "Ikke tilladt"
+                    }
+                }
+            ]
+        },
+        {
+            "number": 1.6,
+            "error": "Rodfejl",
+            "remark": "",
+            "type": ["BW"],
+            "thickness": [
+                {
+                    "t": 0.5,
+                    "type": [],
+                    "quality": {
+                        "D": "Korte fejl: h ≤ 0.2t",
+                        "C": "Ikke tilladt",
+                        "B": "Ikke tilladt"
+                    }
+                }
+            ]
+        },
+        {
+            "number": 1.7,
+            "error": "Sidekærv",
+            "remark": "",
+            "type": ["FW", "BW"],
+            "thickness": [
+                {
+                    "t": 0.5,
+                    "type": [],
+                    "quality": {
+                        "D": "Korte fejl: h ≤ 0.2t",
+                        "C": "Korte fejl: h ≤ 0.1t",
+                        "B": "Ikke tilladt"
+                    }
+                },
+                {
+                    "t": 3,
+                    "type": [],
+                    "quality": {
+                        "D": "h ≤ 0.2t (Max: 1mm)",
+                        "C": "h ≤ 0.1t (Max: 0.5mm)",
+                        "B": "h ≤ 0.05t (Max: 0.5mm)"
+                    }
+                }
+            ]
+        },
+        {
+            "number": 1.8,
+            "error": "Krympefuge (rodkærv)",
+            "remark": "",
+            "type": ["BW"],
+            "thickness": [
+                {
+                    "t": 0.5,
+                    "type": [],
+                    "quality": {
+                        "D": "Korte fejl: h ≤ 0.2mm + 0.1t",
+                        "C": "Korte fejl: h ≤ 0.1t",
+                        "B": "Ikke tilladt"
+                    }
+                },
+                {
+                    "t": 3,
+                    "type": [],
+                    "quality": {
+                        "D": "Korte fejl: h ≤ 0.2t (Max: 2mm)",
+                        "C": "Korte fejl: h ≤ 0.1t (Max: 1mm)",
+                        "B": "Korte fejl: h ≤ 0.05t (Max: 0.5mm)"
+                    }
+                }
+            ]
+        },
+        {
+            "number": 1.9,
+            "error": "Overvulst (stumpsøm)",
+            "remark": "",
+            "type": ["BW"],
+            "thickness": [
+                {
+                    "t": 0.5,
+                    "type": [],
+                    "quality": {
+                        "D": "h ≤ 1mm + 0.25b (Max: 10mm)",
+                        "C": "h ≤ 1mm 0 0.15b (Max: 7mm)",
+                        "B": "h ≤ 1mm + 0.1b (Max: 5mm)"
+                    }
+                }
+            ]
+        },
+        {
+            "number": 1.10,
+            "error": "Konveks sømoverflade (kantsøm)",
+            "remark": "",
+            "type": ["FW"],
+            "thickness": [
+                {
+                    "t": 0.5,
+                    "type": [],
+                    "quality": {
+                        "D": "h ≤ 1mm + 0.25b (Max: 5mm)",
+                        "C": "h ≤ 1mm + 0.15b (Max: 4mm))",
+                        "B": "h ≤ 1mm + 0.1b (Max: 3mm)"
+                    }
+                }
+            ]
+        },
+        {
+            "number": 1.11,
+            "error": "Gennemløb",
+            "remark": "",
+            "type": ["BW"],
+            "thickness": [
+                {
+                    "t": 0.5,
+                    "type": [],
+                    "quality": {
+                        "D": "h ≤ 1mm + 0.6b",
+                        "C": "h ≤ 1mm + 0.3b",
+                        "B": "h ≤ 1mm + 0.1b"
+                    }
+                },
+                {
+                    "t": 3,
+                    "type": [],
+                    "quality": {
+                        "D": "h ≤ 1mm + 1b (Max: 5mm)",
+                        "C": "h ≤ 1mm + 0.6b (Max: 4mm)",
+                        "B": "h ≤ 1mm + 0.2b (Max: 3mm)"
+                    }
+                }
+            ]
+        },
+        {
+            "number": 1.12,
+            "error": "",
+            "remark": "",
+            "type": ["FW", "BW"],
+            "thickness": [
+                {
+                    "t": 0.5,
+                    "type": ["BW"],
+                    "quality": {
+                        "D": "a >= 90",
+                        "C": "a >= 110",
+                        "B": "a >= 150"
+                    }
+                },
+                {
+                    "t": 0.5,
+                    "type": ["FW"],
+                    "quality": {
+                        "D": "a >= 90",
+                        "C": "a >= 100",
+                        "B": "a >= 110"
+                    }
+                }
+            ]
+        },
+        {
+            "number": 1.13,
+            "error": "Overløbning af svejsemetal",
+            "remark": "",
+            "type": ["BW"],
+            "thickness": [
+                {
+                    "t": 0.5,
+                    "type": [],
+                    "quality": {
+                        "D": "h ≤ 0.2b",
+                        "C": "Ikke tilladt",
+                        "B": "Ikke tillad"
+                    }
+                }
+            ]
+        },
+        {
+            "number": 1.14,
+            "error": "Nedløbet svejsemetal (Manglende opfyldning)",
+            "remark": "",
+            "type": ["FW", "BW"],
+            "thickness": [
+                {
+                    "t": 0.5,
+                    "type": [],
+                    "quality": {
+                        "D": "Korte fejl: h ≤ 0.25t",
+                        "C": "Korte fejl: h ≤ 0.1t",
+                        "B": "Ikke tilladt"
+                    }
+                },
+                {
+                    "t": 3,
+                    "type": [],
+                    "quality": {
+                        "D": "Korte fejl: h ≤ 0.25t (Max: 2mm)",
+                        "C": "Korte fejl: h ≤ 0.1t (Max: 1mm)",
+                        "B": "Korte fejl: h ≤ 0.05t (Max: 0.5mm)"
+                    }
+                }
+            ]
+        },
+        {
+            "number": 1.15,
+            "error": "Gennembrænding",
+            "remark": "Hul i svejsesømmen",
+            "type": ["BW"],
+            "thickness": [
+                {
+                    "t": 0.5,
+                    "type": [],
+                    "quality": {
+                        "D": "Ikke tilladt",
+                        "C": "Ikke tilladt",
+                        "B": "Ikke tilladt"
+                    }
+                }
+            ]
+        },
+        {
+            "number": 1.16,
+            "error": "Ulige store kateter (z-mål) ved kantsøm",
+            "remark": "",
+            "type": ["FW"],
+            "thickness": [
+                {
+                    "t": 0.5,
+                    "type": [],
+                    "quality": {
+                        "D": "h ≤ 2mm + 0.2a",
+                        "C": "h ≤ 2mm + 0.15a",
+                        "B": "h ≤ 1.5mm + 0.15a"
+                    }
+                }
+            ]
+        },
+        {
+            "number": 1.17,
+            "error": "Indadhvælvning i roden",
+            "remark": "",
+            "type": ["BW"],
+            "thickness": [
+                {
+                    "t": 0.5,
+                    "type": [],
+                    "quality": {
+                        "D": "h ≤ 0.2mm + 0.1t",
+                        "C": "Korte fejl: h ≤ 0.1t",
+                        "B": "Ikke tilladt"
+                    }
+                },
+                {
+                    "t": 3,
+                    "type": [],
+                    "quality": {
+                        "D": "Korte fejl: h ≤ 0.2t (Max: 2mm)",
+                        "C": "Korte fejl: h ≤ 0.1t (Max. 1mm)",
+                        "B": "Korte fejl: h ≤ 0.05t (Max. 0,5mm)"
+                    }
+                }
+            ]
+        },
+        {
+            "number": 1.18,
+            "error": "Porøsitet i rodvulst",
+            "remark": "Svampelignede udseende af svejseroden på grund af bobler i svejsemetallet ved størkningen. (fx mangelfuld baggas)",
+            "type": ["BW"],
+            "thickness": [
+                {
+                    "t": 0.5,
+                    "type": [],
+                    "quality": {
+                        "D": "Tilladt Lokalt",
+                        "C": "Ikke tilladt",
+                        "B": "Ikke tilladt"
+                    }
+                }
+            ]
+        },
+        {
+            "number": 1.19,
+            "error": "Fejl ved genstart",
+            "remark": "",
+            "type": ["FW", "BW"],
+            "thickness": [
+                {
+                    "t": 0.5,
+                    "type": [],
+                    "quality": {
+                        "D": "Tilladt",
+                        "C": "Ikke tilladt",
+                        "B": "Ikke tilladt"
+                    }
+                }
+            ]
+        },
+        {
+            "number": 1.20,
+            "error": "Utilstrække- ligt a-mål",
+            "remark": "",
+            "type": ["FW"],
+            "thickness": [
+                {
+                    "t": 0.5,
+                    "type": [],
+                    "quality": {
+                        "D": "Korte fejl: h ≤ 0.2mm + 0.1a",
+                        "C": "Korte fejl: h ≤ 0.2mm",
+                        "B": "Ikke Tilladt"
+                    }
+                },
+                {
+                    "t": 3,
+                    "type": [],
+                    "quality": {
+                        "D": "Korte fejl: h ≤ 0.3mm + 0.1a (Max: 2mm)",
+                        "C": "Korte fejl: h ≤ 0.3mm + 0.1a (Max. 1mm)",
+                        "B": "Ikke tilladt"
+                    }
+                }
+            ]
+        },
+        {
+            "number": 1.21,
+            "error": "Uforholdsmæssigt stort s-mål ",
+            "remark": "",
+            "type": ["FW"],
+            "thickness": [
+                {
+                    "t": 0.5,
+                    "type": [],
+                    "quality": {
+                        "D": "Tilladt",
+                        "C": "h ≤ 1mm + 0.2a (Max: 4mm)",
+                        "B": "h ≤ 1mm + 0.15a (Max. 3mm)"
+                    }
+                }
+            ]
+        },
+        {
+            "number": 1.22,
+            "error": "Tændsår",
+            "remark": "Lokalt beskadigelse af grundmaterialets overflade ved siden af svejsesømme. Opstår ved tænding af lysbuen uden for svejsefugen.",
+            "type": ["FW", "BW"],
+            "thickness": [
+                {
+                    "t": 0.5,
+                    "type": [],
+                    "quality": {
+                        "D": "Ikke tilladt",
+                        "C": "Ikke tilladt",
+                        "B": "Ikke tilladt"
+                    }
+                }
+            ]
+        },
+        {
+            "number": 1.23,
+            "error": "Sprøjt",
+            "remark": "Dråber af svejsemetal eller tilsatsmateriale, der klæber sig fast på grundmaterialet eller på svejsningen.",
+            "type": ["FW", "BW"],
+            "thickness": [
+                {
+                    "t": 0.5,
+                    "type": [],
+                    "quality": {
+                        "D": "Ikke tilladt",
+                        "C": "Ikke tilladt",
+                        "B": "Ikke tilladt"
+                    }
+                }
+            ]
+        },
+        {
+            "number": 1.24,
+            "error": "Anløbsfarve (misfarvning)",
+            "remark": "Let oxideret overflade i en svejsezone, fx rustfrit stål. Forårsaget af svejsevarmen og/eller mangel på beskyttelse.",
+            "type": ["FW", "BW"],
+            "thickness": [
+                {
+                    "t": 0.5,
+                    "type": [],
+                    "quality": {
+                        "D": "Ikke tilladt",
+                        "C": "Ikke tilladt",
+                        "B": "Ikke tilladt"
+                    }
+                }
+            ]
+        },
+        {
+            "number": 2.6,
+            "error": "Lang pore ormehuller",
+            "remark": "",
+            "type": ["FW", "BW"],
+            "thickness": [
+                {
+                    "t": 0.5,
+                    "type": ["BW"],
+                    "quality": {
+                        "D": "h ≤ 0.4s (Max: 4mm), l ≤ s (Max: 75mm)",
+                        "C": "h ≤ 0.3s (Max: 3mm), l ≤ s (Max: 75mm)",
+                        "B": "h ≤ 0.2s (Max: 2mm), l ≤ s (Max: 75mm)"
+                    }
+                },
+                {
+                    "t": 0.5,
+                    "type": ["FW"],
+                    "quality": {
+                        "D": "h ≤ 0.4a (Max: 4mm), l ≤ a (Max: 75mm)",
+                        "C": "h ≤ 0.3a (Max: 3mm), l ≤ a (Max: 50mm)",
+                        "B": "h ≤ 0.2a (Max. 2mm), l ≤ a (Max: 25mm)"
+                    }
+                }
+            ]
+        },
+        {
+            "number": 2.7,
+            "error": "Sugning",
+            "remark": "",
+            "type": ["FW", "BW"],
+            "thickness": [
+                {
+                    "t": 0.5,
+                    "type": [],
+                    "quality": {
+                        "D": "Ikke tilladt, dog kun korte fejl, se forklaring!",
+                        "C": "Ikke tilladt",
+                        "B": "Ikke tilladt"
+                    }
+                }
+            ]
+        },
+        {
+            "number": 2.8,
+            "error": "Kraterpore",
+            "remark": "",
+            "type": ["FW", "BW"],
+            "thickness": [
+                {
+                    "t": 0.5,
+                    "type": [],
+                    "quality": {
+                        "D": "h eller l ≤ 0.2t",
+                        "C": "Ikke tilladt",
+                        "B": "Ikke tilladt"
+                    }
+                },
+                {
+                    "t": 3,
+                    "type": [],
+                    "quality": {
+                        "D": "h eller l ≤ 0.2t (Max: 2mm)",
+                        "C": "Ikke tilladt",
+                        "B": "Ikke tilladt"
+                    }
+                }
+            ]
+        },
+        {
+            "number": 2.9,
+            "error": "Indeslutninger. Slaggeindeslutninger. Flux eller Oxidinde- slutninger.",
+            "remark": "",
+            "type": ["FW", "BW"],
+            "thickness": [
+                {
+                    "t": 0.5,
+                    "type": ["BW"],
+                    "quality": {
+                        "D": "h ≤ 0.4s (Max: 4mm), l ≤ s (Max: 75mm)",
+                        "C": "h ≤ 0.3s (Max: 3mm), l ≤ s (Max: 50mm)",
+                        "B": "h ≤ 0.2s (Max: 2mm),l ≤ s (Max: 25mm)"
+                    }
+                },
+                {
+                    "t": 0.5,
+                    "type": ["FW"],
+                    "quality": {
+                        "D": "h ≤ 0.4a (Max: 4mm), l ≤ a (Max: 75mm)",
+                        "C": "h ≤ 0.3a (Max: 3mm), l ≤ a (Max: 50mm)",
+                        "B": "h ≤ 0.2a (Max: 2mm), l ≤ a (Max: 25mm)"
+                    }
+                }
+            ]
+        }, 
+        {
+            "number": 2.10,
+            "error": "Metalliske indeslutninger undtagen kobber",
+            "remark": "",
+            "type": ["FW", "BW"],
+            "thickness": [
+                {
+                    "t": 0.5,
+                    "type": ["BW"],
+                    "quality": {
+                        "D": "h ≤ 0.4s (Max: 4mm)",
+                        "C": "h ≤ 0.3s (Max: 3mm)",
+                        "B": "h ≤ 0.2s (Max: 2mm)"
+                    }
+                },
+                {
+                    "t": 0.5,
+                    "type": ["FW"],
+                    "quality": {
+                        "D": "h ≤ 0.4a (Max: 4mm)",
+                        "C": "h ≤ 0.3a (Max: 3mm)",
+                        "B": "h ≤ 0.2a (Max: 2mm)"
+                    }
+                }
+            ]
+        }, 
+        {
+            "number": 2.11,
+            "error": "Kobberindeslutninger",
+            "remark": "",
+            "type": ["FW", "BW"],
+            "thickness": [
+                {
+                    "t": 0.5,
+                    "type": [],
+                    "quality": {
+                        "D": "Ikke tilladt",
+                        "C": "Ikke tilladt",
+                        "B": "Ikke tilladt"
+                    }
+                }
+            ]
+        },
+        {
+            "number": 2.12,
+            "error": "Bindingsfejl I siden. Bindingsfejl mellem de enkelte strenge. Bindingsfejl i riden",
+            "remark": "",
+            "type": ["FW", "BW"],
+            "thickness": [
+                {
+                    "t": 0.5,
+                    "type": [],
+                    "quality": {
+                        "D": "Korte fejl: Stumpsøm: h ≤ 0.4s (Max: 4mm), Kantsøm: h ≤ 0.4a (Max: 4mm)",
+                        "C": "Ikke tilladt",
+                        "B": "Ikke tilladt"
+                    }
+                }
+            ]
+        },
+        {
+            "number": 2.13,
+            "error": "Mangelfuld indtrængning",
+            "remark": "",
+            "type": ["FW", "BW"],
+            "thickness": [
+                {
+                    "t": 0.5,
+                    "type": [],
+                    "quality": {
+                        "D": "Korte fejl: h ≤ 0.2a (Max: 2mm)",
+                        "C": "Ikke tilladt",
+                        "B": "Ikke tilladt"
+                    }
+                },
+                {
+                    "t": 0.5,
+                    "type": [],
+                    "quality": {
+                        "D": "Korte fejl: Kantsøm: h ≤ 0.2a (Max: 2mm), Stumpsøm: h ≤ 0.2s eller i (Max: 2mm)",
+                        "C": "orte fejl: Kantsøm: h ≤ 0.1a (Max: 1.5mm), Stumpsøm: h ≤ 0.1s eller i (Max: 1.5mm)",
+                        "B": "Ikke tilladt"
+                    }
+                },
+                {
+                    "t": 0.5,
+                    "type": [],
+                    "quality": {
+                        "D": "Korte fejl: h ≤ 0.2t (Max: 2mm)",
+                        "C": "Ikke tilladt",
+                        "B": "Ikke tilladt"
+                    }
+                }
+            ]
+        },
+        {
+            "number": 3.1,
+            "error": "Kantforsætning mellem plader",
+            "remark": "",
+            "type": ["BW"],
+            "thickness": [
+                {
+                    "t": 0.5,
+                    "type": [],
+                    "quality": {
+                        "D": "h ≤ 0.2mm + 0.25t",
+                        "C": "h ≤ 0.2mm + 0.15t",
+                        "B": "h ≤ 0.2mm + 0.1t "
+                    }
+                },
+                {
+                    "t": 3,
+                    "type": [],
+                    "quality": {
+                        "D": "h ≤ 0.2mm + 0.25t (Max: 5mm)",
+                        "C": "h ≤ 0.2mm + 0.15t (Max: 4mm)",
+                        "B": "h ≤ 0.2mm + 0.1t (Max: 3mm)"
+                    }
+                }
+            ]
+        },
+        {
+            "number": 3.2,
+            "error": "Kantforsætning Mellem rør rundsømme",
+            "remark": "",
+            "type": ["BW"],
+            "thickness": [
+                {
+                    "t": 0.5,
+                    "type": [],
+                    "quality": {
+                        "D": "h ≤ 0.5t (Max: 4mm)",
+                        "C": "h ≤ 0.5t (Max: 3mm)",
+                        "B": "h ≤ 0.5t (Max: 2mm)"
+                    }
+                }
+            ]
+        },
+        {
+            "number": 3.3,
+            "error": "Dårlig tilpasning af rodspalten, kantsømme",
+            "remark": "",
+            "type": ["FW"],
+            "thickness": [
+                {
+                    "t": 0.5,
+                    "type": [],
+                    "quality": {
+                        "D": "h ≤ 0.5mm + 0.1a ",
+                        "C": "h ≤ 0.5mm + 0.1a ",
+                        "B": "h ≤ 0.2mm + 0.1a "
+                    }
+                },
+                {
+                    "t": 3,
+                    "type": [],
+                    "quality": {
+                        "D": "h ≤ 1mm + 0.3a (Max: 4mm)",
+                        "C": "h ≤ 0.5mm + 0.2a (Max: 3mm)",
+                        "B": "h ≤ 0.2mm + 0.1a (Max: 2mm)"
                     }
                 }
             ]
         }
     ]
 }
-
-
-
-
-// 35 cases
