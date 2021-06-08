@@ -1,10 +1,13 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonList, IonItem, IonInput, IonSelect, IonSelectOption, IonLabel } from '@ionic/react';
+import { useState } from 'react'
 import './Home.css';
 import Logo from "../img/logo.svg"
 import Techcollege from "../img/techcollege.svg"
 
 const Home: React.FC = () => {
 
+  const [thickness, setThickness] = useState(Number)
+  const handleThickness = (value: any) => {setThickness(value)}
   const errorType: Array<Object> = [
     {
       id: 1.1, 
@@ -99,7 +102,7 @@ const Home: React.FC = () => {
 
           <IonItem className="Ion-items">
             <IonLabel className="Input-label">Pladetykkelse</IonLabel>
-            <IonInput className="Input" placeholder="Pladetykkelse"></IonInput>
+            <IonInput className="Input" onKeyUp={(e) => {handleThickness(e.currentTarget.value)}} placeholder="Pladetykkelse"></IonInput>
           </IonItem>
           <IonItem className="Ion-items">
             <IonLabel className="Input-label">A-mål</IonLabel>
@@ -117,11 +120,23 @@ const Home: React.FC = () => {
             <IonLabel className="Input-label">Vinkel</IonLabel>
             <IonInput className="Input" placeholder="Vinkel"></IonInput>
           </IonItem>
-
-
-
-       
-
+       </IonList>
+       <IonList>
+         <IonHeader>
+           <IonToolbar>
+             <IonTitle>
+               feil
+             </IonTitle>
+           </IonToolbar>
+         </IonHeader>
+         {errorType && errorType.map((item: any, index: any) => {
+           return (
+             <IonItem key={index}>
+               <p>{item.id}</p>
+               <p>{item.calc(thickness)}</p>
+             </IonItem>
+           )
+         })}
        </IonList>
       </IonContent>
 
