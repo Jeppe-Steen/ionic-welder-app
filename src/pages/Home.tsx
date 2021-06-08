@@ -10,42 +10,66 @@ const Home: React.FC = () => {
       id: 1.1, 
       error: "Revne", 
       type: ["FW", "BW"],
-      calc: () => {
-        return (
-          {D: "Ikke tilladt", C: "Ikke tilladt", B: "Ikke tilladt"}
-        )
+      calc: (t: number) => {
+        let dataObj: any = {
+          D: '',
+          C: '',
+          B: ''
+        };
+
+        if (t >= 0.5) {
+          return dataObj = {
+            D: 'Ikke tilladt',
+            C: 'Ikke tilladt',
+            B: 'Ikke tilladt'
+          }
+        }
       }   
     }, 
     {
       id: 1.2, 
       error: "Kraterevne", 
       type: ["FW", "BW"],
-      calc: () => {
-        return (
-          {D: "Ikke tilladt", C: "Ikke tilladt", B: "Ikke tilladt"}
-        )
+      calc: (t: number) => {
+        let dataObj: any = {
+          D: '',
+          B: '',
+          C: ''
+        };
+
+        if (t >= 0.5) {
+          return dataObj = {
+            D: 'Ikke tilladt',
+            C: 'Ikke tilladt',
+            B: 'Ikke tilladt'
+          }
+        }
       }   
     },
     {
       id: 1.4, 
       error: "Åben Kraterpore", 
       type: ["FW", "BW"],
-      calc: (t: any) => {
-        let data;
-        if (t >= 0.5 && t === 3) {
-          data = {
-            D : 0.2 * t,
-            C : "Ikke tilladt",
-            B : "Ikke tilladt"
+      calc: (t: number) => {
+        let dataObj: any = {
+          D: '',
+          B: '',
+          C: ''
+        };
+
+        if (t >= 0.5 && t <= 3) {
+          return dataObj = {
+            D: 0.2 * t,
+            C: 'Ikke tilladt',
+            B: 'Ikke tilladt'
           }
-        } else if(t > 3) {
-          data = {
-            D : 0.2 * t,
-            C : 0.1 * t,
-            B : "Ikke tilladt"
-          } 
-        } 
-        return data
+        } else if (t > 3) {
+          return dataObj = {
+            D: 0.2 * t,
+            C: 0.1 * t,
+            B: 'Ikke tilladt'
+          }
+        }
       },
     }
   ]
