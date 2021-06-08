@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonList, IonItem, IonInput, IonSelect, IonSelectOption, IonCheckbox, IonLabel } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonList, IonItem, IonInput, IonSelect, IonSelectOption, IonLabel } from '@ionic/react';
 import './Home.css';
 import Logo from "../img/logo.svg"
 import Techcollege from "../img/techcollege.svg"
@@ -31,19 +31,26 @@ const Home: React.FC = () => {
             <IonLabel className="Input-label">Pladetykkelse</IonLabel>
             <IonInput className="Input" placeholder="Pladetykkelse"></IonInput>
           </IonItem>
+          <IonItem className="Ion-items">
+            <IonLabel className="Input-label">A-mål</IonLabel>
+            <IonInput className="Input" placeholder="A-mål"></IonInput>
+          </IonItem>
+          <IonItem className="Ion-items">
+            <IonLabel className="Input-label">Stumpsøm tykkelse</IonLabel>
+            <IonInput className="Input" placeholder=""></IonInput>
+          </IonItem>
+          <IonItem className="Ion-items">
+            <IonLabel className="Input-label">Brede</IonLabel>
+            <IonInput className="Input" placeholder="brede"></IonInput>
+          </IonItem>
+          <IonItem className="Ion-items">
+            <IonLabel className="Input-label">Vinkel</IonLabel>
+            <IonInput className="Input" placeholder="Vinkel"></IonInput>
+          </IonItem>
 
-          <IonItem className="Ion-items">
-            <IonLabel className="Checkbox-label">D (Moderat)</IonLabel>
-            <IonCheckbox className="Checkbox"></IonCheckbox>
-          </IonItem>
-          <IonItem className="Ion-items">
-            <IonLabel className="Checkbox-label">C (Mellem)</IonLabel>
-            <IonCheckbox className="Checkbox"></IonCheckbox>
-          </IonItem>
-          <IonItem className="Ion-items">
-            <IonLabel className="Checkbox-label">B (Skærpet)</IonLabel>
-            <IonCheckbox className="Checkbox"></IonCheckbox>
-          </IonItem>
+
+
+       
 
        </IonList>
       </IonContent>
