@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonList, IonItem, IonInput, IonSelect, IonSelectOption, IonLabel, IonButton } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonList, IonItem, IonInput, IonSelect, IonSelectOption, IonLabel, IonButton, IonNote, IonGrid, IonRow, IonCol } from '@ionic/react';
 import { useState } from 'react'
 import './Home.css';
 import Logo from "../img/logo.svg"
@@ -113,15 +113,25 @@ const Home: React.FC = () => {
        <IonList>
          <IonHeader>
            <IonToolbar>
-             <IonTitle>
-               <h2>Fejl</h2>
-             </IonTitle>
+             <IonGrid>
+               <IonRow>
+                 <IonCol>Id</IonCol>
+                 <IonCol>Error</IonCol>
+                 <IonCol>Name</IonCol>
+               </IonRow>
+             </IonGrid>
            </IonToolbar>
          </IonHeader>
           {errorType && errorType.map((item: any, index: any) => {
             return (
               <IonItem>
-                <IonLabel>{item.id}</IonLabel>
+                <IonGrid>
+                  <IonRow>
+                    <IonCol>{item.id}</IonCol>
+                    <IonCol>{item.error}</IonCol>
+                    <IonCol>Name</IonCol>
+                  </IonRow>
+                </IonGrid>
               </IonItem>
             )
           })}
