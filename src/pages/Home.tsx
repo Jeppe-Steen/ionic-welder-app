@@ -6,21 +6,21 @@ import Techcollege from "../img/techcollege.svg"
 
 const Home: React.FC = () => {
 
-  const [thickness, setThickness] = useState(Number)
-  const handleThickness = (value: any) => {setThickness(value)}
+  const [thickness, setThickness] = useState(Number);
+  const [weldingtype, setWeldingtype] = useState(String);
+  const handleThickness = (value: any) => {setThickness(value)};
+  const handleWeldingtype = (value: any) => {setWeldingtype(value)}
   const errorType: Array<Object> = [
     {
       id: 1.1, 
       error: "Revne", 
       type: ["FW", "BW"],
       calc: (t: number) => {
-        let errorArray = [];
+        let errorArray: any = [];
 
         if (t >= 0.5) {
           return errorArray = [
-            {name: 'D', message: 'Ikke tilladt'},
-            {name: 'C', message: 'Ikke tilladt'},
-            {name: 'B', message: 'Ikke tilladt'}
+            {name: 'D, C & B', message: 'Ikke tilladt'},
           ]
         }
       }   
@@ -30,13 +30,11 @@ const Home: React.FC = () => {
       error: "Kraterevne", 
       type: ["FW", "BW"],
       calc: (t: number) => {
-        let errorArray = [];
+        let errorArray: any = [];
 
         if (t >= 0.5) {
           return errorArray = [
-            {name: 'D', message: 'Ikke tilladt'},
-            {name: 'C', message: 'Ikke tilladt'},
-            {name: 'B', message: 'Ikke tilladt'}
+            {name: 'D, C & B', message: 'Ikke tilladt'},
           ]
         }
       }   
@@ -46,24 +44,26 @@ const Home: React.FC = () => {
       error: "Åben Kraterpore", 
       type: ["FW", "BW"],
       calc: (t: number) => {
-        let errorArray = [];
+        let errorArray: any = [];
 
         if (t >= 0.5 && t <= 3) {
           return errorArray = [
-            {name: 'D', message: 0.2 * t},
+            {name: 'D', message: 'h ≤ ' + 0.2 * t + 'mm'},
             {name: 'C', message: 'Ikke tilladt'},
             {name: 'B', message: 'Ikke tilladt'}
           ]
         } else if (t > 3) {
           return errorArray = [
-            {name: 'D', message: 0.2 * t},
-            {name: 'C', message: 0.1 * t},
+            {name: 'D', message: 'h ≤ ' + 0.2 * t + 'mm'},
+            {name: 'C', message: 'h ≤ ' + 0.1 * t + 'mm'},
             {name: 'B', message: 'Ikke tilladt'}
           ]
         }
       },
     }
   ]
+
+  const testArray: any = [];
 
   return (
     <IonPage className="mainpage">
@@ -82,7 +82,7 @@ const Home: React.FC = () => {
       <IonContent className="Content-section" fullscreen>
        <IonList>
           <IonItem className="Ion-items">
-            <IonSelect className="Select" value="" placeholder="Vælg svejsning">
+            <IonSelect className="Select" value="" placeholder="Vælg svejsning" onChange={(e) => {handleWeldingtype(e.currentTarget.value)}}>
               <IonSelectOption value="FW">Kantsøm</IonSelectOption> 
               <IonSelectOption value="BW">Stumpsøm</IonSelectOption> 
             </IonSelect>
@@ -109,32 +109,41 @@ const Home: React.FC = () => {
             <IonInput className="Input" placeholder="Vinkel"></IonInput>
           </IonItem>
        </IonList>
-       <IonButton expand="full">Test</IonButton>
        <IonList>
          <IonHeader>
            <IonToolbar>
              <IonGrid>
                <IonRow>
-                 <IonCol>Id</IonCol>
-                 <IonCol>Error</IonCol>
-                 <IonCol>Name</IonCol>
+                 <IonCol>Nummer</IonCol>
+                 <IonCol>Fejlbetegnelse</IonCol>
+                 <IonCol>Kvalitetsniveau</IonCol>
                </IonRow>
              </IonGrid>
            </IonToolbar>
          </IonHeader>
           {errorType && errorType.map((item: any, index: any) => {
+            // hvis ikke calc functionen har en value, så skal der ikke vises noget
+            if(!item.calc(thickness)) {
+              return (
+                <IonItem key={index} className="showNone"></IonItem>
+              )
+            } else {
             return (
-              <IonItem>
+              <IonItem key={index}>
                 <IonGrid>
-                  <IonRow>
-                    <IonCol>{item.id}</IonCol>
-                    <IonCol>{item.error}</IonCol>
-                    <IonCol>Name</IonCol>
-                  </IonRow>
+                {item.calc(thickness) && item.calc(thickness).map((element: any, index: any) => {
+                    return (
+                      <IonRow className="show" key={index}>
+                        <IonCol>{item.id}</IonCol>
+                        <IonCol>{item.error}</IonCol>
+                        <IonCol>{element.name}: {element.message}</IonCol>
+                      </IonRow>
+                    )
+                  })}
                 </IonGrid>
               </IonItem>
             )
-          })}
+          }})}
        </IonList>
       </IonContent>
 
