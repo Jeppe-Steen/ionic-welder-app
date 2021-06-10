@@ -10,20 +10,17 @@ const Home: React.FC = () => {
   const [bwThickness, setbwThickness] = useState(Number);
   const [fwThickness, setfwThickness] = useState(Number);
   const [weldingtype, setWeldingtype] = useState(String);
-  const handleThickness = (value: any) => {setThickness(value.currentTarget.value); console.log(thickness)};
-  const handlebwThickness = (value: any) => {setbwThickness(value.currentTarget.value); console.log(bwThickness)};
-  const handlefwThickness = (value: any) => {setfwThickness(value.currentTarget.value); console.log(fwThickness)};
+  const handleThickness = (value: any) => {setThickness(value.currentTarget.value)};
+  const handlebwThickness = (value: any) => {setbwThickness(value.currentTarget.value)};
+  const handlefwThickness = (value: any) => {setfwThickness(value.currentTarget.value)};
   const handleWeldingtype = (value: any) => {value.preventDefault(); setWeldingtype(value.currentTarget.value)}
-  useEffect(() => {
-    console.log(weldingtype)
-  }, [weldingtype])
 
   const errorType: Array<Object> = [
     {
       id: 1.1, 
       error: "Revne", 
       type: ["FW", "BW"],
-      calc: (t: number) => {
+      calc: (t: number, a: number, s: number) => {
       
         if (t >= 0.5) {
           return [
@@ -36,7 +33,7 @@ const Home: React.FC = () => {
       id: 1.2, 
       error: "Kraterevne", 
       type: ["FW", "BW"],
-      calc: (t: number) => {
+      calc: (t: number, a: number, s:number) => {
       
         if (t >= 0.5) {
           return [
@@ -49,55 +46,82 @@ const Home: React.FC = () => {
       id: 1.3, 
       error: "Overfladepore", 
       type: ["FW", "BW"],
-      calc: (t: number, s: number, a:number) => {
+      calc: (t: number, a: number, s:number) => {
      
 
         if (t >= 0.5 && t <= 3) {
-          if (weldingtype === "kantsøm"){
-            return [
-              {name: 'D', message: 'd ≤' + 0.3 * a + 'mm'},
-              {name: 'C', message: 'Ikke Tilladt'},
-              {name: 'B', message: 'Ikke tilladt'}
-            ]
-          } else if (weldingtype === "stumpsøm") {
-            return [
-              {name: 'D', message: 'd ≤' + 0.3 * s + 'mm'},
-              {name: 'C', message: 'Ikke tilladt'},
-              {name: 'B', message: 'Ikke tilladt'}
-            ]
-          }
-          
-        } else if (t > 3) {
-            if (weldingtype === "kantsøm"){
-              if (0.3 * a <= 3){
-                return [
-                  {name: 'D', message: 'd ≤' + 0.3 * a + 'mm'}
-                ]
-              } else if(0.2 * a <= 3) {
-                  return [
-                    {name: 'C', message: 'd ≤' + 0.2 * a + 'mm'}
-                  ]
-              } else {
-                return [
-                  {name: 'B', message: 'Ikke tilladt'}
-                ]
-              }
-
-            } else if (weldingtype === "stumpsøm") {
-              if (0.3 * s <= 3){
-                return [
-                  {name: 'D', message: 'd ≤' + 0.3 * s + 'mm'}
-                ]
-              } else if(0.2 * a <= 3) {
-                return [
-                  {name: 'C', message: 'd ≤' + 0.2 * s + 'mm'}
-                ]
+          if (weldingtype === 'FW') {
+            if(!a) {
+              return [
+                {name: 'Fejl', message: 'Du skal udfylde A-mål'}
+              ]
             } else {
+              if (weldingtype === "FW"){
                 return [
+                  {name: 'D', message: 'd ≤ ' + 0.3 * a + 'mm'},
+                  {name: 'C', message: 'Ikke Tilladt'},
                   {name: 'B', message: 'Ikke tilladt'}
                 ]
               }
             }
+          } else if (weldingtype === 'BW') {
+            if (!s) {
+              return [
+                {name: 'Fejl', message: 'Du skal udfylde stumpsøms tykkelse'}
+              ]
+            } else {
+              if (weldingtype === "BW") {
+                return [
+                  {name: 'D', message: 'd ≤ ' + 0.3 * s + 'mm'},
+                  {name: 'C', message: 'Ikke tilladt'},
+                  {name: 'B', message: 'Ikke tilladt'}
+                ]
+              }
+            }  
+          }
+        } else if (t > 3) {
+            if (weldingtype === "FW"){
+              if (!a) {
+                return [
+                  {name: 'Fejl', message: 'Du skal udfylde A-mål'}
+                ]
+              } else {
+                if (0.3 * a <= 3){
+                  return [
+                    {name: 'D', message: 'd ≤ ' + 0.3 * a + 'mm'}
+                  ]
+                } else if(0.2 * a <= 3) {
+                    return [
+                      {name: 'C', message: 'd ≤ ' + 0.2 * a + 'mm'}
+                    ]
+                } else {
+                  return [
+                    {name: 'B', message: 'Ikke tilladt'}
+                  ]
+                }
+              }
+
+            } else if (weldingtype === "BW") {
+              if(!s) {
+                return [
+                  {name: 'Fejl', message: 'Du skal udfylde stumpsøms tykkelse'}
+                ]
+              } else {
+                if (0.3 * s <= 3){
+                  return [
+                    {name: 'D', message: 'd ≤ ' + 0.3 * s + 'mm'}
+                  ]
+                } else if(0.2 * a <= 3) {
+                  return [
+                    {name: 'C', message: 'd ≤ ' + 0.2 * s + 'mm'}
+                  ]
+                } else {
+                    return [
+                      {name: 'B', message: 'Ikke tilladt'}
+                    ]
+                  }
+                }
+              }
         }
       },
     },
@@ -105,7 +129,7 @@ const Home: React.FC = () => {
       id: 1.4, 
       error: "Åben Kraterpore", 
       type: ["FW", "BW"],
-      calc: (t: number) => {
+      calc: (t: number, a: number, s:number) => {
        
 
         if (t >= 0.5 && t <= 3) {
@@ -152,23 +176,23 @@ const Home: React.FC = () => {
 
           <IonItem className="Ion-items">
             <IonLabel className="Input-label">Pladetykkelse</IonLabel>
-            <IonInput className="Input" onIonChange={(e) => {handleThickness(e)}} placeholder="Pladetykkelse"></IonInput>
+            <IonInput className="Input" onIonChange={(e) => {handleThickness(e)}} placeholder="Pladetykkelse i mm"></IonInput>
           </IonItem>
           <IonItem className="Ion-items">
             <IonLabel className="Input-label">A-mål</IonLabel>
-            <IonInput className="Input" onIonChange={(e) => {handlefwThickness(e)}} placeholder="A-mål"></IonInput>
+            <IonInput className="Input" onIonChange={(e) => {handlefwThickness(e)}} placeholder="A-mål i mm"></IonInput>
           </IonItem>
           <IonItem className="Ion-items">
             <IonLabel className="Input-label">Stumpsøm tykkelse</IonLabel>
-            <IonInput className="Input" onIonChange={(e) => {handlebwThickness(e)}} placeholder=""></IonInput>
+            <IonInput className="Input" onIonChange={(e) => {handlebwThickness(e)}} placeholder="Stumpsøm tykkelse i mm"></IonInput>
           </IonItem>
           <IonItem className="Ion-items">
             <IonLabel className="Input-label">Brede</IonLabel>
-            <IonInput className="Input" placeholder="brede"></IonInput>
+            <IonInput className="Input" placeholder="Bredde i mm"></IonInput>
           </IonItem>
           <IonItem className="Ion-items">
             <IonLabel className="Input-label">Vinkel</IonLabel>
-            <IonInput className="Input" placeholder="Vinkel"></IonInput>
+            <IonInput className="Input" placeholder="Vinkel i grader"></IonInput>
           </IonItem>
        </IonList>
        <IonList>
@@ -185,7 +209,7 @@ const Home: React.FC = () => {
          </IonHeader>
           {errorType && errorType.map((item: any, index: any) => {
             // hvis ikke calc functionen har en value, så skal der ikke vises noget
-            if(!item.calc(thickness, bwThickness, fwThickness)) {
+            if(!item.calc(thickness, fwThickness, bwThickness)) {
               return (
                 <IonItem key={index} className="showNone"></IonItem>
               )
@@ -193,7 +217,7 @@ const Home: React.FC = () => {
             return (
               <IonItem key={index}>
                 <IonGrid>
-                {item.calc(thickness, bwThickness, fwThickness) && item.calc(thickness, bwThickness, fwThickness).map((element: any, index: any) => {
+                {item.calc(thickness, fwThickness, bwThickness) && item.calc(thickness, fwThickness, bwThickness).map((element: any, index: any) => {
                     return (
                       <IonRow className="show" key={index}>
                         <IonCol>{item.id}</IonCol>
