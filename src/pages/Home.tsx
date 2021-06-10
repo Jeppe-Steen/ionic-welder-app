@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonList, IonItem, IonInput, IonSelect, IonSelectOption, IonLabel } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonList, IonItem, IonInput, IonSelect, IonSelectOption, IonLabel, IonButton } from '@ionic/react';
 import { useState } from 'react'
 import './Home.css';
 import Logo from "../img/logo.svg"
@@ -14,18 +14,14 @@ const Home: React.FC = () => {
       error: "Revne", 
       type: ["FW", "BW"],
       calc: (t: number) => {
-        let dataObj: any = {
-          D: '',
-          C: '',
-          B: ''
-        };
+        let errorArray = [];
 
         if (t >= 0.5) {
-          return dataObj = {
-            D: 'Ikke tilladt',
-            C: 'Ikke tilladt',
-            B: 'Ikke tilladt'
-          }
+          return errorArray = [
+            {name: 'D', message: 'Ikke tilladt'},
+            {name: 'C', message: 'Ikke tilladt'},
+            {name: 'B', message: 'Ikke tilladt'}
+          ]
         }
       }   
     }, 
@@ -34,18 +30,14 @@ const Home: React.FC = () => {
       error: "Kraterevne", 
       type: ["FW", "BW"],
       calc: (t: number) => {
-        let dataObj: any = {
-          D: '',
-          B: '',
-          C: ''
-        };
+        let errorArray = [];
 
         if (t >= 0.5) {
-          return dataObj = {
-            D: 'Ikke tilladt',
-            C: 'Ikke tilladt',
-            B: 'Ikke tilladt'
-          }
+          return errorArray = [
+            {name: 'D', message: 'Ikke tilladt'},
+            {name: 'C', message: 'Ikke tilladt'},
+            {name: 'B', message: 'Ikke tilladt'}
+          ]
         }
       }   
     },
@@ -54,24 +46,20 @@ const Home: React.FC = () => {
       error: "Åben Kraterpore", 
       type: ["FW", "BW"],
       calc: (t: number) => {
-        let dataObj: any = {
-          D: '',
-          B: '',
-          C: ''
-        };
+        let errorArray = [];
 
         if (t >= 0.5 && t <= 3) {
-          return dataObj = {
-            D: 0.2 * t,
-            C: 'Ikke tilladt',
-            B: 'Ikke tilladt'
-          }
+          return errorArray = [
+            {name: 'D', message: 0.2 * t},
+            {name: 'C', message: 'Ikke tilladt'},
+            {name: 'B', message: 'Ikke tilladt'}
+          ]
         } else if (t > 3) {
-          return dataObj = {
-            D: 0.2 * t,
-            C: 0.1 * t,
-            B: 'Ikke tilladt'
-          }
+          return errorArray = [
+            {name: 'D', message: 0.2 * t},
+            {name: 'C', message: 0.1 * t},
+            {name: 'B', message: 'Ikke tilladt'}
+          ]
         }
       },
     }
@@ -121,22 +109,22 @@ const Home: React.FC = () => {
             <IonInput className="Input" placeholder="Vinkel"></IonInput>
           </IonItem>
        </IonList>
+       <IonButton expand="full">Test</IonButton>
        <IonList>
          <IonHeader>
            <IonToolbar>
              <IonTitle>
-               feil
+               <h2>Fejl</h2>
              </IonTitle>
            </IonToolbar>
          </IonHeader>
-         {errorType && errorType.map((item: any, index: any) => {
-           return (
-             <IonItem key={index}>
-               <p>{item.id}</p>
-               <p>{item.calc(thickness)}</p>
-             </IonItem>
-           )
-         })}
+          {errorType && errorType.map((item: any, index: any) => {
+            return (
+              <IonItem>
+                <IonLabel>{item.id}</IonLabel>
+              </IonItem>
+            )
+          })}
        </IonList>
       </IonContent>
 
