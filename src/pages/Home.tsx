@@ -620,14 +620,11 @@ const Home: React.FC = () => {
                   <IonTitle>{choosenElement.details.id} {choosenElement.details.error}</IonTitle>
                 </IonToolbar>
               </IonHeader>
-<<<<<<< HEAD
-=======
               {choosenElement.details.image.map((item: any, index: any) => {
                   return (
                       <img key={index} src={item} alt="" />
                   )
               })}
->>>>>>> master
               <IonButton expand="full" onClick={(e) => {setModalOpen(false)}}>Close Modal</IonButton>
             </IonModal>
           }
