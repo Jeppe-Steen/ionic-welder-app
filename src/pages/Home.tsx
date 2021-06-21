@@ -185,8 +185,8 @@ const Home: React.FC = () => {
 
       if (t >= 0.5 && t <= 3) {
         return [
-          {name: 'D', message: 'h ≤ ' + 0.2 * t + 'mm'},
-          {name: 'C', message: 'h ≤ ' + 0.1 * t + 'mm'},
+          {name: 'D', message: 'Korte fejl: h ≤ ' + 0.2 * t + 'mm'},
+          {name: 'C', message: 'Korte fejl: h ≤ ' + 0.1 * t + 'mm'},
           {name: 'B', message: 'Ikke tilladt'}
         ]
       } else if (t > 3) {
@@ -200,8 +200,79 @@ const Home: React.FC = () => {
   },
   { 
     name: 1.9, 
-    error: "Oversvulst(stumpsøm)"
-  }
+    error: "Oversvulst(stumpsøm)",
+    type: ["BW"], 
+    calc: (t: number, b: number) => {
+      if (t >= 0.5 && t <= 3) {
+        if (b) {
+          return [
+            {name: 'D', message: 'h ≤ ' + 1 * t + 'mm' + 0.25 + b + 'Max 10mm'},
+            {name: 'C', message: 'h ≤ ' + 1 * t + 'mm' + 0.15 + b + 'Max 7mm'},
+            {name: 'B', message: 'h ≤ ' + 1 * t + 'mm' + 0.1 + b + 'Max 5mm'}
+          ]
+        } else {
+          return [
+            "husk at fylde ud breden"
+          ]
+        } 
+      }
+    }
+  },
+  { 
+    name: 1.10, 
+    error: "Konveks sømoverflade(kantsøm)",
+    type: ["FW"], 
+    calc: (t: number, b: number) => {
+      if (t >= 0.5 && t <= 3) {
+        if (b) { 
+          return [
+            {name: 'D', message: 'h ≤ ' + 1 * t + 'mm' + 0.25 + b + 'Max 10mm'},
+            {name: 'C', message: 'h ≤ ' + 1 * t + 'mm' + 0.15 + b + 'Max 7mm'},
+            {name: 'B', message: 'h ≤ ' + 1 * t + 'mm' + 0.1 + b + 'Max 5mm'}
+          ]
+        } else {
+          return [
+            "husk at fylde ud breden"
+          ]
+        }
+      }
+    }
+  },
+  {
+    id: 1.11, 
+    error: "Gennomløb", 
+    type: ["BW"],
+    calc: (t: number, b: number) => {
+     
+
+      if (t >= 0.5 && t <= 3) {
+        if (b) {
+          return [
+          {name: 'D', message: 'h ≤ ' + 1 * t + 'mm' + 0.6 + b},
+          {name: 'C', message: 'h ≤ ' + 1 * t + 'mm' + 0.3 + b},
+          {name: 'B', message: 'h ≤ ' + 1 * t + 'mm' + 0.1 + b}
+          ]
+        } else {
+          return [
+            "husk at fylde ud breden"
+          ]
+        }
+    
+      } else if (t > 3) {
+        if (b) {
+          return [
+          {name: 'D', message: 'h ≤ ' + 1 * t + 'mm' + 1.0 + b + 'Max. 5mm'},
+          {name: 'C', message: 'h ≤ ' + 1 * t + 'mm' + 0.6 + b + 'Max. 4mm'},
+          {name: 'B', message: 'h ≤ ' + 1 * t + 'mm' + 0.2 + b + 'Max. 3mm'}
+          ]
+        } else {
+          return [
+            "husk at fylde ud breden"
+          ]
+        }
+      }
+    },
+  },
 
   ]
 
