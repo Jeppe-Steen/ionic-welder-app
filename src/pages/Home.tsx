@@ -4,6 +4,30 @@ import './Home.css';
 import Logo from "../img/logo.svg"
 import Techcollege from "../img/techcollege.svg"
 
+import ErrorOne_One from '../Assets/errorTypes/fejltype1_1.png';
+import ErrorOne_Two from '../Assets/errorTypes/fejltype1_2.png';
+import ErrorOne_Three from '../Assets/errorTypes/fejltype1_3.png';
+import ErrorOne_Four from '../Assets/errorTypes/fejltype1_4.png';
+import ErrorOne_Five from '../Assets/errorTypes/fejltype1_5.png';
+import ErrorOne_Six from '../Assets/errorTypes/fejltype1_6.png';
+import ErrorOne_SevenFW from '../Assets/errorTypes/fejltype1_7FW.png';
+import ErrorOne_SevenBW from '../Assets/errorTypes/fejltype1_7BW.png';
+import ErrorOne_Eight from '../Assets/errorTypes/fejltype1_8.png';
+import ErrorOne_Nine from '../Assets/errorTypes/fejltype1_9.png';
+import ErrorOne_Ten from '../Assets/errorTypes/fejltype1_10.png';
+import ErrorOne_Eleven from '../Assets/errorTypes/fejltype1_11.png';
+import ErrorOne_Twelve from '../Assets/errorTypes/fejltype1_12.png';
+import ErrorOne_Thirteen from '../Assets/errorTypes/fejltype1_13.png';
+import ErrorOne_Fourteen from '../Assets/errorTypes/fejltype1_14.png';
+import ErrorOne_Fifthteen from '../Assets/errorTypes/fejltype1_15.png';
+import ErrorOne_Sixteen from '../Assets/errorTypes/fejltype1_16.png';
+import ErrorOne_Seventeen from '../Assets/errorTypes/fejltype1_17.png';
+import ErrorOne_Eightteen from '../Assets/errorTypes/fejltype1_18.png';
+import ErrorOne_Nineteen from '../Assets/errorTypes/fejltype1_19.png';
+import ErrorOne_Twenty from '../Assets/errorTypes/fejltype1_20.png';
+import ErrorOne_TwentyOne from '../Assets/errorTypes/fejltype1_21.png';
+
+
 const Home: React.FC = () => {
 
   const [thickness, setThickness] = useState(Number);
@@ -11,7 +35,7 @@ const Home: React.FC = () => {
   const [fwThickness, setfwThickness] = useState(Number);
   const [weldingtype, setWeldingtype] = useState(String);
   const [modalOpen, setModalOpen] = useState(false);
-  const [choosenElement, setChoosenElement] = useState({name: '', message: '', details: {id: Number, error: ''}});
+  const [choosenElement, setChoosenElement] = useState({name: '', message: '', details: {id: Number, error: '', image: []}});
 
   const [width, setWidth] = useState(Number);
   const handleThickness = (value: any) => {setThickness(value.currentTarget.value)};
@@ -31,13 +55,14 @@ const Home: React.FC = () => {
       id: 1.1, 
       error: "Revne", 
       type: ["FW", "BW"],
-      calc: (t: number, a: number, s: number) => {
+      calc: (t: number, a: number, s: number, b: number) => {
       
         if (t >= 0.5) {
           return [
             {name: 'D, C & B', message: 'Ikke tilladt', details: {
                 id: 1.1,
                 error: "Revne",
+                image: [ErrorOne_One],
             }},
           ]
         }
@@ -47,13 +72,14 @@ const Home: React.FC = () => {
       id: 1.2, 
       error: "Kraterevne", 
       type: ["FW", "BW"],
-      calc: (t: number, a: number, s:number) => {
+      calc: (t: number, a: number, s: number, b: number) => {
       
         if (t >= 0.5) {
           return [
             {name: 'D, C & B', message: 'Ikke tilladt', details: {
                 id: 1.2,
                 error: "Kraterevne",
+                image: [ErrorOne_Two],
             }},
           ]
         }
@@ -63,17 +89,14 @@ const Home: React.FC = () => {
       id: 1.3, 
       error: "Overfladepore", 
       type: ["FW", "BW"],
-      calc: (t: number, a: number, s:number) => {
+      calc: (t: number, a: number, s: number, b: number) => {
      
 
         if (t >= 0.5 && t <= 3) {
           if (weldingtype === 'FW') {
             if(!a) {
               return [
-                {name: 'Fejl', message: 'Du skal udfylde A-mål', details: {
-                    id: 1.3,
-                    error: "Overfladepore",
-                }}
+                {name: 'Fejl', message: 'Du skal udfylde A-mål',}
               ]
             } else {
               if (weldingtype === "FW"){
@@ -81,14 +104,17 @@ const Home: React.FC = () => {
                   {name: 'D', message: 'd ≤ ' + 0.3 * a + 'mm', details: {
                     id: 1.3,
                     error: "Overfladepore",
+                    image: [ErrorOne_Three],
                 }},
                   {name: 'C', message: 'Ikke Tilladt', details: {
                     id: 1.3,
                     error: "Overfladepore",
+                    image: [ErrorOne_Three],
                 }},
                   {name: 'B', message: 'Ikke tilladt', details: {
                     id: 1.3,
                     error: "Overfladepore",
+                    image: [ErrorOne_Three],
                 }}
                 ]
               }
@@ -96,10 +122,7 @@ const Home: React.FC = () => {
           } else if (weldingtype === 'BW') {
             if (!s) {
               return [
-                {name: 'Fejl', message: 'Du skal udfylde stumpsøms tykkelse', details: {
-                    id: 1.3,
-                    error: "Overfladepore",
-                }}
+                {name: 'Fejl', message: 'Du skal udfylde stumpsøms tykkelse',}
               ]
             } else {
               if (weldingtype === "BW") {
@@ -107,14 +130,17 @@ const Home: React.FC = () => {
                   {name: 'D', message: 'd ≤ ' + 0.3 * s + 'mm', details: {
                     id: 1.3,
                     error: "Overfladepore",
+                    image: [ErrorOne_Three],
                 }},
                   {name: 'C', message: 'Ikke tilladt', details: {
                     id: 1.3,
                     error: "Overfladepore",
+                    image: [ErrorOne_Three],
                 }},
                   {name: 'B', message: 'Ikke tilladt', details: {
                     id: 1.3,
                     error: "Overfladepore",
+                    image: [ErrorOne_Three],
                 }}
                 ]
               }
@@ -124,10 +150,7 @@ const Home: React.FC = () => {
             if (weldingtype === "FW"){
               if (!a) {
                 return [
-                  {name: 'Fejl', message: 'Du skal udfylde A-mål', details: {
-                    id: 1.3,
-                    error: "Overfladepore",
-                }}
+                  {name: 'Fejl', message: 'Du skal udfylde A-mål'}
                 ]
               } else {
                 if (0.3 * a <= 3){
@@ -135,6 +158,7 @@ const Home: React.FC = () => {
                     {name: 'D', message: 'd ≤ ' + 0.3 * a + 'mm', details: {
                         id: 1.3,
                         error: "Overfladepore",
+                        image: [ErrorOne_Three],
                     }}
                   ]
                 } else if(0.2 * a <= 3) {
@@ -142,6 +166,7 @@ const Home: React.FC = () => {
                       {name: 'C', message: 'd ≤ ' + 0.2 * a + 'mm', details: {
                         id: 1.3,
                         error: "Overfladepore",
+                        image: [ErrorOne_Three],
                     }}
                     ]
                 } else {
@@ -149,6 +174,7 @@ const Home: React.FC = () => {
                     {name: 'B', message: 'Ikke tilladt', details: {
                         id: 1.3,
                         error: "Overfladepore",
+                        image: [ErrorOne_Three],
                     }}
                   ]
                 }
@@ -157,10 +183,7 @@ const Home: React.FC = () => {
             } else if (weldingtype === "BW") {
               if(!s) {
                 return [
-                  {name: 'Fejl', message: 'Du skal udfylde stumpsøms tykkelse', details: {
-                    id: 1.3,
-                    error: "Overfladepore",
-                }}
+                  {name: 'Fejl', message: 'Du skal udfylde stumpsøms tykkelse'}
                 ]
               } else {
                 if (0.3 * s <= 3){
@@ -168,6 +191,7 @@ const Home: React.FC = () => {
                     {name: 'D', message: 'd ≤ ' + 0.3 * s + 'mm', details: {
                         id: 1.3,
                         error: "Overfladepore",
+                        image: [ErrorOne_Three],
                     }}
                   ]
                 } else if(0.2 * a <= 3) {
@@ -175,6 +199,7 @@ const Home: React.FC = () => {
                     {name: 'C', message: 'd ≤ ' + 0.2 * s + 'mm', details: {
                         id: 1.3,
                         error: "Overfladepore",
+                        image: [ErrorOne_Three],
                     }}
                   ]
                 } else {
@@ -182,6 +207,7 @@ const Home: React.FC = () => {
                       {name: 'B', message: 'Ikke tilladt', details: {
                         id: 1.3,
                         error: "Overfladepore",
+                        image: [],
                     }}
                     ]
                   }
@@ -194,7 +220,7 @@ const Home: React.FC = () => {
       id: 1.4, 
       error: "Åben Kraterpore", 
       type: ["FW", "BW"],
-      calc: (t: number) => {
+      calc: (t: number, a: number, s: number, b: number) => {
        
 
         if (t >= 0.5 && t <= 3) {
@@ -202,14 +228,17 @@ const Home: React.FC = () => {
             {name: 'D', message: 'h ≤ ' + 0.2 * t + 'mm', details: {
                 id: 1.4,
                 error: "Åben Kraterpore",
+                image: [ErrorOne_Four],
             }},
             {name: 'C', message: 'Ikke tilladt', details: {
                 id: 1.4,
                 error: "Åben Kraterpore",
+                image: [ErrorOne_Four],
             }},
             {name: 'B', message: 'Ikke tilladt', details: {
                 id: 1.4,
                 error: "Åben Kraterpore",
+                image: [ErrorOne_Four],
             }}
           ]
         } else if (t > 3) {
@@ -217,14 +246,17 @@ const Home: React.FC = () => {
             {name: 'D', message: 'h ≤ ' + 0.2 * t + 'mm', details: {
                 id: 1.4,
                 error: "Åben Kraterpore",
+                image: [ErrorOne_Four],
             }},
             {name: 'C', message: 'h ≤ ' + 0.1 * t + 'mm', details: {
                 id: 1.4,
                 error: "Åben Kraterpore",
+                image: [ErrorOne_Four],
             }},
             {name: 'B', message: 'Ikke tilladt', details: {
                 id: 1.4,
                 error: "Åben Kraterpore",
+                image: [ErrorOne_Four],
             }}
           ]
         }
@@ -234,11 +266,15 @@ const Home: React.FC = () => {
       id: 1.5, 
       error: "Bindingsfejl", 
       type: ["FW", "BW"],
-      calc: (t: number) => {
+      calc: (t: number, a: number, s: number, b: number) => {
       
         if (t >= 0.5) {
           return [
-            {name: 'D, C & B', message: 'Ikke tilladt'},
+            {name: 'D, C & B', message: 'Ikke tilladt', details: {
+                id: 1.5,
+                error: "Bindingsfejl",
+                image: [ErrorOne_Five],
+            }},
           ]
         }
       }   
@@ -247,12 +283,24 @@ const Home: React.FC = () => {
     id: 1.6,
     error: "RodFejl",
     type: ["BW"], 
-    calc: (t: number) => {
+    calc: (t: number, a: number, s: number, b: number) => {
       if (t >= 0.5) {
         return [
-          {name: 'D', message: 'h ≤' + 0.2 * t + 'mm'},
-          {name: 'C', message: 'Ikke tilladt'},
-          {name: 'B', message: 'Ikke tilladt'}
+          {name: 'D', message: 'h ≤' + 0.2 * t + 'mm', details: {
+            id: 1.6,
+            error: "Rodfejl",
+            image: [ErrorOne_Six],
+        }},
+          {name: 'C', message: 'Ikke tilladt', details: {
+            id: 1.6,
+            error: "Rodfejl",
+            image: [ErrorOne_Six],
+        }},
+          {name: 'B', message: 'Ikke tilladt', details: {
+            id: 1.6,
+            error: "Rodfejl",
+            image: [ErrorOne_Six],
+        }}
         ]
       }
     }
@@ -261,20 +309,44 @@ const Home: React.FC = () => {
     id: 1.7, 
     error: "Sidekærv", 
     type: ["FW", "BW"],
-    calc: (t: number) => {
+    calc: (t: number, a: number, s: number, b: number) => {
      
 
       if (t >= 0.5 && t <= 3) {
         return [
-          {name: 'D', message: 'Korte fejl: h ≤ ' + 0.2 * t + 'mm'},
-          {name: 'C', message: 'Korte fejl: h ≤ ' + 0.1 * t + 'mm'},
-          {name: 'B', message: 'Ikke tilladt'}
+          {name: 'D', message: 'Korte fejl: h ≤ ' + 0.2 * t + 'mm', details: {
+            id: 1.7,
+            error: "Sidekærv",
+            image: [ErrorOne_SevenFW, ErrorOne_SevenBW],
+        }},
+          {name: 'C', message: 'Korte fejl: h ≤ ' + 0.1 * t + 'mm', details: {
+            id: 1.7,
+            error: "Sidekærv",
+            image: [ErrorOne_SevenFW, ErrorOne_SevenBW],
+        }},
+          {name: 'B', message: 'Ikke tilladt', details: {
+            id: 1.7,
+            error: "Sidekærv",
+            image: [ErrorOne_SevenFW, ErrorOne_SevenBW],
+        }}
         ]
       } else if (t > 3) {
         return [
-          {name: 'D', message: 'h ≤ ' + 0.2 * t + 'Max. 1mm'},
-          {name: 'C', message: 'h ≤ ' + 0.1 * t + 'Max 0.5mm'},
-          {name: 'B', message: 'h ≤ ' + 0.5 * t + 'Max 0.5mm'},
+          {name: 'D', message: 'h ≤ ' + 0.2 * t + 'Max. 1mm', details: {
+            id: 1.7,
+            error: "Sidekærv",
+            image: [ErrorOne_SevenFW, ErrorOne_SevenBW],
+        }},
+          {name: 'C', message: 'h ≤ ' + 0.1 * t + 'Max 0.5mm', details: {
+            id: 1.7,
+            error: "Sidekærv",
+            image: [ErrorOne_SevenFW, ErrorOne_SevenBW],
+        }},
+          {name: 'B', message: 'h ≤ ' + 0.5 * t + 'Max 0.5mm', details: {
+            id: 1.7,
+            error: "Sidekærv",
+            image: [ErrorOne_SevenFW, ErrorOne_SevenBW],
+        }},
         ]
       }
     },
@@ -283,17 +355,29 @@ const Home: React.FC = () => {
     name: 1.9, 
     error: "Oversvulst(stumpsøm)",
     type: ["BW"], 
-    calc: (t: number, b: number) => {
+    calc: (t: number, a: number, s: number, b: number) => {
       if (t >= 0.5 && t <= 3) {
         if (b) {
           return [
-            {name: 'D', message: 'h ≤ ' + 1 * t + 'mm' + 0.25 + b + 'Max 10mm'},
-            {name: 'C', message: 'h ≤ ' + 1 * t + 'mm' + 0.15 + b + 'Max 7mm'},
-            {name: 'B', message: 'h ≤ ' + 1 * t + 'mm' + 0.1 + b + 'Max 5mm'}
+            {name: 'D', message: 'h ≤ ' + 1 * t + 'mm' + 0.25 + b + 'Max 10mm', details: {
+                id: 1.9,
+                error: "Oversvulst(stumpsøm)",
+                image: [ErrorOne_Nine],
+            }},
+            {name: 'C', message: 'h ≤ ' + 1 * t + 'mm' + 0.15 + b + 'Max 7mm', details: {
+                id: 1.9,
+                error: "Oversvulst(stumpsøm)",
+                image: [ErrorOne_Nine],
+            }},
+            {name: 'B', message: 'h ≤ ' + 1 * t + 'mm' + 0.1 + b + 'Max 5mm', details: {
+                id: 1.9,
+                error: "Oversvulst(stumpsøm)",
+                image: [ErrorOne_Nine],
+            }}
           ]
         } else {
           return [
-            "husk at fylde ud breden"
+            {name: 'Fejl', message: "husk at fylde ud bredden",}
           ]
         } 
       }
@@ -303,17 +387,29 @@ const Home: React.FC = () => {
     name: 1.10, 
     error: "Konveks sømoverflade(kantsøm)",
     type: ["FW"], 
-    calc: (t: number, b: number) => {
+    calc: (t: number, a: number, s: number, b: number) => {
       if (t >= 0.5 && t <= 3) {
         if (b) { 
           return [
-            {name: 'D', message: 'h ≤ ' + 1 * t + 'mm' + 0.25 + b + 'Max 10mm'},
-            {name: 'C', message: 'h ≤ ' + 1 * t + 'mm' + 0.15 + b + 'Max 7mm'},
-            {name: 'B', message: 'h ≤ ' + 1 * t + 'mm' + 0.1 + b + 'Max 5mm'}
+            {name: 'D', message: 'h ≤ ' + 1 * t + 'mm' + 0.25 + b + 'Max 10mm', details: {
+                id: 1.10,
+                error: "Konveks sømoverflade(kantsøm)",
+                image: [ErrorOne_Ten],
+            }},
+            {name: 'C', message: 'h ≤ ' + 1 * t + 'mm' + 0.15 + b + 'Max 7mm', details: {
+                id: 1.10,
+                error: "Konveks sømoverflade(kantsøm)",
+                image: [ErrorOne_Ten],
+            }},
+            {name: 'B', message: 'h ≤ ' + 1 * t + 'mm' + 0.1 + b + 'Max 5mm', details: {
+                id: 1.10,
+                error: "Konveks sømoverflade(kantsøm)",
+                image: [ErrorOne_Ten],
+            }}
           ]
         } else {
           return [
-            "husk at fylde ud breden"
+            {name: 'Fejl', message: "husk at fylde ud bredden",}
           ]
         }
       }
@@ -323,41 +419,62 @@ const Home: React.FC = () => {
     id: 1.11, 
     error: "Gennomløb", 
     type: ["BW"],
-    calc: (t: number, b: number) => {
+    calc: (t: number, a: number, s: number, b: number) => {
      
 
       if (t >= 0.5 && t <= 3) {
         if (b) {
           return [
-          {name: 'D', message: 'h ≤ ' + 1 * t + 'mm' + 0.6 + b},
-          {name: 'C', message: 'h ≤ ' + 1 * t + 'mm' + 0.3 + b},
-          {name: 'B', message: 'h ≤ ' + 1 * t + 'mm' + 0.1 + b}
+          {name: 'D', message: 'h ≤ ' + 1 * t + 'mm' + 0.6 + b, details: {
+            id: 1.11,
+            error: "Gennomløb",
+            image: [ErrorOne_Eleven],
+        }},
+          {name: 'C', message: 'h ≤ ' + 1 * t + 'mm' + 0.3 + b, details: {
+            id: 1.11,
+            error: "Gennomløb",
+            image: [ErrorOne_Eleven],
+        }},
+          {name: 'B', message: 'h ≤ ' + 1 * t + 'mm' + 0.1 + b, details: {
+            id: 1.11,
+            error: "Gennomløb",
+            image: [ErrorOne_Eleven],
+        }}
           ]
         } else {
           return [
-            "husk at fylde ud breden"
+            {name: 'Fejl', message: "husk at fylde ud bredden",}
           ]
         }
     
       } else if (t > 3) {
         if (b) {
           return [
-          {name: 'D', message: 'h ≤ ' + 1 * t + 'mm' + 1.0 + b + 'Max. 5mm'},
-          {name: 'C', message: 'h ≤ ' + 1 * t + 'mm' + 0.6 + b + 'Max. 4mm'},
-          {name: 'B', message: 'h ≤ ' + 1 * t + 'mm' + 0.2 + b + 'Max. 3mm'}
+          {name: 'D', message: 'h ≤ ' + 1 * t + 'mm' + 1.0 + b + 'Max. 5mm', details: {
+            id: 1.11,
+            error: "Gennomløb",
+            image: [ErrorOne_Eleven],
+        }},
+          {name: 'C', message: 'h ≤ ' + 1 * t + 'mm' + 0.6 + b + 'Max. 4mm', details: {
+            id: 1.11,
+            error: "Gennomløb",
+            image: [ErrorOne_Eleven],
+        }},
+          {name: 'B', message: 'h ≤ ' + 1 * t + 'mm' + 0.2 + b + 'Max. 3mm', details: {
+            id: 1.11,
+            error: "Gennomløb",
+            image: [ErrorOne_Eleven],
+        }}
           ]
         } else {
           return [
-            "husk at fylde ud breden"
+           {name: 'Fejl', message: "husk at fylde ud bredden"}
           ]
         }
       }
     },
   },
-
-  ]
-
-  const testArray: any = [];
+];
 
   return (
     <IonPage className="mainpage">
@@ -453,6 +570,11 @@ const Home: React.FC = () => {
                   <IonTitle>{choosenElement.details.id} {choosenElement.details.error}</IonTitle>
                 </IonToolbar>
               </IonHeader>
+              {choosenElement.details.image.map((item: any, index: any) => {
+                  return (
+                      <img key={index} src={item} alt="" />
+                  )
+              })}
               <IonButton expand="full" onClick={(e) => {setModalOpen(false)}}>Close Modal</IonButton>
             </IonModal>
           }
