@@ -352,8 +352,8 @@ const Home: React.FC = () => {
     },
   },
   { 
-    name: 1.9, 
-    error: "Oversvulst(stumpsøm)",
+    id: 1.9, 
+    error: "Oversvulst (stumpsøm)",
     type: ["BW"], 
     calc: (t: number, a: number, s: number, b: number) => {
       if (t >= 0.5 && t <= 3) {
@@ -384,8 +384,8 @@ const Home: React.FC = () => {
     }
   },
   { 
-    name: 1.10, 
-    error: "Konveks sømoverflade(kantsøm)",
+    id: 1.10, 
+    error: "Konveks sømoverflade (kantsøm)",
     type: ["FW"], 
     calc: (t: number, a: number, s: number, b: number) => {
       if (t >= 0.5 && t <= 3) {
@@ -420,8 +420,6 @@ const Home: React.FC = () => {
     error: "Gennomløb", 
     type: ["BW"],
     calc: (t: number, a: number, s: number, b: number) => {
-     
-
       if (t >= 0.5 && t <= 3) {
         if (b) {
           return [
