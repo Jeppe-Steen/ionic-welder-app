@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonList, IonItem, IonInput, IonSelect, IonSelectOption, IonLabel, IonGrid, IonRow, IonCol } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonList, IonItem, IonInput, IonSelect, IonSelectOption, IonLabel, IonGrid, IonRow, IonCol, IonItemDivider, IonText } from '@ionic/react';
 import { useEffect, useState } from 'react'
 import './Home.css';
 import Logo from "../img/logo.svg"
@@ -195,16 +195,12 @@ const Home: React.FC = () => {
             <IonInput className="Input" placeholder="Vinkel i grader"></IonInput>
           </IonItem>
        </IonList>
-       <IonList>
+
          <IonHeader>
            <IonToolbar>
-             <IonGrid>
-               <IonRow>
-                 <IonCol>Nummer</IonCol>
-                 <IonCol>Fejlbetegnelse</IonCol>
-                 <IonCol>Kvalitetsniveau</IonCol>
-               </IonRow>
-             </IonGrid>
+            <IonText>
+              Fejlmeddelelser
+            </IonText>
            </IonToolbar>
          </IonHeader>
           {errorType && errorType.map((item: any, index: any) => {
@@ -215,22 +211,31 @@ const Home: React.FC = () => {
               )
             } else {
             return (
-              <IonItem key={index}>
-                <IonGrid>
+              <IonList key={index}>
+                <IonItemDivider>
+                  <IonLabel>
+                    {item.id}
+                  </IonLabel>
+                  <IonText>
+                    {item.error}
+                  </IonText>
+                </IonItemDivider>
+
                 {item.calc(thickness, fwThickness, bwThickness) && item.calc(thickness, fwThickness, bwThickness).map((element: any, index: any) => {
                     return (
-                      <IonRow className="show" key={index}>
-                        <IonCol>{item.id}</IonCol>
-                        <IonCol>{item.error}</IonCol>
-                        <IonCol>{element.name}: {element.message}</IonCol>
-                      </IonRow>
+                      <IonItem className="show" key={index}>
+                        <IonGrid>
+                          <IonRow>
+                            <IonCol>{element.name}</IonCol>
+                            <IonCol>{element.message}</IonCol>
+                          </IonRow>
+                        </IonGrid>
+                      </IonItem>
                     )
                   })}
-                </IonGrid>
-              </IonItem>
+              </IonList>
             )
           }})}
-       </IonList>
       </IonContent>
 
     </IonPage>
