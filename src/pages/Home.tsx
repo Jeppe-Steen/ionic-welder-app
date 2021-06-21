@@ -1,5 +1,5 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonList, IonItem, IonInput, IonSelect, IonSelectOption, IonLabel, IonGrid, IonRow, IonCol, IonItemDivider, IonText } from '@ionic/react';
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import './Home.css';
 import Logo from "../img/logo.svg"
 import Techcollege from "../img/techcollege.svg"
@@ -10,10 +10,12 @@ const Home: React.FC = () => {
   const [bwThickness, setbwThickness] = useState(Number);
   const [fwThickness, setfwThickness] = useState(Number);
   const [weldingtype, setWeldingtype] = useState(String);
+  const [width, setWidth] = useState(Number);
   const handleThickness = (value: any) => {setThickness(value.currentTarget.value)};
   const handlebwThickness = (value: any) => {setbwThickness(value.currentTarget.value)};
   const handlefwThickness = (value: any) => {setfwThickness(value.currentTarget.value)};
-  const handleWeldingtype = (value: any) => {value.preventDefault(); setWeldingtype(value.currentTarget.value)}
+  const handleWeldingtype = (value: any) => {value.preventDefault(); setWeldingtype(value.currentTarget.value)};
+  const handleWidth = (value: any) => {setWidth(value.currentTarget.value)};
 
   const errorType: Array<Object> = [
     {
@@ -129,7 +131,7 @@ const Home: React.FC = () => {
       id: 1.4, 
       error: "Åben Kraterpore", 
       type: ["FW", "BW"],
-      calc: (t: number, a: number, s:number) => {
+      calc: (t: number) => {
        
 
         if (t >= 0.5 && t <= 3) {
@@ -146,7 +148,61 @@ const Home: React.FC = () => {
           ]
         }
       },
+    },
+    {
+      id: 1.5, 
+      error: "Bindingsfejl", 
+      type: ["FW", "BW"],
+      calc: (t: number) => {
+      
+        if (t >= 0.5) {
+          return [
+            {name: 'D, C & B', message: 'Ikke tilladt'},
+          ]
+        }
+      }   
+    }, 
+  {
+    id: 1.6,
+    error: "RodFejl",
+    type: ["BW"], 
+    calc: (t: number) => {
+      if (t >= 0.5) {
+        return [
+          {name: 'D', message: 'h ≤' + 0.2 * t + 'mm'},
+          {name: 'C', message: 'Ikke tilladt'},
+          {name: 'B', message: 'Ikke tilladt'}
+        ]
+      }
     }
+  },
+  {
+    id: 1.7, 
+    error: "Sidekærv", 
+    type: ["FW", "BW"],
+    calc: (t: number) => {
+     
+
+      if (t >= 0.5 && t <= 3) {
+        return [
+          {name: 'D', message: 'h ≤ ' + 0.2 * t + 'mm'},
+          {name: 'C', message: 'h ≤ ' + 0.1 * t + 'mm'},
+          {name: 'B', message: 'Ikke tilladt'}
+        ]
+      } else if (t > 3) {
+        return [
+          {name: 'D', message: 'h ≤ ' + 0.2 * t + 'Max. 1mm'},
+          {name: 'C', message: 'h ≤ ' + 0.1 * t + 'Max 0.5mm'},
+          {name: 'B', message: 'h ≤ ' + 0.5 * t + 'Max 0.5mm'},
+        ]
+      }
+    },
+  },
+  { 
+    name: 1.9, 
+    error: "Oversvulst(stumpsøm)"
+  }
+
   ]
 
   const testArray: any = [];
@@ -188,7 +244,7 @@ const Home: React.FC = () => {
           </IonItem>
           <IonItem className="Ion-items">
             <IonLabel className="Input-label">Brede</IonLabel>
-            <IonInput className="Input" placeholder="Bredde i mm"></IonInput>
+            <IonInput className="Input" onIonChange={(e) => {handleWidth(e)}} placeholder="Bredde i mm"></IonInput>
           </IonItem>
           <IonItem className="Ion-items">
             <IonLabel className="Input-label">Vinkel</IonLabel>
@@ -205,7 +261,7 @@ const Home: React.FC = () => {
          </IonHeader>
           {errorType && errorType.map((item: any, index: any) => {
             // hvis ikke calc functionen har en value, så skal der ikke vises noget
-            if(!item.calc(thickness, fwThickness, bwThickness)) {
+            if(!item.calc(thickness, fwThickness, bwThickness, width)) {
               return (
                 <IonItem key={index} className="showNone"></IonItem>
               )
@@ -221,7 +277,7 @@ const Home: React.FC = () => {
                   </IonText>
                 </IonItemDivider>
 
-                {item.calc(thickness, fwThickness, bwThickness) && item.calc(thickness, fwThickness, bwThickness).map((element: any, index: any) => {
+                {item.calc(thickness, fwThickness, bwThickness, width) && item.calc(thickness, fwThickness, bwThickness, width).map((element: any, index: any) => {
                     return (
                       <IonItem className="show" key={index}>
                         <IonGrid>
