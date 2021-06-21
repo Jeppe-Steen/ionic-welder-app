@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonList, IonItem, IonInput, IonSelect, IonSelectOption, IonLabel, IonGrid, IonRow, IonCol, IonItemDivider, IonText } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonList, IonItem, IonInput, IonSelect, IonSelectOption, IonLabel, IonGrid, IonRow, IonCol, IonItemDivider, IonText, IonModal, IonButton } from '@ionic/react';
 import { useEffect, useState } from 'react'
 import './Home.css';
 import Logo from "../img/logo.svg"
@@ -10,10 +10,19 @@ const Home: React.FC = () => {
   const [bwThickness, setbwThickness] = useState(Number);
   const [fwThickness, setfwThickness] = useState(Number);
   const [weldingtype, setWeldingtype] = useState(String);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [choosenElement, setChoosenElement] = useState({name: '', message: '', details: {id: Number, error: ''}});
+
   const handleThickness = (value: any) => {setThickness(value.currentTarget.value)};
   const handlebwThickness = (value: any) => {setbwThickness(value.currentTarget.value)};
   const handlefwThickness = (value: any) => {setfwThickness(value.currentTarget.value)};
   const handleWeldingtype = (value: any) => {value.preventDefault(); setWeldingtype(value.currentTarget.value)}
+
+  const handleChooseElement = (value: any) => {
+      setChoosenElement(value);
+      setModalOpen(true);
+      console.log(choosenElement);
+  }
 
   const errorType: Array<Object> = [
     {
@@ -24,7 +33,10 @@ const Home: React.FC = () => {
       
         if (t >= 0.5) {
           return [
-            {name: 'D, C & B', message: 'Ikke tilladt'},
+            {name: 'D, C & B', message: 'Ikke tilladt', details: {
+                id: 1.1,
+                error: "Revne",
+            }},
           ]
         }
       }   
@@ -37,7 +49,10 @@ const Home: React.FC = () => {
       
         if (t >= 0.5) {
           return [
-            {name: 'D, C & B', message: 'Ikke tilladt'},
+            {name: 'D, C & B', message: 'Ikke tilladt', details: {
+                id: 1.2,
+                error: "Kraterevne",
+            }},
           ]
         }
       }   
@@ -53,28 +68,52 @@ const Home: React.FC = () => {
           if (weldingtype === 'FW') {
             if(!a) {
               return [
-                {name: 'Fejl', message: 'Du skal udfylde A-mål'}
+                {name: 'Fejl', message: 'Du skal udfylde A-mål', details: {
+                    id: 1.3,
+                    error: "Overfladepore",
+                }}
               ]
             } else {
               if (weldingtype === "FW"){
                 return [
-                  {name: 'D', message: 'd ≤ ' + 0.3 * a + 'mm'},
-                  {name: 'C', message: 'Ikke Tilladt'},
-                  {name: 'B', message: 'Ikke tilladt'}
+                  {name: 'D', message: 'd ≤ ' + 0.3 * a + 'mm', details: {
+                    id: 1.3,
+                    error: "Overfladepore",
+                }},
+                  {name: 'C', message: 'Ikke Tilladt', details: {
+                    id: 1.3,
+                    error: "Overfladepore",
+                }},
+                  {name: 'B', message: 'Ikke tilladt', details: {
+                    id: 1.3,
+                    error: "Overfladepore",
+                }}
                 ]
               }
             }
           } else if (weldingtype === 'BW') {
             if (!s) {
               return [
-                {name: 'Fejl', message: 'Du skal udfylde stumpsøms tykkelse'}
+                {name: 'Fejl', message: 'Du skal udfylde stumpsøms tykkelse', details: {
+                    id: 1.3,
+                    error: "Overfladepore",
+                }}
               ]
             } else {
               if (weldingtype === "BW") {
                 return [
-                  {name: 'D', message: 'd ≤ ' + 0.3 * s + 'mm'},
-                  {name: 'C', message: 'Ikke tilladt'},
-                  {name: 'B', message: 'Ikke tilladt'}
+                  {name: 'D', message: 'd ≤ ' + 0.3 * s + 'mm', details: {
+                    id: 1.3,
+                    error: "Overfladepore",
+                }},
+                  {name: 'C', message: 'Ikke tilladt', details: {
+                    id: 1.3,
+                    error: "Overfladepore",
+                }},
+                  {name: 'B', message: 'Ikke tilladt', details: {
+                    id: 1.3,
+                    error: "Overfladepore",
+                }}
                 ]
               }
             }  
@@ -83,20 +122,32 @@ const Home: React.FC = () => {
             if (weldingtype === "FW"){
               if (!a) {
                 return [
-                  {name: 'Fejl', message: 'Du skal udfylde A-mål'}
+                  {name: 'Fejl', message: 'Du skal udfylde A-mål', details: {
+                    id: 1.3,
+                    error: "Overfladepore",
+                }}
                 ]
               } else {
                 if (0.3 * a <= 3){
                   return [
-                    {name: 'D', message: 'd ≤ ' + 0.3 * a + 'mm'}
+                    {name: 'D', message: 'd ≤ ' + 0.3 * a + 'mm', details: {
+                        id: 1.3,
+                        error: "Overfladepore",
+                    }}
                   ]
                 } else if(0.2 * a <= 3) {
                     return [
-                      {name: 'C', message: 'd ≤ ' + 0.2 * a + 'mm'}
+                      {name: 'C', message: 'd ≤ ' + 0.2 * a + 'mm', details: {
+                        id: 1.3,
+                        error: "Overfladepore",
+                    }}
                     ]
                 } else {
                   return [
-                    {name: 'B', message: 'Ikke tilladt'}
+                    {name: 'B', message: 'Ikke tilladt', details: {
+                        id: 1.3,
+                        error: "Overfladepore",
+                    }}
                   ]
                 }
               }
@@ -104,20 +155,32 @@ const Home: React.FC = () => {
             } else if (weldingtype === "BW") {
               if(!s) {
                 return [
-                  {name: 'Fejl', message: 'Du skal udfylde stumpsøms tykkelse'}
+                  {name: 'Fejl', message: 'Du skal udfylde stumpsøms tykkelse', details: {
+                    id: 1.3,
+                    error: "Overfladepore",
+                }}
                 ]
               } else {
                 if (0.3 * s <= 3){
                   return [
-                    {name: 'D', message: 'd ≤ ' + 0.3 * s + 'mm'}
+                    {name: 'D', message: 'd ≤ ' + 0.3 * s + 'mm', details: {
+                        id: 1.3,
+                        error: "Overfladepore",
+                    }}
                   ]
                 } else if(0.2 * a <= 3) {
                   return [
-                    {name: 'C', message: 'd ≤ ' + 0.2 * s + 'mm'}
+                    {name: 'C', message: 'd ≤ ' + 0.2 * s + 'mm', details: {
+                        id: 1.3,
+                        error: "Overfladepore",
+                    }}
                   ]
                 } else {
                     return [
-                      {name: 'B', message: 'Ikke tilladt'}
+                      {name: 'B', message: 'Ikke tilladt', details: {
+                        id: 1.3,
+                        error: "Overfladepore",
+                    }}
                     ]
                   }
                 }
@@ -134,22 +197,38 @@ const Home: React.FC = () => {
 
         if (t >= 0.5 && t <= 3) {
           return [
-            {name: 'D', message: 'h ≤ ' + 0.2 * t + 'mm'},
-            {name: 'C', message: 'Ikke tilladt'},
-            {name: 'B', message: 'Ikke tilladt'}
+            {name: 'D', message: 'h ≤ ' + 0.2 * t + 'mm', details: {
+                id: 1.4,
+                error: "Åben Kraterpore",
+            }},
+            {name: 'C', message: 'Ikke tilladt', details: {
+                id: 1.4,
+                error: "Åben Kraterpore",
+            }},
+            {name: 'B', message: 'Ikke tilladt', details: {
+                id: 1.4,
+                error: "Åben Kraterpore",
+            }}
           ]
         } else if (t > 3) {
           return [
-            {name: 'D', message: 'h ≤ ' + 0.2 * t + 'mm'},
-            {name: 'C', message: 'h ≤ ' + 0.1 * t + 'mm'},
-            {name: 'B', message: 'Ikke tilladt'}
+            {name: 'D', message: 'h ≤ ' + 0.2 * t + 'mm', details: {
+                id: 1.4,
+                error: "Åben Kraterpore",
+            }},
+            {name: 'C', message: 'h ≤ ' + 0.1 * t + 'mm', details: {
+                id: 1.4,
+                error: "Åben Kraterpore",
+            }},
+            {name: 'B', message: 'Ikke tilladt', details: {
+                id: 1.4,
+                error: "Åben Kraterpore",
+            }}
           ]
         }
       },
     }
-  ]
-
-  const testArray: any = [];
+  ];
 
   return (
     <IonPage className="mainpage">
@@ -203,7 +282,7 @@ const Home: React.FC = () => {
             </IonText>
            </IonToolbar>
          </IonHeader>
-          {errorType && errorType.map((item: any, index: any) => {
+         {weldingtype && errorType && errorType.map((item: any, index: any) => {
             // hvis ikke calc functionen har en value, så skal der ikke vises noget
             if(!item.calc(thickness, fwThickness, bwThickness)) {
               return (
@@ -223,7 +302,7 @@ const Home: React.FC = () => {
 
                 {item.calc(thickness, fwThickness, bwThickness) && item.calc(thickness, fwThickness, bwThickness).map((element: any, index: any) => {
                     return (
-                      <IonItem className="show" key={index}>
+                      <IonItem onClick={() => {handleChooseElement(element)}} className="show" key={index}>
                         <IonGrid>
                           <IonRow>
                             <IonCol>{element.name}</IonCol>
@@ -236,10 +315,21 @@ const Home: React.FC = () => {
               </IonList>
             )
           }})}
-      </IonContent>
 
+          {choosenElement &&
+            choosenElement.name === 'Fejl' ? null :
+            <IonModal isOpen={modalOpen}>
+              <IonHeader>
+                <IonToolbar>
+                  <IonTitle>{choosenElement.details.id} {choosenElement.details.error}</IonTitle>
+                </IonToolbar>
+              </IonHeader>
+              <IonButton expand="full" onClick={(e) => {setModalOpen(false)}}>Close Modal</IonButton>
+            </IonModal>
+          }
+      </IonContent>
     </IonPage>
   );
 };
 
-export default Home;
+export default Home; 
