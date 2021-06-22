@@ -16,7 +16,8 @@ import ErrorOne_Eight from '../Assets/errorTypes/fejltype1_8.png';
 import ErrorOne_Nine from '../Assets/errorTypes/fejltype1_9.png';
 import ErrorOne_Ten from '../Assets/errorTypes/fejltype1_10.png';
 import ErrorOne_Eleven from '../Assets/errorTypes/fejltype1_11.png';
-import ErrorOne_Twelve from '../Assets/errorTypes/fejltype1_12.png';
+import ErrorOne_TwelveBW from '../Assets/errorTypes/fejltype1_12BW.png';
+import ErrorOne_TwelveFW from '../Assets/errorTypes/fejltype1_12FW.png';
 import ErrorOne_Thirteen from '../Assets/errorTypes/fejltype1_13.png';
 import ErrorOne_Fourteen from '../Assets/errorTypes/fejltype1_14.png';
 import ErrorOne_Fifthteen from '../Assets/errorTypes/fejltype1_15.png';
@@ -312,28 +313,6 @@ const Home: React.FC = () => {
     }
   },
   {
-    id: 1.8, 
-    error: "Krympefuge(rodkærv)", 
-    type: ["BW"],
-    calc: (t: number) => {
-     
-
-      if (t >= 0.5 && t <= 3) {
-        return [
-          {name: 'D', message: 'Korte fejl: h ≤ ' + 0.2 * t + 'mm' + 0.1 + "t"},
-          {name: 'C', message: 'Korte fejl: h ≤ ' + 0.1 * t + 'mm'},
-          {name: 'B', message: 'Ikke tilladt'}
-        ]
-      } else if (t > 3) {
-        return [
-          {name: 'D', message: 'Korte fejl: h ≤ ' + 0.2 * t + 'Max. 2mm'},
-          {name: 'C', message: 'Korte fejl: h ≤ ' + 0.1 * t + 'Max. 1mm'},
-          {name: 'B', message: 'Korte fejl: h ≤ ' + 0.05 * t + 'Max. 0,5mm'},
-        ]
-      }
-    },
-  },
-  {
     id: 1.7, 
     error: "Sidekærv", 
     type: ["FW", "BW"],
@@ -388,21 +367,39 @@ const Home: React.FC = () => {
 
       if (t >= 0.5 && t <= 3) {
         return [
-          {name: 'D', message: 'Korte fejl: h ≤ ' + 0.2 * t + 'mm' + 0.1 + "t"},
-          {name: 'C', message: 'Korte fejl: h ≤ ' + 0.1 * t + 'mm'},
-          {name: 'B', message: 'Ikke tilladt'}
+          {name: 'D', message: 'Korte fejl: h ≤ ' + 0.2 * t + 'mm' + 0.1 + "t", details: {
+            id: 1.8,
+            error: "Krympefuge(rodkærv)",
+            image: [ErrorOne_Eight],}},
+          {name: 'C', message: 'Korte fejl: h ≤ ' + 0.1 * t + 'mm', details: {
+            id: 1.8,
+            error: "Krympefuge(rodkærv)",
+            image: [ ErrorOne_Eight],}},
+          {name: 'B', message: 'Ikke tilladt', details: {
+            id: 1.8,
+            error: "Krympefuge(rodkærv)",
+            image: [ErrorOne_Eight],}}
         ]
       } else if (t > 3) {
         return [
-          {name: 'D', message: 'Korte fejl: h ≤ ' + 0.2 * t + 'Max. 2mm'},
-          {name: 'C', message: 'Korte fejl: h ≤ ' + 0.1 * t + 'Max. 1mm'},
-          {name: 'B', message: 'Korte fejl: h ≤ ' + 0.05 * t + 'Max. 0,5mm'},
+          {name: 'D', message: 'Korte fejl: h ≤ ' + 0.2 * t + 'Max. 2mm', details: {
+            id: 1.8,
+            error: "Krympefuge(rodkærv)",
+            image: [ErrorOne_Eight],}},
+          {name: 'C', message: 'Korte fejl: h ≤ ' + 0.1 * t + 'Max. 1mm', details: {
+            id: 1.8,
+            error: "Krympefuge(rodkærv)",
+            image: [ErrorOne_Eight],}},
+          {name: 'B', message: 'Korte fejl: h ≤ ' + 0.05 * t + 'Max. 0,5mm', details: {
+            id: 1.8,
+            error: "Krympefuge(rodkærv)",
+            image: [ErrorOne_Eight],}},
         ]
       }
     },
   },
   { 
-    name: 1.9, 
+    id: 1.9, 
     error: "Oversvulst(stumpsøm)",
     type: ["BW"], 
     calc: (t: number, a: number, s: number, b: number) => {
@@ -434,7 +431,7 @@ const Home: React.FC = () => {
     }
   },
   { 
-    name: 1.10, 
+    id: 1.10, 
     error: "Konveks sømoverflade(kantsøm)",
     type: ["FW"], 
     calc: (t: number, a: number, s: number, b: number) => {
@@ -524,7 +521,57 @@ const Home: React.FC = () => {
       }
     },
   },
+  {
+    id: 1.12, 
+    error: "Forkert overgang", 
+    type: ["BW", "FW"],
+    calc: (t: number, a: number, s: number, b: number) => {
+      if (t >= 0.5) {
+        if (weldingtype === 'BW') {
+          return [
+            {name: 'D', message: a + '≥' + 90 + 'grader', details: {
+              id: 1.12,
+              error:"Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
+              image: [ErrorOne_TwelveBW],
+            }},
+            {name: 'C', message: a + '≥' + 110 + 'grader', details: {
+              id: 1.12,
+              error:"Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
+              image: [ErrorOne_TwelveBW],
+            }},
+            {name: 'B', message: a + '≥' + 150 + 'grader', details: {
+              id: 1.12,
+              error:"Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
+              image: [ErrorOne_TwelveBW],
+            }}
+          ]
+        } else if (weldingtype === 'FW')  {
+          return [
+            {name: 'D', message: a + '≥' + 90 + 'grader', details: {
+              id: 1.12,
+              error:"Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
+              image: [ErrorOne_TwelveFW],
+            }},
+            {name: 'C', message: a + '≥' + 100 + 'grader', details: {
+              id: 1.12,
+              error:"Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
+              image: [ErrorOne_TwelveFW],
+            }},
+            {name: 'B', message: a + '≥' + 110 + 'grader', details: {
+              id: 1.12,
+              error:"Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
+              image: [ErrorOne_TwelveFW],
+            }}
+          ]
+        }
+      }
+    },
+  },
+
+
+  
 ];
+
 
   return (
     <IonPage className="mainpage">
