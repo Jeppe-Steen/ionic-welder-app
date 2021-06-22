@@ -1,8 +1,9 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonList, IonItem, IonInput, IonSelect, IonSelectOption, IonLabel, IonGrid, IonRow, IonCol, IonItemDivider, IonText, IonModal, IonButton } from '@ionic/react';
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './Home.css';
 import Logo from "../img/logo.svg"
 import Techcollege from "../img/techcollege.svg"
+import chooseErrors from '../Assets/Database/database';
 
 import ErrorOne_One from '../Assets/errorTypes/fejltype1_1.png';
 import ErrorOne_Two from '../Assets/errorTypes/fejltype1_2.png';
@@ -36,6 +37,8 @@ const Home: React.FC = () => {
   const [weldingtype, setWeldingtype] = useState(String);
   const [modalOpen, setModalOpen] = useState(false);
   const [choosenElement, setChoosenElement] = useState({ name: '', message: '', details: { id: Number, error: '', image: [] } });
+
+  const [data, setData] = useState([{id: '', error: '', type: [''], calc: Function}]);
 
   const [width, setWidth] = useState(Number);
   const handleThickness = (value: any) => { setThickness(value.currentTarget.value) };
@@ -1099,6 +1102,11 @@ const Home: React.FC = () => {
     },
   ];
 
+
+useEffect(() => {
+  const testData = chooseErrors(weldingtype, thickness, fwThickness, bwThickness, width);
+  console.log(testData)
+}, [weldingtype])
 
   return (
     <IonPage className="mainpage">
