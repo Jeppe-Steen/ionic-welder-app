@@ -5,7 +5,7 @@ import Logo from "../img/logo.svg"
 import Techcollege from "../img/techcollege.svg"
 import database from '../Assets/Database/database';
 
-const Home: React.FC = () => {
+const Home: React.FC<any> = () => {
 
   const [thickness, setThickness] = useState(Number);
   const [bwThickness, setbwThickness] = useState(Number);

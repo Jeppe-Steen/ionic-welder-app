@@ -61,27 +61,38 @@ const database = [
                 return [
                   {
                     name: 'Fejl',
-                    message: FWErrorText
+                    message: FWErrorText,
+                    details: {
+                      id: '',
+                      error: '',
+                      image: [],
+                    }
                   }
                 ]
               } else {
                 return [
                   {
-                    name: 'D', message: 'd ≤ ' + 0.3 * a + 'mm', details: {
+                    name: 'D', 
+                    message: 'd ≤ ' + 0.3 * a + 'mm', 
+                    details: {
                       id: 1.3,
                       error: "Overfladepore",
                       image: [],
                     }
                   },
                   {
-                    name: 'C', message: 'Ikke Tilladt', details: {
+                    name: 'C', 
+                    message: 'Ikke Tilladt', 
+                    details: {
                       id: 1.3,
                       error: "Overfladepore",
                       image: [],
                     }
                   },
                   {
-                    name: 'B', message: 'Ikke tilladt', details: {
+                    name: 'B', 
+                    message: 'Ikke tilladt', 
+                    details: {
                       id: 1.3,
                       error: "Overfladepore",
                       image: [],
@@ -94,7 +105,12 @@ const database = [
                 return [
                   {
                     name: 'Fejl',
-                    message: BWErrorText
+                    message: BWErrorText,
+                    details: {
+                      id: '',
+                      error: '',
+                      image: [],
+                    }
                   }
                 ]
               } else {
@@ -136,6 +152,11 @@ const database = [
                   {
                     name: 'Fejl',
                     message: FWErrorText,
+                    details: {
+                      id: '',
+                      error: '',
+                      image: [],
+                    }
                   }
                 ]
               } else {
@@ -183,7 +204,12 @@ const database = [
                 return [
                   {
                     name: 'Fejl',
-                    message: BWErrorText
+                    message: BWErrorText,
+                    details: {
+                      id: '',
+                      error: '',
+                      image: [],
+                    }
                   }
                 ]
               } else {
@@ -561,7 +587,15 @@ const database = [
               }
             } else {
               return [
-                { name: 'Fejl', message: widthErrorText, }
+                { 
+                  name: 'Fejl', 
+                  message: widthErrorText,
+                  details: {
+                    id: '',
+                    error: '',
+                    image: [],
+                  }
+                }
               ]
             }
           }
@@ -618,7 +652,12 @@ const database = [
               return [
                 {
                   name: 'Fejl',
-                  message: widthErrorText
+                  message: widthErrorText,
+                  details: {
+                    id: '',
+                    error: '',
+                    image: [],
+                  }
                 }
               ]
             }
@@ -668,7 +707,12 @@ const database = [
               return [
                 { 
                   name: 'Fejl', 
-                  message: widthErrorText
+                  message: widthErrorText,
+                  details: {
+                    id: '',
+                    error: '',
+                    image: [],
+                  }
                 }
               ]
             }
@@ -718,7 +762,12 @@ const database = [
               return [
                 { 
                   name: 'Fejl', 
-                  message: widthErrorText
+                  message: widthErrorText,
+                  details: {
+                    id: '',
+                    error: '',
+                    image: [],
+                  }
                 }
               ]
             }
@@ -819,7 +868,12 @@ const database = [
             return [
               {
                 name: 'Fejl', 
-                message: angleErrorText
+                message: angleErrorText,
+                details: {
+                  id: '',
+                  error: '',
+                  image: [],
+                }
               }
             ]
           }
@@ -866,7 +920,12 @@ const database = [
               return [
                 {
                   name: 'Fejl', 
-                  message: widthErrorText 
+                  message: widthErrorText,
+                  details: {
+                    id: '',
+                    error: '',
+                    image: [],
+                  }
                 }
               ]
             }
@@ -1015,7 +1074,12 @@ const database = [
             return [
               {
                 name: 'Fejl',
-                message: FWErrorText
+                message: FWErrorText,
+                details: {
+                  id: '',
+                  error: '',
+                  image: [],
+                }
               }
             ]
           }
@@ -1117,6 +1181,7 @@ const database = [
                 details: {
                   id: 1.18,
                   error: "Porøsitet i rodvulst",
+                  image: []
                 }
               },
               {
@@ -1125,6 +1190,7 @@ const database = [
                 details: {
                   id: 1.18,
                   error: "Porøsitet i rodvulst",
+                  image: []
                 }
               },
               {
@@ -1132,7 +1198,8 @@ const database = [
                 message: 'Ikke tilladt',
                 details: {
                   id: 1.18,
-                  error: "Porøsitet i rodvulst"
+                  error: "Porøsitet i rodvulst",
+                  image: []
                 }
               },
             ]
@@ -1262,7 +1329,12 @@ const database = [
             return [
               {
                 name: 'Fejl',
-                message: FWErrorText
+                message: FWErrorText,
+                details: {
+                  id: '',
+                  error: '',
+                  image: [],
+                }
               }
             ]
           }
@@ -1320,7 +1392,12 @@ const database = [
             return [
               {
                 name: 'Fejl',
-                message: FWErrorText
+                message: FWErrorText,
+                details: {
+                  id: '',
+                  error: '',
+                  image: [],
+                }
               }
             ]
           }
@@ -1402,7 +1479,12 @@ const database = [
               return [
                 {
                   name: 'D', 
-                  message: 'h ≤ ' + 0.4 * a
+                  message: 'h ≤ ' + 0.4 * a,
+                  details: {
+                    id: '',
+                    error: '',
+                    image: [],
+                  }
                 }
               ]
             }
@@ -1410,7 +1492,12 @@ const database = [
               return [
                 {
                   name: 'D', 
-                  message: 'l ≤ ' + a
+                  message: 'l ≤ ' + a,
+                  details: {
+                    id: '',
+                    error: '',
+                    image: [],
+                  }
                 }
               ]
             }
@@ -1418,7 +1505,12 @@ const database = [
               return [
                 {
                   name: 'C', 
-                  message: 'h ≤ ' + 0.3 * a
+                  message: 'h ≤ ' + 0.3 * a,
+                  details: {
+                    id: '',
+                    error: '',
+                    image: [],
+                  }
                 }
               ]
             }
@@ -1426,7 +1518,12 @@ const database = [
               return [
                 {
                   name: 'C', 
-                  message: 'l ≤ ' + a
+                  message: 'l ≤ ' + a,
+                  details: {
+                    id: '',
+                    error: '',
+                    image: [],
+                  }
                 }
               ]
             }
@@ -1434,7 +1531,12 @@ const database = [
               return [
                 {
                   name: 'B', 
-                  message: 'h ≤ ' + 0.2 * a
+                  message: 'h ≤ ' + 0.2 * a,
+                  details: {
+                    id: '',
+                    error: '',
+                    image: [],
+                  }
                 }
               ]
             }
@@ -1442,7 +1544,12 @@ const database = [
               return [
                 {
                   name: 'B', 
-                  message: 'l ≤ ' + a
+                  message: 'l ≤ ' + a,
+                  details: {
+                    id: '',
+                    error: '',
+                    image: [],
+                  }
                 }
               ]
             }
@@ -1452,7 +1559,12 @@ const database = [
               return [
                 {
                   name: 'D, C & B', 
-                  message: 'l ≤ ' + s
+                  message: 'l ≤ ' + s,
+                  details: {
+                    id: '',
+                    error: '',
+                    image: [],
+                  }
                 }
               ]
             }
@@ -1460,7 +1572,12 @@ const database = [
               return [
                 {
                   name: 'D', 
-                  message: 'h ≤ ' + 0.4 * s
+                  message: 'h ≤ ' + 0.4 * s,
+                  details: {
+                    id: '',
+                    error: '',
+                    image: [],
+                  }
                 }
               ]
             }
@@ -1468,7 +1585,12 @@ const database = [
               return [
                 {
                   name: 'C', 
-                  message: 'h ≤ ' + 0.3 * s
+                  message: 'h ≤ ' + 0.3 * s,
+                  details: {
+                    id: '',
+                    error: '',
+                    image: [],
+                  }
                 }
               ]
             }
@@ -1476,7 +1598,12 @@ const database = [
               return [
                 {
                   name: 'B', 
-                  message: 'h ≤ ' + 0.2 * s
+                  message: 'h ≤ ' + 0.2 * s,
+                  details: {
+                    id: '',
+                    error: '',
+                    image: [],
+                  }
                 }
               ]
             }
@@ -1494,11 +1621,21 @@ const database = [
           return [
             {
               name: 'D', 
-              message: 'Ikke tillads, dog kun korte fejl, se forklaring'
+              message: 'Ikke tillads, dog kun korte fejl, se forklaring',
+              details: {
+                id: '',
+                error: '',
+                image: [],
+              }
             },
             {
               name: 'C & B', 
-              message: 'Ikke tilladt'
+              message: 'Ikke tilladt',
+              details: {
+                id: '',
+                error: '',
+                image: [],
+              }
             }
           ]
         }
@@ -1523,7 +1660,12 @@ const database = [
             },
             {
               name: 'C & B', 
-              message: 'Ikke tilladt'
+              message: 'Ikke tilladt',
+              details: {
+                id: '',
+                error: '',
+                image: [],
+              }
             }
           ]
         } else if(t > 3) {
@@ -1540,14 +1682,24 @@ const database = [
                 },
                 {
                   name: 'C & B', 
-                  message: 'Ikke tilladt'
+                  message: 'Ikke tilladt',
+                  details: {
+                    id: '',
+                    error: '',
+                    image: [],
+                  }
                 }
               ]
             } else {
               return [
                 {
                   name: 'C & B', 
-                  message: 'Ikke tilladt'
+                  message: 'Ikke tilladt',
+                  details: {
+                    id: '',
+                    error: '',
+                    image: [],
+                  }
                 }
               ]
             }
@@ -1566,7 +1718,12 @@ const database = [
               return [
                 {
                   name: 'Fejl', 
-                  message: FWErrorText
+                  message: FWErrorText,
+                  details: {
+                    id: '',
+                    error: '',
+                    image: [],
+                  }
                 }
               ]
             } else {
@@ -1652,7 +1809,12 @@ const database = [
               return [
                 {
                   name: 'Fejl', 
-                  message: BWErrorText
+                  message: BWErrorText,
+                  details: {
+                    id: '',
+                    error: '',
+                    image: [],
+                  }
                 }
               ]
             } else {
@@ -1748,7 +1910,12 @@ const database = [
                         return [
                             {
                                 name: 'Fejl', 
-                                message: FWErrorText
+                                message: FWErrorText,
+                                details: {
+                                  id: '',
+                                  error: '',
+                                  image: [],
+                                }
                             }
                         ]
                     } else {
@@ -1797,7 +1964,12 @@ const database = [
                     if(!s) {
                         return [
                             {name: 'Fejl',
-                            message: BWErrorText
+                            message: BWErrorText,
+                            details: {
+                              id: '',
+                              error: '',
+                              image: [],
+                            }
                           }
                         ]
                     } else {
@@ -1854,7 +2026,13 @@ const database = [
             if(t >= 0.5) {
                 return [
                     {
-                        name: 'D, C & B', message: 'Ikke tilladt'
+                        name: 'D, C & B', 
+                        message: 'Ikke tilladt',
+                        details: {
+                          id: '',
+                          error: '',
+                          image: [],
+                        }
                     }
                 ]
             }
@@ -1871,7 +2049,13 @@ const database = [
                     if(!a) {
                         return [
                             {
-                                name: 'Fejl', message: FWErrorText
+                                name: 'Fejl', 
+                                message: FWErrorText,
+                                details: {
+                                  id: '',
+                                  error: '',
+                                  image: [],
+                                }
                             }
                         ]
                     } else {
@@ -1890,7 +2074,13 @@ const database = [
                         } else {
                             return [
                                 {
-                                    name: 'D & C', message: 'Ikke tilladt'
+                                    name: 'D & C', 
+                                    message: 'Ikke tilladt',
+                                    details: {
+                                      id: '',
+                                      error: '',
+                                      image: [],
+                                    }
                                 }
                             ]
                         }
@@ -1899,7 +2089,13 @@ const database = [
                     if(!s) {
                         return [
                             {
-                                name: 'Fejl', message: 'Du skal udfylde stumsøms tykkelse'
+                                name: 'Fejl', 
+                                message: 'Du skal udfylde stumsøms tykkelse',
+                                details: {
+                                  id: '',
+                                  error: '',
+                                  image: [],
+                                }
                             }
                         ]
                     } else {
@@ -1918,7 +2114,13 @@ const database = [
                         } else {
                             return [
                                 {
-                                    name: 'D & C', message: 'Ikke tilladt'
+                                    name: 'D & C', 
+                                    message: 'Ikke tilladt',
+                                    details: {
+                                      id: '',
+                                      error: '',
+                                      image: [],
+                                    }
                                 }
                             ]
                         }
