@@ -789,6 +789,46 @@ const database = [
       }
     }
   },
+  {
+    id: '1.16',
+    error: "Ulige store kateter(z-mål) ved kantsøm",
+    type: ["FW"],
+    calc: (t, a, s, b) => {
+
+      if (t >= 0.5) {
+        return [
+          {
+            name: 'D',
+            message: 'h ≤' + 2 * t + 'mm' + 0.2 * a,
+            details: {
+              id: 1.16,
+              error: "Ulige store kateter(z-mål) ved kantsøm",
+              image: [ErrorOne_Sixteen]
+            }
+          },
+          {
+            name: 'D',
+            message: 'h ≤' + 2 * t + 'mm' + 0.15 * a,
+            details: {
+              id: 1.16,
+              error: "Ulige store kateter(z-mål) ved kantsøm",
+              image: [ErrorOne_Sixteen]
+            }
+          },
+          {
+            name: 'D',
+            message: 'h ≤' + 1.5 * t + 'mm' + 0.15 * a + 'Max. 3mm',
+            details: {
+              id: 1.16,
+              error: "Ulige store kateter(z-mål) ved kantsøm",
+              image: [ErrorOne_Sixteen]
+            }
+          },
+        ]
+      }
+    }
+  },
+
   // 1.17
   {
     id: '1.17',
