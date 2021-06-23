@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import './Home.css';
 import Logo from "../img/logo.svg"
 import Techcollege from "../img/techcollege.svg"
-import chooseErrors from '../Assets/Database/database';
+import database from '../Assets/Database/database';
 
 const Home: React.FC = () => {
 
@@ -11,17 +11,19 @@ const Home: React.FC = () => {
   const [bwThickness, setbwThickness] = useState(Number);
   const [fwThickness, setfwThickness] = useState(Number);
   const [weldingtype, setWeldingtype] = useState(String);
+  const [width, setWidth] = useState(Number);
+  const [angle, setAngle] = useState(Number);
   const [modalOpen, setModalOpen] = useState(false);
   const [choosenElement, setChoosenElement] = useState({ name: '', message: '', details: { id: Number, error: '', image: [] } });
 
-  const [data, setData] = useState([{ id: '', error: '', type: [''], calc: Function }]);
-
-  const [width, setWidth] = useState(Number);
+  const [filteredDatabase, setFilteredDatabase] = useState([]);
+  
   const handleThickness = (value: any) => { setThickness(value.currentTarget.value) };
   const handlebwThickness = (value: any) => { setbwThickness(value.currentTarget.value) };
   const handlefwThickness = (value: any) => { setfwThickness(value.currentTarget.value) };
   const handleWeldingtype = (value: any) => { value.preventDefault(); setWeldingtype(value.currentTarget.value) };
   const handleWidth = (value: any) => { setWidth(value.currentTarget.value) };
+  const handleAngle = (value: any) => { setAngle(value.currentTarget.value) };
 
   const handleChooseElement = (value: any) => {
     setChoosenElement(value);
@@ -30,9 +32,8 @@ const Home: React.FC = () => {
   }
 
 useEffect(() => {
-  const testData = chooseErrors(weldingtype);
-  console.log(testData)
-}, [weldingtype])
+  setFilteredDatabase(database);
+}, [weldingtype, thickness, fwThickness, bwThickness, width, angle])
 
   return (
     <IonPage className="mainpage">
@@ -75,7 +76,7 @@ useEffect(() => {
           </IonItem>
           <IonItem className="Ion-items">
             <IonLabel className="Input-label">Vinkel</IonLabel>
-            <IonInput className="Input" placeholder="Vinkel i grader"></IonInput>
+            <IonInput className="Input" onIonChange={(e) => { handleAngle(e) }} placeholder="Vinkel i grader"></IonInput>
           </IonItem>
         </IonList>
 
@@ -86,7 +87,7 @@ useEffect(() => {
             </IonText>
           </IonToolbar>
         </IonHeader>
-        {weldingtype && errorType && errorType.map((item: any, index: any) => {
+        {weldingtype && filteredDatabase && filteredDatabase.map((item: any, index: any) => {
           // hvis ikke calc functionen har en value, så skal der ikke vises noget
           if (!item.calc(thickness, fwThickness, bwThickness, width)) {
             return (
@@ -104,7 +105,7 @@ useEffect(() => {
                   </IonText>
                 </IonItemDivider>
 
-                {item.calc(thickness, fwThickness, bwThickness, width) && item.calc(thickness, fwThickness, bwThickness, width).map((element: any, index: any) => {
+                {item.calc(thickness, fwThickness, bwThickness, width) && item.calc(thickness, fwThickness, bwThickness, width, angle).map((element: any, index: any) => {
                   return (
                     <IonItem onClick={() => { handleChooseElement(element) }} className="show" key={index}>
                       <IonGrid>

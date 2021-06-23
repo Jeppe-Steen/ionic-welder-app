@@ -1,28 +1,10 @@
-import ErrorOne_One from '../Assets/errorTypes/fejltype1_1.png';
-import ErrorOne_Two from '../Assets/errorTypes/fejltype1_2.png';
-import ErrorOne_Three from '../Assets/errorTypes/fejltype1_3.png';
-import ErrorOne_Four from '../Assets/errorTypes/fejltype1_4.png';
-import ErrorOne_Five from '../Assets/errorTypes/fejltype1_5.png';
-import ErrorOne_Six from '../Assets/errorTypes/fejltype1_6.png';
-import ErrorOne_SevenFW from '../Assets/errorTypes/fejltype1_7FW.png';
-import ErrorOne_SevenBW from '../Assets/errorTypes/fejltype1_7BW.png';
-import ErrorOne_Eight from '../Assets/errorTypes/fejltype1_8.png';
-import ErrorOne_Nine from '../Assets/errorTypes/fejltype1_9.png';
-import ErrorOne_Ten from '../Assets/errorTypes/fejltype1_10.png';
-import ErrorOne_Eleven from '../Assets/errorTypes/fejltype1_11.png';
-import ErrorOne_TwelveBW from '../Assets/errorTypes/fejltype1_12BW.png';
-import ErrorOne_TwelveFW from '../Assets/errorTypes/fejltype1_12FW.png';
-import ErrorOne_Thirteen from '../Assets/errorTypes/fejltype1_13.png';
-import ErrorOne_Fourteen from '../Assets/errorTypes/fejltype1_14.png';
-import ErrorOne_Fifthteen from '../Assets/errorTypes/fejltype1_15.png';
-import ErrorOne_Sixteen from '../Assets/errorTypes/fejltype1_16.png';
-import ErrorOne_Seventeen from '../Assets/errorTypes/fejltype1_17.png';
-import ErrorOne_Nineteen from '../Assets/errorTypes/fejltype1_19.png';
-import ErrorOne_Twenty from '../Assets/errorTypes/fejltype1_20.png';
-import ErrorOne_TwentyOne from '../Assets/errorTypes/fejltype1_21.png';
-
 // kun for at fjerne fejlenen
 const weldingtype = 'BW';
+
+const widthErrorText = 'Du skal huske at udfylde bredden';
+const FWErrorText = 'Du skal huske at udfylde A-mål';
+const BWErrorText = 'Du skal huske at udfylde Stumpsøms tykkelsen';
+const angleErrorText = 'Du skal huske at udfylde Vinklen';
 
 const database = [
     // 1.1
@@ -30,15 +12,16 @@ const database = [
         id: '1.1',
         error: "Revne",
         type: ["FW", "BW"],
-        calc: (t, a, s, b) => {
-  
+        calc: (t, a, s, b, v) => {
           if (t >= 0.5) {
             return [
               {
-                name: 'D, C & B', message: 'Ikke tilladt', details: {
+                name: 'D, C & B',
+                message: 'Ikke tilladt',
+                details: {
                   id: 1.1,
                   error: "Revne",
-                  image: [ErrorOne_One],
+                  image: [],
                 }
               },
             ]
@@ -50,15 +33,16 @@ const database = [
         id: '1.2',
         error: "Kraterevne",
         type: ["FW", "BW"],
-        calc: (t, a, s, b) => {
-  
+        calc: (t, a, s, b, v) => {
           if (t >= 0.5) {
             return [
               {
-                name: 'D, C & B', message: 'Ikke tilladt', details: {
+                name: 'D, C & B',
+                message: 'Ikke tilladt',
+                details: {
                   id: 1.2,
                   error: "Kraterevne",
-                  image: [ErrorOne_Two],
+                  image: [],
                 }
               },
             ]
@@ -70,73 +54,79 @@ const database = [
         id: '1.3',
         error: "Overfladepore",
         type: ["FW", "BW"],
-        calc: (t, a, s, b) => {
-  
-  
+        calc: (t, a, s, b, v) => {
           if (t >= 0.5 && t <= 3) {
             if (weldingtype === 'FW') {
               if (!a) {
                 return [
-                  { name: 'Fejl', message: 'Du skal udfylde A-mål', }
+                  {
+                    name: 'Fejl',
+                    message: FWErrorText
+                  }
                 ]
               } else {
-                if (weldingtype === "FW") {
-                  return [
-                    {
-                      name: 'D', message: 'd ≤ ' + 0.3 * a + 'mm', details: {
-                        id: 1.3,
-                        error: "Overfladepore",
-                        image: [ErrorOne_Three],
-                      }
-                    },
-                    {
-                      name: 'C', message: 'Ikke Tilladt', details: {
-                        id: 1.3,
-                        error: "Overfladepore",
-                        image: [ErrorOne_Three],
-                      }
-                    },
-                    {
-                      name: 'B', message: 'Ikke tilladt', details: {
-                        id: 1.3,
-                        error: "Overfladepore",
-                        image: [ErrorOne_Three],
-                      }
+                return [
+                  {
+                    name: 'D', message: 'd ≤ ' + 0.3 * a + 'mm', details: {
+                      id: 1.3,
+                      error: "Overfladepore",
+                      image: [],
                     }
-                  ]
-                }
+                  },
+                  {
+                    name: 'C', message: 'Ikke Tilladt', details: {
+                      id: 1.3,
+                      error: "Overfladepore",
+                      image: [],
+                    }
+                  },
+                  {
+                    name: 'B', message: 'Ikke tilladt', details: {
+                      id: 1.3,
+                      error: "Overfladepore",
+                      image: [],
+                    }
+                  }
+                ]
               }
             } else if (weldingtype === 'BW') {
               if (!s) {
                 return [
-                  { name: 'Fejl', message: 'Du skal udfylde stumpsøms tykkelse', }
+                  {
+                    name: 'Fejl',
+                    message: BWErrorText
+                  }
                 ]
               } else {
-                if (weldingtype === "BW") {
-                  return [
-                    {
-                      name: 'D', message: 'd ≤ ' + 0.3 * s + 'mm', details: {
-                        id: 1.3,
-                        error: "Overfladepore",
-                        image: [ErrorOne_Three],
-                      }
-                    },
-                    {
-                      name: 'C', message: 'Ikke tilladt', details: {
-                        id: 1.3,
-                        error: "Overfladepore",
-                        image: [ErrorOne_Three],
-                      }
-                    },
-                    {
-                      name: 'B', message: 'Ikke tilladt', details: {
-                        id: 1.3,
-                        error: "Overfladepore",
-                        image: [ErrorOne_Three],
-                      }
+                return [
+                  {
+                    name: 'D',
+                    message: 'd ≤ ' + 0.3 * s + 'mm',
+                    details: {
+                      id: 1.3,
+                      error: "Overfladepore",
+                      image: [],
                     }
-                  ]
-                }
+                  },
+                  {
+                    name: 'C',
+                    message: 'Ikke tilladt',
+                    details: {
+                      id: 1.3,
+                      error: "Overfladepore",
+                      image: [],
+                    }
+                  },
+                  {
+                    name: 'B',
+                    message: 'Ikke tilladt',
+                    details: {
+                      id: 1.3,
+                      error: "Overfladepore",
+                      image: [],
+                    }
+                  }
+                ]
               }
             }
           } else if (t > 3) {
@@ -144,40 +134,44 @@ const database = [
               if (!a) {
                 return [
                   {
-                    name: 'Fejl', message: 'Du skal udfylde A-mål', details: {
-                      id: 1.3,
-                      error: "Overfladepore",
-                    }
+                    name: 'Fejl',
+                    message: FWErrorText,
                   }
                 ]
               } else {
                 if (0.3 * a <= 3) {
                   return [
                     {
-                      name: 'D', message: 'd ≤ ' + 0.3 * a + 'mm', details: {
+                      name: 'D',
+                      message: 'd ≤ ' + 0.3 * a + 'mm',
+                      details: {
                         id: 1.3,
                         error: "Overfladepore",
-                        image: [ErrorOne_Three],
+                        image: [],
                       }
                     }
                   ]
                 } else if (0.2 * a <= 3) {
                   return [
                     {
-                      name: 'C', message: 'd ≤ ' + 0.2 * a + 'mm', details: {
+                      name: 'C',
+                      message: 'd ≤ ' + 0.2 * a + 'mm',
+                      details: {
                         id: 1.3,
                         error: "Overfladepore",
-                        image: [ErrorOne_Three],
+                        image: [],
                       }
                     }
                   ]
                 } else {
                   return [
                     {
-                      name: 'B', message: 'Ikke tilladt', details: {
+                      name: 'B',
+                      message: 'Ikke tilladt',
+                      details: {
                         id: 1.3,
                         error: "Overfladepore",
-                        image: [ErrorOne_Three],
+                        image: [],
                       }
                     }
                   ]
@@ -188,37 +182,41 @@ const database = [
               if (!s) {
                 return [
                   {
-                    name: 'Fejl', message: 'Du skal udfylde stumpsøms tykkelse', details: {
-                      id: 1.3,
-                      error: "Overfladepore",
-                    }
+                    name: 'Fejl',
+                    message: BWErrorText
                   }
                 ]
               } else {
                 if (0.3 * s <= 3) {
                   return [
                     {
-                      name: 'D', message: 'd ≤ ' + 0.3 * s + 'mm', details: {
+                      name: 'D',
+                      message: 'd ≤ ' + 0.3 * s + 'mm',
+                      details: {
                         id: 1.3,
                         error: "Overfladepore",
-                        image: [ErrorOne_Three],
+                        image: [],
                       }
                     }
                   ]
                 } else if (0.2 * a <= 3) {
                   return [
                     {
-                      name: 'C', message: 'd ≤ ' + 0.2 * s + 'mm', details: {
+                      name: 'C',
+                      message: 'd ≤ ' + 0.2 * s + 'mm',
+                      details: {
                         id: 1.3,
                         error: "Overfladepore",
-                        image: [ErrorOne_Three],
+                        image: [],
                       }
                     }
                   ]
                 } else {
                   return [
                     {
-                      name: 'B', message: 'Ikke tilladt', details: {
+                      name: 'B',
+                      message: 'Ikke tilladt',
+                      details: {
                         id: 1.3,
                         error: "Overfladepore",
                         image: [],
@@ -236,54 +234,64 @@ const database = [
         id: '1.4',
         error: "Åben Kraterpore",
         type: ["FW", "BW"],
-        calc: (t, a, s, b) => {
-  
-  
+        calc: (t, a, s, b, v) => {
           if (t >= 0.5 && t <= 3) {
             return [
               {
-                name: 'D', message: 'h ≤ ' + 0.2 * t + 'mm', details: {
+                name: 'D',
+                message: 'h ≤ ' + 0.2 * t + 'mm',
+                details: {
                   id: 1.4,
                   error: "Åben Kraterpore",
-                  image: [ErrorOne_Four],
+                  image: [],
                 }
               },
               {
-                name: 'C', message: 'Ikke tilladt', details: {
+                name: 'C',
+                message: 'Ikke tilladt',
+                details: {
                   id: 1.4,
                   error: "Åben Kraterpore",
-                  image: [ErrorOne_Four],
+                  image: [],
                 }
               },
               {
-                name: 'B', message: 'Ikke tilladt', details: {
+                name: 'B',
+                message: 'Ikke tilladt',
+                details: {
                   id: 1.4,
                   error: "Åben Kraterpore",
-                  image: [ErrorOne_Four],
+                  image: [],
                 }
               }
             ]
           } else if (t > 3) {
             return [
               {
-                name: 'D', message: 'h ≤ ' + 0.2 * t + 'mm', details: {
+                name: 'D',
+                message: 'h ≤ ' + 0.2 * t + 'mm',
+                details: {
                   id: 1.4,
                   error: "Åben Kraterpore",
-                  image: [ErrorOne_Four],
+                  image: [],
                 }
               },
               {
-                name: 'C', message: 'h ≤ ' + 0.1 * t + 'mm', details: {
+                name: 'C',
+                message: 'h ≤ ' + 0.1 * t + 'mm',
+                details: {
                   id: 1.4,
                   error: "Åben Kraterpore",
-                  image: [ErrorOne_Four],
+                  image: [],
                 }
               },
               {
-                name: 'B', message: 'Ikke tilladt', details: {
+                name: 'B',
+                message: 'Ikke tilladt',
+                details: {
                   id: 1.4,
                   error: "Åben Kraterpore",
-                  image: [ErrorOne_Four],
+                  image: [],
                 }
               }
             ]
@@ -295,15 +303,16 @@ const database = [
         id: '1.5',
         error: "Bindingsfejl",
         type: ["FW", "BW"],
-        calc: (t, a, s, b) => {
-  
+        calc: (t, a, s, b, v) => {
           if (t >= 0.5) {
             return [
               {
-                name: 'D, C & B', message: 'Ikke tilladt', details: {
+                name: 'D, C & B',
+                message: 'Ikke tilladt',
+                details: {
                   id: 1.5,
                   error: "Bindingsfejl",
-                  image: [ErrorOne_Five],
+                  image: [],
                 }
               },
             ]
@@ -315,28 +324,34 @@ const database = [
         id: '1.6',
         error: "RodFejl",
         type: ["BW"],
-        calc: (t, a, s, b) => {
+        calc: (t, a, s, b, v) => {
           if (t >= 0.5) {
             return [
               {
-                name: 'D', message: 'h ≤' + 0.2 * t + 'mm', details: {
+                name: 'D',
+                message: 'h ≤' + 0.2 * t + 'mm',
+                details: {
                   id: 1.6,
                   error: "Rodfejl",
-                  image: [ErrorOne_Six],
+                  image: [],
                 }
               },
               {
-                name: 'C', message: 'Ikke tilladt', details: {
+                name: 'C',
+                message: 'Ikke tilladt',
+                details: {
                   id: 1.6,
                   error: "Rodfejl",
-                  image: [ErrorOne_Six],
+                  image: [],
                 }
               },
               {
-                name: 'B', message: 'Ikke tilladt', details: {
+                name: 'B',
+                message: 'Ikke tilladt',
+                details: {
                   id: 1.6,
                   error: "Rodfejl",
-                  image: [ErrorOne_Six],
+                  image: [],
                 }
               }
             ]
@@ -348,57 +363,73 @@ const database = [
         id: '1.7',
         error: "Sidekærv",
         type: ["FW", "BW"],
-        calc: (t, a, s, b) => {
-  
-  
+        calc: (t, a, s, b, v) => {
           if (t >= 0.5 && t <= 3) {
             return [
               {
-                name: 'D', message: 'Korte fejl: h ≤ ' + 0.2 * t + 'mm', details: {
+                name: 'D',
+                message: 'Korte fejl: h ≤ ' + 0.2 * t + 'mm',
+                details: {
                   id: 1.7,
                   error: "Sidekærv",
-                  image: [ErrorOne_SevenFW, ErrorOne_SevenBW],
+                  image: [],
                 }
               },
               {
-                name: 'C', message: 'Korte fejl: h ≤ ' + 0.1 * t + 'mm', details: {
+                name: 'C',
+                message: 'Korte fejl: h ≤ ' + 0.1 * t + 'mm',
+                details: {
                   id: 1.7,
                   error: "Sidekærv",
-                  image: [ErrorOne_SevenFW, ErrorOne_SevenBW],
+                  image: [],
                 }
               },
               {
-                name: 'B', message: 'Ikke tilladt', details: {
+                name: 'B',
+                message: 'Ikke tilladt',
+                details: {
                   id: 1.7,
                   error: "Sidekærv",
-                  image: [ErrorOne_SevenFW, ErrorOne_SevenBW],
+                  image: [],
                 }
               }
             ]
           } else if (t > 3) {
-            return [
-              {
-                name: 'D', message: 'h ≤ ' + 0.2 * t + 'Max. 1mm', details: {
+            if(0.2 * t <= 1) {
+              return [{
+                name: 'D',
+                message: 'h ≤ ' + 0.2 * t + 'mm',
+                details: {
                   id: 1.7,
                   error: "Sidekærv",
-                  image: [ErrorOne_SevenFW, ErrorOne_SevenBW],
+                  image: [],
                 }
-              },
-              {
-                name: 'C', message: 'h ≤ ' + 0.1 * t + 'Max 0.5mm', details: {
+              }]
+            }
+            else if(0.1 * t <= 0.5) {
+              return [{
+                name: 'C',
+                message: 'h ≤ ' + 0.1 * t + 'mm',
+                details: {
                   id: 1.7,
                   error: "Sidekærv",
-                  image: [ErrorOne_SevenFW, ErrorOne_SevenBW],
+                  image: [],
                 }
-              },
-              {
-                name: 'B', message: 'h ≤ ' + 0.5 * t + 'Max 0.5mm', details: {
-                  id: 1.7,
-                  error: "Sidekærv",
-                  image: [ErrorOne_SevenFW, ErrorOne_SevenBW],
+              }]
+            }
+            else if(0.5 * t <= 0.5) {
+              return [
+                {
+                  name: 'B',
+                  message: 'h ≤ ' + 0.5 * t + 'mm',
+                  details: {
+                    id: 1.7,
+                    error: "Sidekærv",
+                    image: [],
+                  }
                 }
-              },
-            ]
+              ]
+            }
           }
         },
       },
@@ -407,57 +438,77 @@ const database = [
         id: '1.8',
         error: "Krympefuge(rodkærv)",
         type: ["BW"],
-        calc: (t) => {
-  
-  
+        calc: (t, a, s, b, v) => {
           if (t >= 0.5 && t <= 3) {
             return [
               {
-                name: 'D', message: 'Korte fejl: h ≤ ' + 0.2 * t + 'mm' + 0.1 + "t", details: {
+                name: 'D',
+                message: 'Korte fejl: h ≤ ' + 0.2 * t + 0.1 + "mm",
+                details: {
                   id: 1.8,
                   error: "Krympefuge(rodkærv)",
-                  image: [ErrorOne_Eight],
+                  image: [],
                 }
               },
               {
-                name: 'C', message: 'Korte fejl: h ≤ ' + 0.1 * t + 'mm', details: {
+                name: 'C',
+                message: 'Korte fejl: h ≤ ' + 0.1 * t + 'mm',
+                details: {
                   id: 1.8,
                   error: "Krympefuge(rodkærv)",
-                  image: [ErrorOne_Eight],
+                  image: [],
                 }
               },
               {
-                name: 'B', message: 'Ikke tilladt', details: {
+                name: 'B',
+                message: 'Ikke tilladt',
+                details: {
                   id: 1.8,
                   error: "Krympefuge(rodkærv)",
-                  image: [ErrorOne_Eight],
+                  image: [],
                 }
               }
             ]
           } else if (t > 3) {
-            return [
-              {
-                name: 'D', message: 'Korte fejl: h ≤ ' + 0.2 * t + 'Max. 2mm', details: {
-                  id: 1.8,
-                  error: "Krympefuge(rodkærv)",
-                  image: [ErrorOne_Eight],
+            if(0.2 * t <= 2) {
+              return [
+                {
+                  name: 'D',
+                  message: 'Korte fejl: h ≤ ' + 0.2 * t + 'mm',
+                  details: {
+                    id: 1.8,
+                    error: "Krympefuge(rodkærv)",
+                    image: [],
+                  }
                 }
-              },
-              {
-                name: 'C', message: 'Korte fejl: h ≤ ' + 0.1 * t + 'Max. 1mm', details: {
-                  id: 1.8,
-                  error: "Krympefuge(rodkærv)",
-                  image: [ErrorOne_Eight],
+              ]
+            }
+            else if(0.1 * t <= 1) {
+              return [
+                {
+                  name: 'C',
+                  message: 'Korte fejl: h ≤ ' + 0.1 * t + 'mm',
+                  details: {
+                    id: 1.8,
+                    error: "Krympefuge(rodkærv)",
+                    image: [],
+                  }
                 }
-              },
-              {
-                name: 'B', message: 'Korte fejl: h ≤ ' + 0.05 * t + 'Max. 0,5mm', details: {
-                  id: 1.8,
-                  error: "Krympefuge(rodkærv)",
-                  image: [ErrorOne_Eight],
+              ]
+            }
+            else if(0.05 * t <= 0.5) {
+              return [
+                {
+                  name: 'B',
+                  message: 'Korte fejl: h ≤ ' + 0.05 * t + 'mm',
+                  details: {
+                    id: 1.8,
+                    error: "Krympefuge(rodkærv)",
+                    image: [],
+                  }
                 }
-              },
-            ]
+              ]
+            }
           }
         },
       },
@@ -466,35 +517,51 @@ const database = [
         id: '1.9',
         error: "Oversvulst(stumpsøm)",
         type: ["BW"],
-        calc: (t, a, s, b) => {
+        calc: (t, a, s, b, v) => {
           if (t >= 0.5 && t <= 3) {
             if (b) {
-              return [
-                {
-                  name: 'D', message: 'h ≤ ' + 1 * t + 'mm' + 0.25 + b + 'Max 10mm', details: {
-                    id: 1.9,
-                    error: "Oversvulst(stumpsøm)",
-                    image: [ErrorOne_Nine],
+              if(1 * t + 0.25 + b <= 10) {
+                return [
+                  {
+                    name: 'D',
+                    message: 'h ≤ ' + 1 * t + 0.25 + b + 'mm',
+                    details: {
+                      id: 1.9,
+                      error: "Oversvulst(stumpsøm)",
+                      image: [],
+                    }
                   }
-                },
-                {
-                  name: 'C', message: 'h ≤ ' + 1 * t + 'mm' + 0.15 + b + 'Max 7mm', details: {
-                    id: 1.9,
-                    error: "Oversvulst(stumpsøm)",
-                    image: [ErrorOne_Nine],
+                ]
+              }
+              else if(1 * t + 0.15 + b <= 7) {
+                return [
+                  {
+                    name: 'C',
+                    message: 'h ≤ ' + 1 * t + 0.15 + b + 'mm',
+                    details: {
+                      id: 1.9,
+                      error: "Oversvulst(stumpsøm)",
+                      image: [],
+                    }
                   }
-                },
-                {
-                  name: 'B', message: 'h ≤ ' + 1 * t + 'mm' + 0.1 + b + 'Max 5mm', details: {
-                    id: 1.9,
-                    error: "Oversvulst(stumpsøm)",
-                    image: [ErrorOne_Nine],
+                ]
+              }
+              else if(1 * t + 0.1 + b <= 5) {
+                return [
+                  {
+                    name: 'B',
+                    message: 'h ≤ ' + 1 * t + 0.1 + b + 'mm',
+                    details: {
+                      id: 1.9,
+                      error: "Oversvulst(stumpsøm)",
+                      image: [],
+                    }
                   }
-                }
-              ]
+                ]
+              }
             } else {
               return [
-                { name: 'Fejl', message: "husk at fylde ud bredden", }
+                { name: 'Fejl', message: widthErrorText, }
               ]
             }
           }
@@ -505,35 +572,54 @@ const database = [
         id: '1.10',
         error: "Konveks sømoverflade(kantsøm)",
         type: ["FW"],
-        calc: (t, a, s, b) => {
+        calc: (t, a, s, b, v) => {
           if (t >= 0.5 && t <= 3) {
             if (b) {
-              return [
-                {
-                  name: 'D', message: 'h ≤ ' + 1 * t + 'mm' + 0.25 + b + 'Max 10mm', details: {
-                    id: 1.10,
-                    error: "Konveks sømoverflade(kantsøm)",
-                    image: [ErrorOne_Ten],
+              if(1 * t + 0.25 + b <= 10) {
+                return [
+                  {
+                    name: 'D',
+                    message: 'h ≤ ' + 1 * t+ 0.25 + b + 'mm',
+                    details: {
+                      id: 1.10,
+                      error: "Konveks sømoverflade(kantsøm)",
+                      image: [],
+                    }
                   }
-                },
-                {
-                  name: 'C', message: 'h ≤ ' + 1 * t + 'mm' + 0.15 + b + 'Max 7mm', details: {
-                    id: 1.10,
-                    error: "Konveks sømoverflade(kantsøm)",
-                    image: [ErrorOne_Ten],
+                ]
+              }
+              else if(1 * t + 0.15 + b <= 7) {
+                return [
+                  {
+                    name: 'C',
+                    message: 'h ≤ ' + 1 * t + 0.15 + b + 'mm',
+                    details: {
+                      id: 1.10,
+                      error: "Konveks sømoverflade(kantsøm)",
+                      image: [],
+                    }
                   }
-                },
-                {
-                  name: 'B', message: 'h ≤ ' + 1 * t + 'mm' + 0.1 + b + 'Max 5mm', details: {
-                    id: 1.10,
-                    error: "Konveks sømoverflade(kantsøm)",
-                    image: [ErrorOne_Ten],
+                ]
+              }
+              else if(1 * t + 0.1 + b <= 5) {
+                return [
+                  {
+                    name: 'B',
+                    message: 'h ≤ ' + 1 * t + 0.1 + b + 'mm',
+                    details: {
+                      id: 1.10,
+                      error: "Konveks sømoverflade(kantsøm)",
+                      image: [],
+                    }
                   }
-                }
-              ]
+                ]
+              }
             } else {
               return [
-                { name: 'Fejl', message: "husk at fylde ud bredden", }
+                {
+                  name: 'Fejl',
+                  message: widthErrorText
+                }
               ]
             }
           }
@@ -544,68 +630,96 @@ const database = [
         id: '1.11',
         error: "Gennomløb",
         type: ["BW"],
-        calc: (t, a, s, b) => {
+        calc: (t, a, s, b, v) => {
   
   
           if (t >= 0.5 && t <= 3) {
             if (b) {
               return [
                 {
-                  name: 'D', message: 'h ≤ ' + 1 * t + 'mm' + 0.6 + b, details: {
+                  name: 'D', 
+                  message: 'h ≤ ' + 1 * t + 0.6 + b + 'mm', 
+                  details: {
                     id: 1.11,
                     error: "Gennomløb",
-                    image: [ErrorOne_Eleven],
+                    image: [],
                   }
                 },
                 {
-                  name: 'C', message: 'h ≤ ' + 1 * t + 'mm' + 0.3 + b, details: {
+                  name: 'C', 
+                  message: 'h ≤ ' + 1 * t + 0.3 + b + 'mm', 
+                  details: {
                     id: 1.11,
                     error: "Gennomløb",
-                    image: [ErrorOne_Eleven],
+                    image: [],
                   }
                 },
                 {
-                  name: 'B', message: 'h ≤ ' + 1 * t + 'mm' + 0.1 + b, details: {
+                  name: 'B', 
+                  message: 'h ≤ ' + 1 * t + 0.1 + b + 'mm', 
+                  details: {
                     id: 1.11,
                     error: "Gennomløb",
-                    image: [ErrorOne_Eleven],
+                    image: [],
                   }
                 }
               ]
             } else {
               return [
-                { name: 'Fejl', message: "husk at fylde ud bredden", }
+                { 
+                  name: 'Fejl', 
+                  message: widthErrorText
+                }
               ]
             }
   
           } else if (t > 3) {
             if (b) {
-              return [
-                {
-                  name: 'D', message: 'h ≤ ' + 1 * t + 'mm' + 1.0 + b + 'Max. 5mm', details: {
-                    id: 1.11,
-                    error: "Gennomløb",
-                    image: [ErrorOne_Eleven],
+              if(1 * t + 1 + b <= 5) {
+                return [
+                  {
+                    name: 'D', 
+                    message: 'h ≤ ' + 1 * t + 1.0 + b + 'mm', 
+                    details: {
+                      id: 1.11,
+                      error: "Gennomløb",
+                      image: [],
+                    }
                   }
-                },
-                {
-                  name: 'C', message: 'h ≤ ' + 1 * t + 'mm' + 0.6 + b + 'Max. 4mm', details: {
-                    id: 1.11,
-                    error: "Gennomløb",
-                    image: [ErrorOne_Eleven],
+                ]
+              }
+              else if(1 * t + 0.6 + b <= 4) {
+                return [
+                  {
+                    name: 'C',
+                    message: 'h ≤ ' + 1 * t + 0.6 + b + 'mm', 
+                    details: {
+                      id: 1.11,
+                      error: "Gennomløb",
+                      image: [],
+                    }
                   }
-                },
-                {
-                  name: 'B', message: 'h ≤ ' + 1 * t + 'mm' + 0.2 + b + 'Max. 3mm', details: {
-                    id: 1.11,
-                    error: "Gennomløb",
-                    image: [ErrorOne_Eleven],
+                ]
+              }
+              else if(1 * t + 0.2 + b <= 3) {
+                return [
+                  {
+                    name: 'B', 
+                    message: 'h ≤ ' + 1 * t + 0.2 + b + 'mm', 
+                    details: {
+                      id: 1.11,
+                      error: "Gennomløb",
+                      image: [],
+                    }
                   }
-                }
-              ]
+                ]
+              }
             } else {
               return [
-                { name: 'Fejl', message: "husk at fylde ud bredden" }
+                { 
+                  name: 'Fejl', 
+                  message: widthErrorText
+                }
               ]
             }
           }
@@ -616,57 +730,98 @@ const database = [
         id: '1.12',
         error: "Forkert overgang",
         type: ["BW", "FW"],
-        calc: (t, a, s, b) => {
-          if (t >= 0.5) {
-            if (weldingtype === 'BW') {
-              return [
-                {
-                  name: 'D', message: a + '≥' + 90 + 'grader', details: {
-                    id: 1.12,
-                    error: "Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
-                    image: [ErrorOne_TwelveBW],
-                  }
-                },
-                {
-                  name: 'C', message: a + '≥' + 110 + 'grader', details: {
-                    id: 1.12,
-                    error: "Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
-                    image: [ErrorOne_TwelveBW],
-                  }
-                },
-                {
-                  name: 'B', message: a + '≥' + 150 + 'grader', details: {
-                    id: 1.12,
-                    error: "Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
-                    image: [ErrorOne_TwelveBW],
-                  }
+        calc: (t, a, s, b, v) => {
+          if(v) {
+            if (t >= 0.5) {
+              if (weldingtype === 'BW') {
+                if(v >= 90) {
+                  return [
+                    {
+                      name: 'D', 
+                      message: v + '≥' + 90 + 'grader', 
+                      details: {
+                        id: 1.12,
+                        error: "Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
+                        image: [],
+                      }
+                    }
+                  ]
                 }
-              ]
-            } else if (weldingtype === 'FW') {
-              return [
-                {
-                  name: 'D', message: a + '≥' + 90 + 'grader', details: {
-                    id: 1.12,
-                    error: "Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
-                    image: [ErrorOne_TwelveFW],
-                  }
-                },
-                {
-                  name: 'C', message: a + '≥' + 100 + 'grader', details: {
-                    id: 1.12,
-                    error: "Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
-                    image: [ErrorOne_TwelveFW],
-                  }
-                },
-                {
-                  name: 'B', message: a + '≥' + 110 + 'grader', details: {
-                    id: 1.12,
-                    error: "Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
-                    image: [ErrorOne_TwelveFW],
-                  }
+                else if(v >= 110) {
+                  return [
+                    {
+                      name: 'C', 
+                      message: v + '≥' + 110 + 'grader', 
+                      details: {
+                        id: 1.12,
+                        error: "Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
+                        image: [],
+                      }
+                    }
+                  ]
                 }
-              ]
+                else if(v >= 150) {
+                  return [
+                    {
+                      name: 'B', 
+                      message: v + '≥' + 150 + 'grader', 
+                      details: {
+                        id: 1.12,
+                        error: "Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
+                        image: [],
+                      }
+                    }
+                  ]
+                }
+              } else if (weldingtype === 'FW') {
+                if(v >= 90) {
+                  return [
+                    {
+                      name: 'D', 
+                      message: v + '≥' + 90 + 'grader', 
+                      details: {
+                        id: 1.12,
+                        error: "Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
+                        image: [],
+                      }
+                    }
+                  ]
+                }
+                else if(v >= 110) {
+                  return [
+                    {
+                      name: 'C', 
+                      message: v + '≥' + 110 + 'grader', 
+                      details: {
+                        id: 1.12,
+                        error: "Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
+                        image: [],
+                      }
+                    }
+                  ]
+                }
+                else if(v >= 150) {
+                  return [
+                    {
+                      name: 'B', 
+                      message: v + '≥' + 150 + 'grader', 
+                      details: {
+                        id: 1.12,
+                        error: "Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
+                        image: [],
+                      }
+                    }
+                  ]
+                }
+              }
             }
+          } else {
+            return [
+              {
+                name: 'Fejl', 
+                message: angleErrorText
+              }
+            ]
           }
         },
       },
@@ -675,35 +830,44 @@ const database = [
         id: '1.13',
         error: "Overløbning af svejsemetal",
         type: ["BW"],
-        calc: (t, a, s, b) => {
+        calc: (t, a, s, b, v) => {
           if (t >= 0.5) {
             if (b) {
               return [
                 {
-                  name: 'D', message: 'h ≤ ' + 0.2 * b, details: {
+                  name: 'D',
+                  message: 'h ≤ ' + 0.2 * b, 
+                  details: {
                     id: 1.13,
                     error: "Overløbning af svejsemetal",
-                    image: [ErrorOne_Thirteen],
+                    image: [],
                   }
                 },
                 {
-                  name: 'C', message: 'Ikke tilladt', details: {
+                  name: 'C', 
+                  message: 'Ikke tilladt', 
+                  details: {
                     id: 1.13,
                     error: "Overløbning af svejsemetal",
-                    image: [ErrorOne_Thirteen],
+                    image: [],
                   }
                 },
                 {
-                  name: 'B', message: 'Ikke tilladt', details: {
+                  name: 'B',
+                  message: 'Ikke tilladt',
+                  details: {
                     id: 1.13,
                     error: "Overløbning af svejsemetal",
-                    image: [ErrorOne_Thirteen],
+                    image: [],
                   }
                 }
               ]
             } else {
               return [
-                { name: 'Fejl', message: "husk at fylde ud bredden", }
+                {
+                  name: 'Fejl', 
+                  message: widthErrorText 
+                }
               ]
             }
           }
@@ -714,56 +878,78 @@ const database = [
         id: '1.14',
         error: "Nedløbet svejsemetal eller Manglende opfyldning",
         type: ["FW", "BW"],
-        calc: (t) => {
+        calc: (t, a, s, b, v) => {
   
           if (t >= 0.5 && t <= 3) {
             return [
               {
-                name: 'D', message: 'Korte fejl: h ≤ ' + 0.25 * t + 'mm', details: {
+                name: 'D', 
+                message: 'Korte fejl: h ≤ ' + 0.25 * t + 'mm', 
+                details: {
                   id: 1.14,
                   error: "Nedøbet svejsemetal",
-                  image: [ErrorOne_Fourteen],
+                  image: [],
                 }
               },
               {
-                name: 'C', message: 'Korte fejl: h ≤ ' + 0.1 * t + 'mm', details: {
+                name: 'C', 
+                message: 'Korte fejl: h ≤ ' + 0.1 * t + 'mm', 
+                details: {
                   id: 1.14,
                   error: "Nedøbet svejsemetal",
-                  image: [ErrorOne_Fourteen],
+                  image: [],
                 }
               },
               {
-                name: 'B', message: 'Ikke tilladt', details: {
+                name: 'B', 
+                message: 'Ikke tilladt', 
+                details: {
                   id: 1.14,
                   error: "Nedøbet svejsemetal",
-                  image: [ErrorOne_Fourteen],
+                  image: [],
                 }
               }
             ]
           } else if (t > 3) {
-            return [
-              {
-                name: 'D', message: 'Korte fejl: h ≤ ' + 0.2 * t + 'Max. 2mm', details: {
-                  id: 1.14,
-                  error: "Manglende opfyldning",
-                  image: [ErrorOne_Fourteen],
+            if(0.2 * t <= 2) {
+              return [
+                {
+                  name: 'D', 
+                  message: 'Korte fejl: h ≤ ' + 0.2 * t + 'mm', 
+                  details: {
+                    id: 1.14,
+                    error: "Manglende opfyldning",
+                    image: [],
+                  }
                 }
-              },
-              {
-                name: 'C', message: 'Korte fejl: h ≤ ' + 0.1 * t + 'Max. 1mm', details: {
-                  id: 1.14,
-                  error: "Manglende opfyldning",
-                  image: [ErrorOne_Fourteen],
+              ]
+            }
+            else if(0.1 * t <= 1) {
+              return [
+                {
+                  name: 'C', 
+                  message: 'Korte fejl: h ≤ ' + 0.1 * t + 'mm', 
+                  details: {
+                    id: 1.14,
+                    error: "Manglende opfyldning",
+                    image: [],
+                  }
                 }
-              },
-              {
-                name: 'B', message: 'Korte fejl: h ≤ ' + 0.05 * t + 'Max. 0,5mm', details: {
-                  id: 1.14,
-                  error: "Manglende opfyldning",
-                  image: [ErrorOne_Fourteen],
-                }
-              },
-            ]
+              ]
+            }
+            else if(0.05 * t <= 0.5) {
+              return [
+                {
+                  name: 'B', 
+                  message: 'Korte fejl: h ≤ ' + 0.05 * t + 'mm', 
+                  details: {
+                    id: 1.14,
+                    error: "Manglende opfyldning",
+                    image: [],
+                  }
+                },
+              ]
+            }
           }
         },
       },
@@ -772,8 +958,7 @@ const database = [
         id: '1.15',
         error: "Gennom-brænding",
         type: ["BW"],
-        calc: (t, a, s, b) => {
-  
+        calc: (t, a, s, b, v) => {
           if (t >= 0.5) {
             return [
               {
@@ -782,7 +967,7 @@ const database = [
                 details: {
                   id: 1.15,
                   error: "Gennom-brænding",
-                  image: [ErrorOne_Fifthteen],
+                  image: [],
                 }
               },
             ]
@@ -794,38 +979,46 @@ const database = [
       id: '1.16',
       error: "Ulige store kateter(z-mål) ved kantsøm",
       type: ["FW"],
-      calc: (t, a, s, b) => {
-  
-        if (t >= 0.5) {
-          return [
-            {
-              name: 'D',
-              message: 'h ≤' + 2 * t + 'mm' + 0.2 * a,
-              details: {
-                id: 1.16,
-                error: "Ulige store kateter(z-mål) ved kantsøm",
-                image: [ErrorOne_Sixteen]
+      calc: (t, a, s, b, v) => {
+        if(a) {
+          if (t >= 0.5) {
+            return [
+              {
+                name: 'D',
+                message: 'h ≤' + 2 * t + 0.2 * a + 'mm',
+                details: {
+                  id: 1.16,
+                  error: "Ulige store kateter(z-mål) ved kantsøm",
+                  image: []
+                }
+              },
+              {
+                name: 'D',
+                message: 'h ≤' + 2 * t + 0.15 * a + 'mm',
+                details: {
+                  id: 1.16,
+                  error: "Ulige store kateter(z-mål) ved kantsøm",
+                  image: []
+                }
+              },
+              {
+                name: 'D',
+                message: 'h ≤' + 1.5 * t + 0.15 * a + 'mm',
+                details: {
+                  id: 1.16,
+                  error: "Ulige store kateter(z-mål) ved kantsøm",
+                  image: []
+                }
+              },
+            ]
+          } else {
+            return [
+              {
+                name: 'Fejl',
+                message: FWErrorText
               }
-            },
-            {
-              name: 'D',
-              message: 'h ≤' + 2 * t + 'mm' + 0.15 * a,
-              details: {
-                id: 1.16,
-                error: "Ulige store kateter(z-mål) ved kantsøm",
-                image: [ErrorOne_Sixteen]
-              }
-            },
-            {
-              name: 'D',
-              message: 'h ≤' + 1.5 * t + 'mm' + 0.15 * a + 'Max. 3mm',
-              details: {
-                id: 1.16,
-                error: "Ulige store kateter(z-mål) ved kantsøm",
-                image: [ErrorOne_Sixteen]
-              }
-            },
-          ]
+            ]
+          }
         }
       }
     },
@@ -834,56 +1027,78 @@ const database = [
         id: '1.17',
         error: "Indadhvælvning i roden",
         type: ["BW"],
-        calc: (t) => {
+        calc: (t, a, s, b, v) => {
   
           if (t >= 0.5 && t <= 3) {
             return [
               {
-                name: 'D', message: 'h ≤ ' + 0.2 + 'mm' + 1 + t, details: {
+                name: 'D', 
+                message: 'h ≤ ' + 0.2 + 1 + t + 'mm', 
+                details: {
                   id: 1.17,
                   error: "Indadhvælvning i roden",
-                  image: [ErrorOne_Seventeen],
+                  image: [],
                 }
               },
               {
-                name: 'C', message: 'Korte fejl: h ≤ ' + 0.1 * t + 'mm', details: {
+                name: 'C', 
+                message: 'Korte fejl: h ≤ ' + 0.1 * t + 'mm', 
+                details: {
                   id: 1.17,
                   error: "Indadhvælvning i roden",
-                  image: [ErrorOne_Seventeen],
+                  image: [],
                 }
               },
               {
-                name: 'B', message: 'Ikke tilladt', details: {
+                name: 'B', 
+                message: 'Ikke tilladt', 
+                details: {
                   id: 1.17,
                   error: "Indadhvælvning i roden",
-                  image: [ErrorOne_Seventeen],
+                  image: [],
                 }
               }
             ]
           } else if (t > 3) {
-            return [
-              {
-                name: 'D', message: 'Korte fejl: h ≤ ' + 0.2 * t + 'Max. 2mm', details: {
-                  id: 1.17,
-                  error: "Indadhvælvning i roden",
-                  image: [ErrorOne_Seventeen],
+            if(0.2 * t <= 2) {
+              return [
+                {
+                  name: 'D', 
+                  message: 'Korte fejl: h ≤ ' + 0.2 * t + 'mm', 
+                  details: {
+                    id: 1.17,
+                    error: "Indadhvælvning i roden",
+                    image: [],
+                  }
                 }
-              },
-              {
-                name: 'C', message: 'Korte fejl: h ≤ ' + 0.1 * t + 'Max. 1mm', details: {
-                  id: 1.17,
-                  error: "Indadhvælvning i roden",
-                  image: [ErrorOne_Seventeen],
+              ]
+            }
+            else if(0.1 * t <= 1) {
+              return [
+                {
+                  name: 'C', 
+                  message: 'Korte fejl: h ≤ ' + 0.1 * t + 'mm', 
+                  details: {
+                    id: 1.17,
+                    error: "Indadhvælvning i roden",
+                    image: [],
+                  }
                 }
-              },
-              {
-                name: 'B', message: 'Korte fejl: h ≤ ' + 0.05 * t + 'Max. 0,5mm', details: {
-                  id: 1.17,
-                  error: "Indadhvælvning i roden",
-                  image: [ErrorOne_Seventeen],
-                }
-              },
-            ]
+              ]
+            }
+            else if(0.05 * t <= 0.5) {
+              return [
+                {
+                  name: 'B', 
+                  message: 'Korte fejl: h ≤ ' + 0.05 * t + 'mm', 
+                  details: {
+                    id: 1.17,
+                    error: "Indadhvælvning i roden",
+                    image: [],
+                  }
+                },
+              ]
+            }
           }
         },
       },
@@ -892,7 +1107,7 @@ const database = [
         id: '1.18',
         error: "Porøsitet i rodvulst",
         type: ["BW"],
-        calc: (t, a, s, b) => {
+        calc: (t, a, s, b, v) => {
   
           if (t >= 0.5) {
             return [
@@ -929,7 +1144,7 @@ const database = [
         id: '1.19',
         error: "Fejl ved genstart",
         type: ["BW", "FW"],
-        calc: (t, a, s, b) => {
+        calc: (t, a, s, b, v) => {
   
           if (t >= 0.5) {
             return [
@@ -939,7 +1154,7 @@ const database = [
                 details: {
                   id: 1.19,
                   error: "Fejl ved genstart",
-                  image: [ErrorOne_Nineteen],
+                  image: [],
                 }
               },
               {
@@ -948,7 +1163,7 @@ const database = [
                 details: {
                   id: 1.19,
                   error: "Fejl ved genstart",
-                  image: [ErrorOne_Nineteen],
+                  image: [],
                 }
               },
               {
@@ -957,7 +1172,7 @@ const database = [
                 details: {
                   id: 1.19,
                   error: "Fejl ved genstart",
-                  image: [ErrorOne_Nineteen],
+                  image: [],
                 }
               },
             ]
@@ -969,61 +1184,86 @@ const database = [
         id: '1.20',
         error: "Utilstrækkeligt a-mål",
         type: ["FW"],
-        calc: (t, a) => {
-  
-          if (t >= 0.5 && t <= 3) {
-            return [
-              {
-                name: 'D', message: 'Korte fejl: h ≤ ' + 0.2 * t + 'mm' + 0.1 * a,
-                details: {
-                  id: 1.20,
-                  error: "Utilstrækkeligt a-mål",
-                  image: [ErrorOne_Twenty],
+        calc: (t, a, s, b, v) => {
+          if(a) {
+            if (t >= 0.5 && t <= 3) {
+              return [
+                {
+                  name: 'D',
+                  message: 'Korte fejl: h ≤ ' + 0.2 * t + 0.1 * a + 'mm',
+                  details: {
+                    id: 1.20,
+                    error: "Utilstrækkeligt a-mål",
+                    image: [],
+                  }
+                },
+                {
+                  name: 'C', 
+                  message: 'Korte fejl: h ≤ ' + 0.2 * t + 'mm',
+                  details: {
+                    id: 1.20,
+                    error: "Utilstrækkeligt a-mål",
+                    image: [],
+                  }
+                },
+                {
+                  name: 'B', 
+                  message: 'Ikke tilladt',
+                  details: {
+                    id: 1.20,
+                    error: "Utilstrækkeligt a-mål",
+                    image: [],
+                  }
                 }
-              },
-              {
-                name: 'C', message: 'Korte fejl: h ≤ ' + 0.2 * t + 'mm',
-                details: {
-                  id: 1.20,
-                  error: "Utilstrækkeligt a-mål",
-                  image: [ErrorOne_Twenty],
-                }
-              },
-              {
-                name: 'B', message: 'Ikke tilladt',
-                details: {
-                  id: 1.20,
-                  error: "Utilstrækkeligt a-mål",
-                  image: [ErrorOne_Twenty],
-                }
+              ]
+            } else if (t > 3) {
+              if(0.3 * t + 0.1 * a <= 2) {
+                return [
+                  {
+                    name: 'D', 
+                    message: 'Korte fejl: h ≤ ' + 0.3 * t + 0.1 * a + 'mm',
+                    details: {
+                      id: 1.20,
+                      error: "Utilstrækkeligt a-mål",
+                      image: [],
+                    }
+                  },
+                ]
               }
-            ]
-          } else if (t > 3) {
+              else if(0.3 * t + 0.1 * a <= 1) {
+                return [
+                  {
+                    name: 'C', 
+                    message: 'Korte fejl: h ≤ ' + 0.3 * t + 0.1 * a + 'mm',
+                    details: {
+                      id: 1.20,
+                      error: "Utilstrækkeligt a-mål",
+                      image: [],
+                    }
+                  },
+                ]
+              }
+              else {
+                return [
+                  {
+                    name: 'B', 
+                    message: 'Ikke tilladt',
+                    details: {
+                      id: 1.20,
+                      error: "Utilstrækkeligt a-mål",
+                      image: [],
+                    }
+                  },
+                ]
+              }
+            }
+          }
+          else {
             return [
               {
-                name: 'D', message: 'Korte fejl: h ≤ ' + 0.3 * t + 'mm' + 0.1 * a + 'Max. 2mm',
-                details: {
-                  id: 1.20,
-                  error: "Utilstrækkeligt a-mål",
-                  image: [ErrorOne_Twenty],
-                }
-              },
-              {
-                name: 'C', message: 'Korte fejl: h ≤ ' + 0.3 * t + 'mm' + 0.1 * a + 'Max. 1mm',
-                details: {
-                  id: 1.20,
-                  error: "Utilstrækkeligt a-mål",
-                  image: [ErrorOne_Twenty],
-                }
-              },
-              {
-                name: 'B', message: 'Ikke tilladt',
-                details: {
-                  id: 1.20,
-                  error: "Utilstrækkeligt a-mål",
-                  image: [ErrorOne_Twenty],
-                }
-              },
+                name: 'Fejl',
+                message: FWErrorText
+              }
             ]
           }
         },
@@ -1033,37 +1273,55 @@ const database = [
         id: '1.21',
         error: "Uforholdsmæssigt stort s-mål",
         type: ["FW"],
-        calc: (t, a, s, b) => {
-  
-          if (t >= 0.5) {
+        calc: (t, a, s, b, v) => {
+          if(a) {
+            if (t >= 0.5) {
+              if(1 * t + 0.2 * a <= 4) {
+                return [
+                  {
+                    name: 'D',
+                    message: 'h ≤' + 1 * t + 'mm' + 0.2 * a + 'Max. 4mm',
+                    details: {
+                      id: 1.21,
+                      error: "Uforholdsmæssigt stort s-mål",
+                      image: []
+                    }
+                  },
+                ]
+              }
+              else if(1 * t + 0.15 * a <= 3) {
+                return [
+                  {
+                    name: 'D',
+                    message: 'h ≤' + 1 * t + 'mm' + 0.15 * a + 'Max. 3mm',
+                    details: {
+                      id: 1.21,
+                      error: "Uforholdsmæssigt stort s-mål",
+                      image: []
+                    }
+                  },
+                ]
+              }
+              else {
+                return [
+                  {
+                    name: 'D',
+                    message: 'Tilladt',
+                    details: {
+                      id: 1.21,
+                      error: "Uforholdsmæssigt stort s-mål",
+                      image: []
+                    }
+                  },
+                ]
+              }
+            }
+          } else {
             return [
               {
-                name: 'D',
-                message: 'Tilladt',
-                details: {
-                  id: 1.21,
-                  error: "Uforholdsmæssigt stort s-mål",
-                  image: [ErrorOne_TwentyOne]
-                }
-              },
-              {
-                name: 'D',
-                message: 'h ≤' + 1 * t + 'mm' + 0.2 * a + 'Max. 4mm',
-                details: {
-                  id: 1.21,
-                  error: "Uforholdsmæssigt stort s-mål",
-                  image: [ErrorOne_TwentyOne]
-                }
-              },
-              {
-                name: 'D',
-                message: 'h ≤' + 1 * t + 'mm' + 0.15 * a + 'Max. 3mm',
-                details: {
-                  id: 1.21,
-                  error: "Uforholdsmæssigt stort s-mål",
-                  image: [ErrorOne_TwentyOne]
-                }
-              },
+                name: 'Fejl',
+                message: FWErrorText
+              }
             ]
           }
         }
@@ -1073,8 +1331,7 @@ const database = [
         id: '1.22',
         error: "Tændsår",
         type: ["BW", "FW"],
-        calc: (t, a, s, b) => {
-  
+        calc: (t, a, s, b, v) => {
           if (t >= 0.5) {
             return [
               {
@@ -1095,8 +1352,7 @@ const database = [
         id: '1.23',
         error: "Sprøjt",
         type: ["BW", "FW"],
-        calc: (t, a, s, b) => {
-  
+        calc: (t, a, s, b, v) => {
           if (t >= 0.5) {
             return [
               {
@@ -1139,48 +1395,54 @@ const database = [
       id: '2.6',
       error: '',
       type: ['FW', 'BW'],
-      calc: (t, a, s, b) => {
+      calc: (t, a, s, b, v) => {
         if(t >= 0.5) {
           if(weldingtype === 'FW') {
             if(0.4 * a <= 4) {
               return [
                 {
-                  name: 'D', message: 'h ≤ ' + 0.4 * a
+                  name: 'D', 
+                  message: 'h ≤ ' + 0.4 * a
                 }
               ]
             }
             else if(a <= 75) {
               return [
                 {
-                  name: 'D', message: 'l ≤ ' + a
+                  name: 'D', 
+                  message: 'l ≤ ' + a
                 }
               ]
             }
             else if(0.3 * a <= 3) {
               return [
                 {
-                  name: 'C', message: 'h ≤ ' + 0.3 * a
+                  name: 'C', 
+                  message: 'h ≤ ' + 0.3 * a
                 }
               ]
             }
             else if(a <= 50) {
               return [
                 {
-                  name: 'C', message: 'l ≤ ' + a
+                  name: 'C', 
+                  message: 'l ≤ ' + a
                 }
               ]
             }
             else if(0.2 * a <= 2) {
               return [
                 {
-                  name: 'B', message: 'h ≤ ' + 0.2 * a
+                  name: 'B', 
+                  message: 'h ≤ ' + 0.2 * a
                 }
               ]
             }
             else if(a <= 25) {
               return [
                 {
-                  name: 'B', message: 'l ≤ ' + a
+                  name: 'B', 
+                  message: 'l ≤ ' + a
                 }
               ]
             }
@@ -1189,28 +1451,32 @@ const database = [
             if(s <= 75) {
               return [
                 {
-                  name: 'D, C & B', message: 'l ≤ ' + s
+                  name: 'D, C & B', 
+                  message: 'l ≤ ' + s
                 }
               ]
             }
             else if(0.4 * s <= 4) {
               return [
                 {
-                  name: 'D', message: 'h ≤ ' + 0.4 * s
+                  name: 'D', 
+                  message: 'h ≤ ' + 0.4 * s
                 }
               ]
             }
             else if(0.3 * s <= 3) {
               return [
                 {
-                  name: 'C', message: 'h ≤ ' + 0.3 * s
+                  name: 'C', 
+                  message: 'h ≤ ' + 0.3 * s
                 }
               ]
             }
             else if(0.2 * s <= 2) {
               return [
                 {
-                  name: 'B', message: 'h ≤ ' + 0.2 * s
+                  name: 'B', 
+                  message: 'h ≤ ' + 0.2 * s
                 }
               ]
             }
@@ -1223,14 +1489,16 @@ const database = [
       id: '2.7',
       error: '',
       type: ['FW', 'BW'],
-      calc: (t, a, s, b) => {
+      calc: (t, a, s, b, v) => {
         if(t >= 0.5) {
           return [
             {
-              name: 'D', message: 'Ikke tillads, dog kun korte fejl, se forklaring'
+              name: 'D', 
+              message: 'Ikke tillads, dog kun korte fejl, se forklaring'
             },
             {
-              name: 'C & B', message: 'Ikke tilladt'
+              name: 'C & B', 
+              message: 'Ikke tilladt'
             }
           ]
         }
@@ -1241,38 +1509,45 @@ const database = [
       id: '2.8',
       error: '',
       type: ['FW', 'BW'],
-      calc: (t, a, s, b) => {
+      calc: (t, a, s, b, v) => {
         if(t >= 0.5 && t <= 3) {
           return [
             {
-              name: 'D', message: 'h eller l ≤ ' + 0.2 * t, details: {
+              name: 'D', 
+              message: 'h eller l ≤ ' + 0.2 * t, 
+              details: {
                 id: '',
                 error: '',
                 image: []
               }
             },
             {
-              name: 'C & B', message: 'Ikke tilladt'
+              name: 'C & B', 
+              message: 'Ikke tilladt'
             }
           ]
         } else if(t > 3) {
             if(0.2 * t <= 2) {
               return [
                 {
-                  name: 'D', message: 'h eller l ≤ ' + 0.2 * t, details: {
+                  name: 'D', 
+                  message: 'h eller l ≤ ' + 0.2 * t, 
+                  details: {
                     id: '',
                     error: '',
                     image: []
                   }
                 },
                 {
-                  name: 'C & B', message: 'Ikke tilladt'
+                  name: 'C & B', 
+                  message: 'Ikke tilladt'
                 }
               ]
             } else {
               return [
                 {
-                  name: 'C & B', message: 'Ikke tilladt'
+                  name: 'C & B', 
+                  message: 'Ikke tilladt'
                 }
               ]
             }
@@ -1284,12 +1559,15 @@ const database = [
       id: '2.9',
       error: '',
       type: ['FW', 'BW'],
-      calc: (t, a, s, b) => {
+      calc: (t, a, s, b, v) => {
         if(t > 0.5) {
           if(weldingtype === 'FW') {
             if(!a) {
               return [
-                {name: 'Fejl', message: 'Du skal udfylde A-mål'}
+                {
+                  name: 'Fejl', 
+                  message: FWErrorText
+                }
               ]
             } else {
               if(0.4 * a <= 4) {
@@ -1372,7 +1650,10 @@ const database = [
           else if(weldingtype === 'BW') {
             if(!s) {
               return [
-                {name: 'Fejl', message: 'Du skal udfylde stumsøm tykkelse'}
+                {
+                  name: 'Fejl', 
+                  message: BWErrorText
+                }
               ]
             } else {
               if(0.4 * s <= 4) {
@@ -1460,13 +1741,14 @@ const database = [
         id: '2.10',
         error: '',
         type: ['FW', 'BW'],
-        calc: (t, a, s, b) => {
+        calc: (t, a, s, b, v) => {
             if(t >= 0.5) {
                 if(weldingtype === 'FW') {
                     if(!a) {
                         return [
                             {
-                                name: 'Fejl', message: 'Du skal udfylde A-mål'
+                                name: 'Fejl', 
+                                message: FWErrorText
                             }
                         ]
                     } else {
@@ -1514,7 +1796,9 @@ const database = [
                 else if(weldingtype === 'BW') {
                     if(!s) {
                         return [
-                            {name: 'Fejl', message: 'Du skal udfylde stumsøms tykkelse'}
+                            {name: 'Fejl',
+                            message: BWErrorText
+                          }
                         ]
                     } else {
                         if(0.4 * s <= 4) {
@@ -1566,7 +1850,7 @@ const database = [
         id: '2.11',
         error: '',
         type: ['FW', 'BW'],
-        calc: (t, a, s, b) => {
+        calc: (t, a, s, b, v) => {
             if(t >= 0.5) {
                 return [
                     {
@@ -1581,13 +1865,13 @@ const database = [
         id: '2.12',
         error: '',
         type: ['FW', 'BW'],
-        calc: (t, a, s, b) => {
+        calc: (t, a, s, b, v) => {
             if(t >= 0.5) {
                 if(weldingtype === 'FW') {
                     if(!a) {
                         return [
                             {
-                                name: 'Fejl', message: 'Du skal udfylde A-mål'
+                                name: 'Fejl', message: FWErrorText
                             }
                         ]
                     } else {
@@ -1649,26 +1933,32 @@ const database = [
         id: '3.1 Kun for plader',
         error: '',
         type: ['BW'],
-        calc: (t, a, s, b) => {
+        calc: (t, a, s, b, v) => {
             if(weldingtype === "BW") {
                 if(t >= 0.5 && t <= 3) {
                     return [
                         {
-                            name: 'D', message: 'h ≤ ' + 0.2 + 0.25 * t, details: {
+                            name: 'D', 
+                            message: 'h ≤ ' + 0.2 + 0.25 * t, 
+                            details: {
                                 id: '',
                                 error: '',
                                 image: []
                             }
                         },
                         {
-                            name: 'C', message: 'h ≤ ' + 0.2 + 0.15 * t, details: {
+                            name: 'C', 
+                            message: 'h ≤ ' + 0.2 + 0.15 * t, 
+                            details: {
                                 id: '',
                                 error: '',
                                 image: []
                             }
                         },
                         {
-                            name: 'B', message: 'h ≤ ' + 0.2 + 0.1 * t, details: {
+                            name: 'B', 
+                            message: 'h ≤ ' + 0.2 + 0.1 * t, 
+                            details: {
                                 id: '',
                                 error: '',
                                 image: []
@@ -1679,7 +1969,9 @@ const database = [
                     if (0.2 + 0.25 * t <= 5) {
                         return [
                             {
-                                name: 'D', message: 'h ≤ ' + 0.2 + 0.25 * t, details: {
+                                name: 'D', 
+                                message: 'h ≤ ' + 0.2 + 0.25 * t, 
+                                details: {
                                     id: '',
                                     error: '',
                                     image: []
@@ -1690,7 +1982,9 @@ const database = [
                     else if (0.2 + 0.15 * t <= 4) {
                         return [
                             {
-                                name: 'C', message: 'h ≤ ' + 0.2 + 0.15 * t, details: {
+                                name: 'C', 
+                                message: 'h ≤ ' + 0.2 + 0.15 * t, 
+                                details: {
                                     id: '',
                                     error: '',
                                     image: []
@@ -1701,7 +1995,9 @@ const database = [
                     else if (0.2 + 0.1 * t <= 3) {
                         return [
                             {
-                                name: 'B', message: 'h ≤ ' + 0.2 + 0.1 * t, details: {
+                                name: 'B', 
+                                message: 'h ≤ ' + 0.2 + 0.1 * t, 
+                                details: {
                                     id: '',
                                     error: '',
                                     image: []
@@ -1718,13 +2014,15 @@ const database = [
         id: '3.1 Kun for rør',
         error: '',
         type: ['BW'],
-        calc: (t, a, s, b) => {
+        calc: (t, a, s, b, v) => {
             if(weldingtype === "BW") {
                 if(t > 0.5) {
                   if(0.5 * t <= 4) {
                     return [
                       {
-                          name: 'D', message: 'h ≤ ' + 0.5 * t, details: {
+                          name: 'D',
+                          message: 'h ≤ ' + 0.5 * t, 
+                          details: {
                               id: '',
                               error: '',
                               image: []
@@ -1735,7 +2033,9 @@ const database = [
                   else if(0.5 * t <= 3) {
                     return [
                       {
-                          name: 'C', message: 'h ≤ ' + 0.5 * t, details: {
+                          name: 'C', 
+                          message: 'h ≤ ' + 0.5 * t, 
+                          details: {
                               id: '',
                               error: '',
                               image: []
@@ -1746,7 +2046,9 @@ const database = [
                   else if(0.5 * t <= 2) {
                     return [
                       {
-                          name: 'B', message: 'h ≤ ' + 0.5 * t, details: {
+                          name: 'B', 
+                          message: 'h ≤ ' + 0.5 * t, 
+                          details: {
                               id: '',
                               error: '',
                               image: []
@@ -1763,25 +2065,31 @@ const database = [
         id: '3.2',
         error: '',
         type: ['FW'],
-        calc: (t, a, s, b) => {
+        calc: (t, a, s, b, v) => {
             if(t >= 0.5 && t <= 3) {
                 return [
                     {
-                        name: 'D', message: 'h ≤ ' + 0.5 + 0.1 * a, details: {
+                        name: 'D', 
+                        message: 'h ≤ ' + 0.5 + 0.1 * a, 
+                        details: {
                             id: '',
                             error: '',
                             image: [],
                         }
                     },
                     {
-                        name: 'C', message: 'h ≤ ' + 0.5 + 0.1 * a, details: {
+                        name: 'C', 
+                        message: 'h ≤ ' + 0.5 + 0.1 * a, 
+                        details: {
                             id: '',
                             error: '',
                             image: [],
                         }
                     },
                     {
-                        name: 'B', message: 'h ≤ ' + 0.2 + 0.1 * a, details: {
+                        name: 'B', 
+                        message: 'h ≤ ' + 0.2 + 0.1 * a, 
+                        details: {
                             id: '',
                             error: '',
                             image: [],
@@ -1792,7 +2100,9 @@ const database = [
                 if(1 + 0.3 * a <= 4) {
                     return [
                         {
-                            name: 'D', message: 'h ≤ ' + 1 + 0.3 * a, details: {
+                            name: 'D', 
+                            message: 'h ≤ ' + 1 + 0.3 * a, 
+                            details: {
                                 id: '',
                                 error: '',
                                 image: [],
@@ -1802,7 +2112,9 @@ const database = [
                 } else if (0.5 + 0.2 * a <= 3) {
                     return [
                         {
-                            name: 'C', message: 'h ≤ ' + 0.5 + 0.2 * a, details: {
+                            name: 'C', 
+                            message: 'h ≤ ' + 0.5 + 0.2 * a, 
+                            details: {
                                 id: '',
                                 error: '',
                                 image: [],
@@ -1812,7 +2124,9 @@ const database = [
                 } else if (0.2 + 0.1 * a <= 2) {
                     return [
                         {
-                            name: 'B', message: 'h ≤ ' + 0.2 + 0.1 * a, details: {
+                            name: 'B', 
+                            message: 'h ≤ ' + 0.2 + 0.1 * a, 
+                            details: {
                                 id: '',
                                 error: '',
                                 image: [],
@@ -1825,15 +2139,4 @@ const database = [
     }
 ];
 
-const chooseErrors = (welding) => {
-    if(welding === 'FW') {
-        const filteredDatabase = database.filter(elements => elements.type.includes('FW'));
-        return filteredDatabase;
-    }
-    else if(welding === 'BW') {
-        const filteredDatabase = database.filter(elements => elements.type.includes('BW'));
-        return filteredDatabase;
-    }
-}
-
-export default chooseErrors;
+export default database;
