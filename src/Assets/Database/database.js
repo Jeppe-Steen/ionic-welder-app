@@ -1,3 +1,26 @@
+import ErrorOne_One from '../Assets/errorTypes/fejltype1_1.png';
+import ErrorOne_Two from '../Assets/errorTypes/fejltype1_2.png';
+import ErrorOne_Three from '../Assets/errorTypes/fejltype1_3.png';
+import ErrorOne_Four from '../Assets/errorTypes/fejltype1_4.png';
+import ErrorOne_Five from '../Assets/errorTypes/fejltype1_5.png';
+import ErrorOne_Six from '../Assets/errorTypes/fejltype1_6.png';
+import ErrorOne_SevenFW from '../Assets/errorTypes/fejltype1_7FW.png';
+import ErrorOne_SevenBW from '../Assets/errorTypes/fejltype1_7BW.png';
+import ErrorOne_Eight from '../Assets/errorTypes/fejltype1_8.png';
+import ErrorOne_Nine from '../Assets/errorTypes/fejltype1_9.png';
+import ErrorOne_Ten from '../Assets/errorTypes/fejltype1_10.png';
+import ErrorOne_Eleven from '../Assets/errorTypes/fejltype1_11.png';
+import ErrorOne_TwelveBW from '../Assets/errorTypes/fejltype1_12BW.png';
+import ErrorOne_TwelveFW from '../Assets/errorTypes/fejltype1_12FW.png';
+import ErrorOne_Thirteen from '../Assets/errorTypes/fejltype1_13.png';
+import ErrorOne_Fourteen from '../Assets/errorTypes/fejltype1_14.png';
+import ErrorOne_Fifthteen from '../Assets/errorTypes/fejltype1_15.png';
+import ErrorOne_Sixteen from '../Assets/errorTypes/fejltype1_16.png';
+import ErrorOne_Seventeen from '../Assets/errorTypes/fejltype1_17.png';
+import ErrorOne_Nineteen from '../Assets/errorTypes/fejltype1_19.png';
+import ErrorOne_Twenty from '../Assets/errorTypes/fejltype1_20.png';
+import ErrorOne_TwentyOne from '../Assets/errorTypes/fejltype1_21.png';
+
 // kun for at fjerne fejlenen
 const weldingtype = 'BW';
 
@@ -1071,7 +1094,327 @@ const database = [
           }
         }
       },
-
+    // 2.6
+    {
+      id: '2.6',
+      error: '',
+      type: ['FW', 'BW'],
+      calc: (t, a, s, b) => {
+        if(t >= 0.5) {
+          if(weldingtype === 'FW') {
+            if(0.4 * a <= 4) {
+              return [
+                {
+                  name: 'D', message: 'h ≤ ' + 0.4 * a
+                }
+              ]
+            }
+            else if(a <= 75) {
+              return [
+                {
+                  name: 'D', message: 'l ≤ ' + a
+                }
+              ]
+            }
+            else if(0.3 * a <= 3) {
+              return [
+                {
+                  name: 'C', message: 'h ≤ ' + 0.3 * a
+                }
+              ]
+            }
+            else if(a <= 50) {
+              return [
+                {
+                  name: 'C', message: 'l ≤ ' + a
+                }
+              ]
+            }
+            else if(0.2 * a <= 2) {
+              return [
+                {
+                  name: 'B', message: 'h ≤ ' + 0.2 * a
+                }
+              ]
+            }
+            else if(a <= 25) {
+              return [
+                {
+                  name: 'B', message: 'l ≤ ' + a
+                }
+              ]
+            }
+          } 
+          else if (weldingtype === 'BW') {
+            if(s <= 75) {
+              return [
+                {
+                  name: 'D, C & B', message: 'l ≤ ' + s
+                }
+              ]
+            }
+            else if(0.4 * s <= 4) {
+              return [
+                {
+                  name: 'D', message: 'h ≤ ' + 0.4 * s
+                }
+              ]
+            }
+            else if(0.3 * s <= 3) {
+              return [
+                {
+                  name: 'C', message: 'h ≤ ' + 0.3 * s
+                }
+              ]
+            }
+            else if(0.2 * s <= 2) {
+              return [
+                {
+                  name: 'B', message: 'h ≤ ' + 0.2 * s
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    // 2.7
+    {
+      id: '2.7',
+      error: '',
+      type: ['FW', 'BW'],
+      calc: (t, a, s, b) => {
+        if(t >= 0.5) {
+          return [
+            {
+              name: 'D', message: 'Ikke tillads, dog kun korte fejl, se forklaring'
+            },
+            {
+              name: 'C & B', message: 'Ikke tilladt'
+            }
+          ]
+        }
+      }
+    },
+    // 2.8
+    {
+      id: '2.8',
+      error: '',
+      type: ['FW', 'BW'],
+      calc: (t, a, s, b) => {
+        if(t >= 0.5 && t <= 3) {
+          return [
+            {
+              name: 'D', message: 'h eller l ≤ ' + 0.2 * t, details: {
+                id: '',
+                error: '',
+                image: []
+              }
+            },
+            {
+              name: 'C & B', message: 'Ikke tilladt'
+            }
+          ]
+        } else if(t > 3) {
+            if(0.2 * t <= 2) {
+              return [
+                {
+                  name: 'D', message: 'h eller l ≤ ' + 0.2 * t, details: {
+                    id: '',
+                    error: '',
+                    image: []
+                  }
+                },
+                {
+                  name: 'C & B', message: 'Ikke tilladt'
+                }
+              ]
+            } else {
+              return [
+                {
+                  name: 'C & B', message: 'Ikke tilladt'
+                }
+              ]
+            }
+        }
+      }
+    },
+    // 2.9
+    {
+      id: '2.9',
+      error: '',
+      type: ['FW', 'BW'],
+      calc: (t, a, s, b) => {
+        if(t > 0.5) {
+          if(weldingtype === 'FW') {
+            if(!a) {
+              return [
+                {name: 'Fejl', message: 'Du skal udfylde A-mål'}
+              ]
+            } else {
+              if(0.4 * a <= 4) {
+                return [
+                  {
+                    name: 'D',
+                    message: 'h ≤ ' + 0.4 * a,
+                    details: {
+                      id: '',
+                      error: '',
+                      image: []
+                    }
+                  }
+                ]
+              } else if(a <= 75) {
+                return [
+                  {
+                    name: 'D',
+                    message: 'l ≤ ' + a,
+                    details: {
+                      id: '',
+                      error: '',
+                      image: []
+                    }
+                  },
+                ]
+              }
+              else if(0.3 * a <= 3) {
+                return [
+                  {
+                    name: 'C',
+                    message: 'h ≤ ' + 0.3 * a,
+                    details: {
+                      id: '',
+                      error: '',
+                      image: []
+                    }
+                  }
+                ]
+              } else if(a <= 50) {
+                return [
+                  {
+                    name: 'C',
+                    message: 'l ≤ ' + a,
+                    details: {
+                      id: '',
+                      error: '',
+                      image: []
+                    }
+                  },
+                ]
+              }
+              else if(0.2 * a <= 2) {
+                return [
+                  {
+                    name: 'B',
+                    message: 'h ≤ ' + 0.2 * a,
+                    details: {
+                      id: '',
+                      error: '',
+                      image: []
+                    }
+                  }
+                ]
+              } else if(a <= 25) {
+                return [
+                  {
+                    name: 'B',
+                    message: 'l ≤ ' + a,
+                    details: {
+                      id: '',
+                      error: '',
+                      image: []
+                    }
+                  },
+                ]
+              }
+            }
+          }
+          else if(weldingtype === 'BW') {
+            if(!s) {
+              return [
+                {name: 'Fejl', message: 'Du skal udfylde stumsøm tykkelse'}
+              ]
+            } else {
+              if(0.4 * s <= 4) {
+                return [
+                  {
+                    name: 'D',
+                    message: 'h ≤ ' + 0.4 * s,
+                    details: {
+                      id: '',
+                      error: '',
+                      image: []
+                    }
+                  }
+                ]
+              } else if(s <= 75) {
+                return [
+                  {
+                    name: 'D',
+                    message: 'l ≤ ' + s,
+                    details: {
+                      id: '',
+                      error: '',
+                      image: []
+                    }
+                  }
+                ]
+              }
+              else if(0.3 * s <= 3) {
+                return [
+                  {
+                    name: '',
+                    message: 'h ≤ ' + 0.3 * s,
+                    details: {
+                      id: '',
+                      error: '',
+                      image: []
+                    }
+                  }
+                ]
+              } else if(s <= 50) {
+                return [
+                  {
+                    name: '',
+                    message: 'l ≤ ' + s,
+                    details: {
+                      id: '',
+                      error: '',
+                      image: []
+                    }
+                  },
+                ]
+              }
+              else if(0.2 * s <= 2) {
+                return [
+                  {
+                    name: '',
+                    message: 'h ≤ ' + 0.2 * s,
+                    details: {
+                      id: '',
+                      error: '',
+                      image: []
+                    }
+                  },
+                ]
+              } else if(s <= 25) {
+                return [
+                  {
+                    name: '',
+                    message: 'l ≤ ' + s,
+                    details: {
+                      id: '',
+                      error: '',
+                      image: []
+                    }
+                  },
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
     // 2.10
     {
         id: '2.10',
@@ -1090,7 +1433,9 @@ const database = [
                         if(0.4 * a <= 4) {
                             return [
                                 {
-                                    name: '', message: '', details: {
+                                    name: 'D',
+                                    message: 'h ≤ ' + 0.4 * a,
+                                    details: {
                                         id: '',
                                         error: '',
                                         image: []
@@ -1101,7 +1446,9 @@ const database = [
                         else if(0.3 * a <= 3) {
                             return [
                                 {
-                                    name: '', message: '', details: {
+                                    name: 'C',
+                                    message: 'h ≤ ' + 0.3 * a,
+                                    details: {
                                         id: '',
                                         error: '',
                                         image: []
@@ -1112,7 +1459,9 @@ const database = [
                         else if(0.2 * a <= 2) {
                             return [
                                 {
-                                    name: '', message: '', details: {
+                                    name: 'B',
+                                    message: 'h ≤ ' + 0.2 * a,
+                                    details: {
                                         id: '',
                                         error: '',
                                         image: []
@@ -1131,7 +1480,9 @@ const database = [
                         if(0.4 * s <= 4) {
                             return [
                                 {
-                                    name: '', message: '', details: {
+                                    name: 'D',
+                                    message: 'h ≤ ' + 0.4 * s,
+                                    details: {
                                         id: '',
                                         error: '',
                                         image: []
@@ -1142,7 +1493,9 @@ const database = [
                         else if(0.3 * s <= 3) {
                             return [
                                 {
-                                    name: '', message: '', details: {
+                                    name: 'C',
+                                    message: 'h ≤ ' + 0.3 * s,
+                                    details: {
                                         id: '',
                                         error: '',
                                         image: []
@@ -1153,7 +1506,9 @@ const database = [
                         else if(0.2 * s <= 2) {
                             return [
                                 {
-                                    name: '', message: '', details: {
+                                    name: 'B',
+                                    message: 'h ≤ ' + 0.2 * s,
+                                    details: {
                                         id: '',
                                         error: '',
                                         image: []
@@ -1199,7 +1554,9 @@ const database = [
                         if (0.4 * a <= 4) {
                             return [
                                 {
-                                    name: '', message: '', details: {
+                                    name: 'D',
+                                    message: 'h ≤ ' + 0.4 * a,
+                                    details: {
                                         id: '',
                                         error: '',
                                         image: [],
@@ -1225,7 +1582,9 @@ const database = [
                         if (0.4 * s <= 4) {
                             return [
                                 {
-                                    name: '', message: '', details: {
+                                    name: 'D',
+                                    message: 'h ≤ ' + 0.4 * s ,
+                                    details: {
                                         id: '',
                                         error: '',
                                         image: [],
@@ -1255,21 +1614,21 @@ const database = [
                 if(t >= 0.5 && t <= 3) {
                     return [
                         {
-                            name: '', message: '', details: {
+                            name: 'D', message: 'h ≤ ' + 0.2 + 0.25 * t, details: {
                                 id: '',
                                 error: '',
                                 image: []
                             }
                         },
                         {
-                            name: '', message: '', details: {
+                            name: 'C', message: 'h ≤ ' + 0.2 + 0.15 * t, details: {
                                 id: '',
                                 error: '',
                                 image: []
                             }
                         },
                         {
-                            name: '', message: '', details: {
+                            name: 'B', message: 'h ≤ ' + 0.2 + 0.1 * t, details: {
                                 id: '',
                                 error: '',
                                 image: []
@@ -1280,7 +1639,7 @@ const database = [
                     if (0.2 + 0.25 * t <= 5) {
                         return [
                             {
-                                name: '', message: '', details: {
+                                name: 'D', message: 'h ≤ ' + 0.2 + 0.25 * t, details: {
                                     id: '',
                                     error: '',
                                     image: []
@@ -1291,7 +1650,7 @@ const database = [
                     else if (0.2 + 0.15 * t <= 4) {
                         return [
                             {
-                                name: '', message: '', details: {
+                                name: 'C', message: 'h ≤ ' + 0.2 + 0.15 * t, details: {
                                     id: '',
                                     error: '',
                                     image: []
@@ -1302,7 +1661,7 @@ const database = [
                     else if (0.2 + 0.1 * t <= 3) {
                         return [
                             {
-                                name: '', message: '', details: {
+                                name: 'B', message: 'h ≤ ' + 0.2 + 0.1 * t, details: {
                                     id: '',
                                     error: '',
                                     image: []
@@ -1322,29 +1681,39 @@ const database = [
         calc: (t, a, s, b) => {
             if(weldingtype === "BW") {
                 if(t > 0.5) {
+                  if(0.5 * t <= 4) {
                     return [
-                        {
-                            name: '', message: '', details: {
-                                id: '',
-                                error: '',
-                                image: []
-                            }
-                        },
-                        {
-                            name: '', message: '', details: {
-                                id: '',
-                                error: '',
-                                image: []
-                            }
-                        },
-                        {
-                            name: '', message: '', details: {
-                                id: '',
-                                error: '',
-                                image: []
-                            }
-                        }
+                      {
+                          name: 'D', message: 'h ≤ ' + 0.5 * t, details: {
+                              id: '',
+                              error: '',
+                              image: []
+                          }
+                      }
                     ]
+                  }
+                  else if(0.5 * t <= 3) {
+                    return [
+                      {
+                          name: 'C', message: 'h ≤ ' + 0.5 * t, details: {
+                              id: '',
+                              error: '',
+                              image: []
+                          }
+                      }
+                    ]
+                  }
+                  else if(0.5 * t <= 2) {
+                    return [
+                      {
+                          name: 'B', message: 'h ≤ ' + 0.5 * t, details: {
+                              id: '',
+                              error: '',
+                              image: []
+                          }
+                      }
+                    ]
+                  }
                 }
             }
         }
@@ -1358,21 +1727,21 @@ const database = [
             if(t >= 0.5 && t <= 3) {
                 return [
                     {
-                        name: '', message: '', details: {
+                        name: 'D', message: 'h ≤ ' + 0.5 + 0.1 * a, details: {
                             id: '',
                             error: '',
                             image: [],
                         }
                     },
                     {
-                        name: '', message: '', details: {
+                        name: 'C', message: 'h ≤ ' + 0.5 + 0.1 * a, details: {
                             id: '',
                             error: '',
                             image: [],
                         }
                     },
                     {
-                        name: '', message: '', details: {
+                        name: 'B', message: 'h ≤ ' + 0.2 + 0.1 * a, details: {
                             id: '',
                             error: '',
                             image: [],
@@ -1383,7 +1752,7 @@ const database = [
                 if(1 + 0.3 * a <= 4) {
                     return [
                         {
-                            name: '', message: '', details: {
+                            name: 'D', message: 'h ≤ ' + 1 + 0.3 * a, details: {
                                 id: '',
                                 error: '',
                                 image: [],
@@ -1393,7 +1762,7 @@ const database = [
                 } else if (0.5 + 0.2 * a <= 3) {
                     return [
                         {
-                            name: '', message: '', details: {
+                            name: 'C', message: 'h ≤ ' + 0.5 + 0.2 * a, details: {
                                 id: '',
                                 error: '',
                                 image: [],
@@ -1403,7 +1772,7 @@ const database = [
                 } else if (0.2 + 0.1 * a <= 2) {
                     return [
                         {
-                            name: '', message: '', details: {
+                            name: 'B', message: 'h ≤ ' + 0.2 + 0.1 * a, details: {
                                 id: '',
                                 error: '',
                                 image: [],
@@ -1416,7 +1785,7 @@ const database = [
     }
 ];
 
-const chooseErrors = (welding, t, a, s, b) => {
+const chooseErrors = (welding) => {
     if(welding === 'FW') {
         const filteredDatabase = database.filter(elements => elements.type.includes('FW'));
         return filteredDatabase;
