@@ -780,45 +780,48 @@ const database = [
     error: "Forkert overgang",
     type: ["BW", "FW"],
     calc: (t, a, s, b, v) => {
-      if (v) {
-        if (t >= 0.5) {
-          if (weldingtype === 'BW') {
-            if (v >= 90) {
-              return [
-                {
-                  name: 'D',
-                  message: v + '≥' + 90 + 'grader',
-                  details: {
-                    id: 1.12,
-                    error: "Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
-                    image: [],
+      if (t >= 0.5 && t <= 3) {
+        if (v) {
+          if (t >= 0.5) {
+            if (weldingtype === 'BW') {
+              if (v >= 90) {
+                return [
+                  {
+                    name: 'D',
+                    message: v + '≥' + 90 + 'grader',
+                    details: {
+                      id: 1.12,
+                      error: "Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
+                      image: [],
+                    }
                   }
-                }
-              ]
-            }
-            else if (v >= 110) {
-              return [
-                {
-                  name: 'C',
-                  message: v + '≥' + 110 + 'grader',
-                  details: {
-                    id: 1.12,
-                    error: "Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
-                    image: [],
+                ]
+              }
+              else if (v >= 110) {
+                return [
+                  {
+                    name: 'C',
+                    message: v + '≥' + 110 + 'grader',
+                    details: {
+                      id: 1.12,
+                      error: "Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
+                      image: [],
+                    }
                   }
-                }
-              ]
-            }
-            else if (v >= 150) {
-              return [
-                {
-                  name: 'B',
-                  message: v + '≥' + 150 + 'grader',
-                  details: {
-                    id: 1.12,
-                    error: "Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
-                    image: [],
+                ]
+              }
+              else if (v >= 150) {
+                return [
+                  {
+                    name: 'B',
+                    message: v + '≥' + 150 + 'grader',
+                    details: {
+                      id: 1.12,
+                      error: "Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
+                      image: [],
+                    }
                   }
+<<<<<<< HEAD
                 }
               ]
             } else {
@@ -844,33 +847,49 @@ const database = [
                     id: 1.12,
                     error: "Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
                     image: [],
+=======
+                ]
+              }
+            } else if (weldingtype === 'FW') {
+              if (v >= 90) {
+                return [
+                  {
+                    name: 'D',
+                    message: v + '≥' + 90 + 'grader',
+                    details: {
+                      id: 1.12,
+                      error: "Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
+                      image: [],
+                    }
+>>>>>>> 42d961c6021b9b4668eed9a340866710690c6f7a
                   }
-                }
-              ]
-            }
-            else if (v >= 110) {
-              return [
-                {
-                  name: 'C',
-                  message: v + '≥' + 110 + 'grader',
-                  details: {
-                    id: 1.12,
-                    error: "Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
-                    image: [],
+                ]
+              }
+              else if (v >= 110) {
+                return [
+                  {
+                    name: 'C',
+                    message: v + '≥' + 110 + 'grader',
+                    details: {
+                      id: 1.12,
+                      error: "Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
+                      image: [],
+                    }
                   }
-                }
-              ]
-            }
-            else if (v >= 150) {
-              return [
-                {
-                  name: 'B',
-                  message: v + '≥' + 150 + 'grader',
-                  details: {
-                    id: 1.12,
-                    error: "Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
-                    image: [],
+                ]
+              }
+              else if (v >= 150) {
+                return [
+                  {
+                    name: 'B',
+                    message: v + '≥' + 150 + 'grader',
+                    details: {
+                      id: 1.12,
+                      error: "Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
+                      image: [],
+                    }
                   }
+<<<<<<< HEAD
                 }
               ]
             } else {
@@ -885,21 +904,25 @@ const database = [
                   }
                 }
               ]
+=======
+                ]
+              }
+>>>>>>> 42d961c6021b9b4668eed9a340866710690c6f7a
             }
           }
+        } else {
+          return [
+            {
+              name: 'Fejl',
+              message: angleErrorText,
+              details: {
+                id: '',
+                error: '',
+                image: [],
+              }
+            }
+          ]
         }
-      } else {
-        return [
-          {
-            name: 'Fejl',
-            message: angleErrorText,
-            details: {
-              id: '',
-              error: '',
-              image: [],
-            }
-          }
-        ]
       }
     },
   },
@@ -1276,8 +1299,9 @@ const database = [
     error: "Utilstrækkeligt a-mål",
     type: ["FW"],
     calc: (t, a, s, b, v) => {
-      if (a) {
-        if (t >= 0.5 && t <= 3) {
+      if
+        (t >= 0.5 && t <= 3) {
+        if (a) {
           return [
             {
               name: 'D',
@@ -1348,19 +1372,20 @@ const database = [
             ]
           }
         }
-      }
-      else {
-        return [
-          {
-            name: 'Fejl',
-            message: FWErrorText,
-            details: {
-              id: '',
-              error: '',
-              image: [],
+
+        else {
+          return [
+            {
+              name: 'Fejl',
+              message: FWErrorText,
+              details: {
+                id: '',
+                error: '',
+                image: [],
+              }
             }
-          }
-        ]
+          ]
+        }
       }
     },
   },
@@ -1370,8 +1395,8 @@ const database = [
     error: "Uforholdsmæssigt stort s-mål",
     type: ["FW"],
     calc: (t, a, s, b, v) => {
-      if (a) {
-        if (t >= 0.5) {
+      if (t >= 0.5) {
+        if (a) {
           if (1 * t + 0.2 * a <= 4) {
             return [
               {
@@ -1412,18 +1437,19 @@ const database = [
             ]
           }
         }
-      } else {
-        return [
-          {
-            name: 'Fejl',
-            message: FWErrorText,
-            details: {
-              id: '',
-              error: '',
-              image: [],
+        else {
+          return [
+            {
+              name: 'Fejl',
+              message: FWErrorText,
+              details: {
+                id: '',
+                error: '',
+                image: [],
+              }
             }
-          }
-        ]
+          ]
+        }
       }
     }
   },
