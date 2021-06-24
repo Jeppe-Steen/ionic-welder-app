@@ -3,21 +3,9 @@
   "name": "Techcollege Svejseberegner",
   "icons": [
     {
-      "src": "svejseberegner192x192.png",
+      "src": "maskable_icon_x192.png",
       "type": "image/png",
-      "sizes": "194x194",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "svejseberegner512x512.png",
-      "type": "image/png",
-      "sizes": "514x514",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "svejseberegner1024x1024.png",
-      "type": "image/png",
-      "sizes": "1026x1026",
+      "sizes": "192x192",
       "purpose": "any maskable"
     }
   ],
