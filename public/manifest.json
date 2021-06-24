@@ -3,19 +3,19 @@
   "name": "Techcollege Svejseberegner",
   "icons": [
     {
-      "src": "assets/icon/svejseberegner192x192.png",
+      "src": "svejseberegner192x192.png",
       "type": "image/png",
       "sizes": "194x194",
       "purpose": "any"
     },
     {
-      "src": "assets/icon/svejseberegner512x512.png",
+      "src": "svejseberegner512x512.png",
       "type": "image/png",
       "sizes": "514x514",
       "purpose": "maskable"
     },
     {
-      "src": "assets/icon/svejseberegner1024x1024.png",
+      "src": "svejseberegner1024x1024.png",
       "type": "image/png",
       "sizes": "1026x1026",
       "purpose": "any"
