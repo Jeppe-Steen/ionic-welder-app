@@ -5,13 +5,13 @@
     {
       "src": "assets/icon/svejseberegner.png",
       "type": "image/png",
-      "sizes": "2400x2400",
+      "sizes": "1024x1024",
       "purpose": "maskable"
     },
     {
       "src": "assets/icon/svejseberegner.png",
       "type": "image/png",
-      "sizes": "2400x2400",
+      "sizes": "1024x1024",
       "purpose": "any"
     }
   ],
