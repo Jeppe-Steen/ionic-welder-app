@@ -6,19 +6,19 @@
       "src": "svejseberegner192x192.png",
       "type": "image/png",
       "sizes": "194x194",
-      "purpose": "any"
+      "purpose": "any maskable"
     },
     {
       "src": "svejseberegner512x512.png",
       "type": "image/png",
       "sizes": "514x514",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     },
     {
       "src": "svejseberegner1024x1024.png",
       "type": "image/png",
       "sizes": "1026x1026",
-      "purpose": "any"
+      "purpose": "any maskable"
     }
   ],
   "start_url": ".",
