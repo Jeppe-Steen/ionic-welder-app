@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import './Home.css';
 import Logo from "../img/logo.svg"
 import Techcollege from "../img/techcollege.svg"
-import database from '../Assets/Database/database';
+import callFunction from '../Assets/Database/database';
 
 const Home: React.FC<any> = () => {
 
@@ -15,8 +15,6 @@ const Home: React.FC<any> = () => {
   const [angle, setAngle] = useState(Number);
   const [modalOpen, setModalOpen] = useState(false);
   const [choosenElement, setChoosenElement] = useState({ name: '', message: '', details: { id: Number, error: '', image: [] } });
-
-  let usedArray = database;
 
   const handleThickness = (value: any) => { setThickness(value.currentTarget.value) };
   const handlebwThickness = (value: any) => { setbwThickness(value.currentTarget.value) };
@@ -31,9 +29,12 @@ const Home: React.FC<any> = () => {
     console.log(choosenElement);
   }
 
+  let usedArray = callFunction(weldingtype);
+
   useEffect(() => {
-    usedArray = database.filter(elements => elements.type.includes(weldingtype));
+    usedArray = usedArray.filter(elements => elements.type.includes(weldingtype));
     console.log(angle)
+
   }, [weldingtype, thickness, fwThickness, bwThickness, width, angle])
 
   return (
