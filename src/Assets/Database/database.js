@@ -821,33 +821,6 @@ const database = [
                       image: [],
                     }
                   }
-<<<<<<< HEAD
-                }
-              ]
-            } else {
-              return [
-                {
-                  name: 'D, C & B',
-                  message: 'Ikke tilladt',
-                  details: {
-                    id: 1.12,
-                    error: '',
-                    image: [],
-                  }
-                }
-              ]
-            }
-          } else if (weldingtype === 'FW') {
-            if (v >= 90) {
-              return [
-                {
-                  name: 'D',
-                  message: v + '≥' + 90 + 'grader',
-                  details: {
-                    id: 1.12,
-                    error: "Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
-                    image: [],
-=======
                 ]
               }
             } else if (weldingtype === 'FW') {
@@ -861,7 +834,6 @@ const database = [
                       error: "Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
                       image: [],
                     }
->>>>>>> 42d961c6021b9b4668eed9a340866710690c6f7a
                   }
                 ]
               }
@@ -889,25 +861,8 @@ const database = [
                       image: [],
                     }
                   }
-<<<<<<< HEAD
-                }
-              ]
-            } else {
-              return [
-                {
-                  name: 'D, C & B',
-                  message: 'Ikke tilladt',
-                  details: {
-                    id: 1.12,
-                    error: '',
-                    image: [],
-                  }
-                }
-              ]
-=======
                 ]
               }
->>>>>>> 42d961c6021b9b4668eed9a340866710690c6f7a
             }
           }
         } else {
