@@ -1,17 +1,18 @@
 {
-  "short_name": "Ionic App",
-  "name": "My Ionic App",
+  "short_name": "Svejseberegner",
+  "name": "Techcollege Svejseberegner",
   "icons": [
     {
-      "src": "assets/icon/favicon.png",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "assets/icon/svejseberegner.png",
+      "type": "image/png",
+      "sizes": "2400x2400",
+      "purpose": "maskable"
     },
     {
-      "src": "assets/icon/icon.png",
+      "src": "assets/icon/svejseberegner.png",
       "type": "image/png",
-      "sizes": "512x512",
-      "purpose": "maskable"
+      "sizes": "2400x2400",
+      "purpose": "any"
     }
   ],
   "start_url": ".",
