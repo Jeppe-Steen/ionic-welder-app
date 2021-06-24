@@ -32,8 +32,8 @@ const Home: React.FC<any> = () => {
   }
 
 useEffect(() => {
-  usedArray = database.filter(elements => elements.type.includes(weldingtype))
-
+  usedArray = database.filter(elements => elements.type.includes(weldingtype));
+  console.log(angle)
 }, [weldingtype, thickness, fwThickness, bwThickness, width, angle])
 
   return (

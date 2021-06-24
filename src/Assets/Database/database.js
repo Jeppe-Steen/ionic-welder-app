@@ -821,6 +821,18 @@ const database = [
                   }
                 }
               ]
+            } else {
+              return [
+                {
+                  name: 'D, C & B',
+                  message: 'Ikke tilladt',
+                  details: {
+                    id: 1.12,
+                    error: '',
+                    image: [],
+                  }
+                }
+              ]
             }
           } else if (weldingtype === 'FW') {
             if (v >= 90) {
@@ -857,6 +869,18 @@ const database = [
                   details: {
                     id: 1.12,
                     error: "Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
+                    image: [],
+                  }
+                }
+              ]
+            } else {
+              return [
+                {
+                  name: 'D, C & B',
+                  message: 'Ikke tilladt',
+                  details: {
+                    id: 1.12,
+                    error: '',
                     image: [],
                   }
                 }
