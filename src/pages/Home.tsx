@@ -15,9 +15,9 @@ const Home: React.FC<any> = () => {
   const [angle, setAngle] = useState(Number);
   const [modalOpen, setModalOpen] = useState(false);
   const [choosenElement, setChoosenElement] = useState({ name: '', message: '', details: { id: Number, error: '', image: [] } });
-  
+
   let usedArray = database;
-  
+
   const handleThickness = (value: any) => { setThickness(value.currentTarget.value) };
   const handlebwThickness = (value: any) => { setbwThickness(value.currentTarget.value) };
   const handlefwThickness = (value: any) => { setfwThickness(value.currentTarget.value) };
@@ -31,10 +31,10 @@ const Home: React.FC<any> = () => {
     console.log(choosenElement);
   }
 
-useEffect(() => {
-  usedArray = database.filter(elements => elements.type.includes(weldingtype));
-  console.log(angle)
-}, [weldingtype, thickness, fwThickness, bwThickness, width, angle])
+  useEffect(() => {
+    usedArray = database.filter(elements => elements.type.includes(weldingtype));
+    console.log(angle)
+  }, [weldingtype, thickness, fwThickness, bwThickness, width, angle])
 
   return (
     <IonPage className="mainpage">
