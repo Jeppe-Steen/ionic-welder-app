@@ -15,8 +15,8 @@ const Home: React.FC<any> = () => {
   const [angle, setAngle] = useState(Number);
   const [modalOpen, setModalOpen] = useState(false);
   const [choosenElement, setChoosenElement] = useState({ name: '', message: '', details: { id: Number, error: '', image: [] } });
-
-  const [filteredDatabase, setFilteredDatabase] = useState([]);
+  
+  let usedArray = database;
   
   const handleThickness = (value: any) => { setThickness(value.currentTarget.value) };
   const handlebwThickness = (value: any) => { setbwThickness(value.currentTarget.value) };
@@ -32,7 +32,8 @@ const Home: React.FC<any> = () => {
   }
 
 useEffect(() => {
-  setFilteredDatabase(database);
+  usedArray = database.filter(elements => elements.type.includes(weldingtype))
+
 }, [weldingtype, thickness, fwThickness, bwThickness, width, angle])
 
   return (
@@ -87,7 +88,7 @@ useEffect(() => {
             </IonText>
           </IonToolbar>
         </IonHeader>
-        {weldingtype && filteredDatabase && filteredDatabase.map((item: any, index: any) => {
+        {weldingtype && usedArray && usedArray.map((item: any, index: any) => {
           // hvis ikke calc functionen har en value, så skal der ikke vises noget
           if (!item.calc(thickness, fwThickness, bwThickness, width)) {
             return (
