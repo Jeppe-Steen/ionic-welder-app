@@ -54,12 +54,13 @@ const Home: React.FC<any> = () => {
     <IonPage className="mainpage">
       <IonHeader>
         <IonToolbar>
-          <IonTitle className="Title-Techcollege">
-            <img src={Techcollege} alt=""></img>
-          </IonTitle>
           <IonTitle className="Title-logo">
             <img className="Logo" src={Logo} alt=""></img>
           </IonTitle>
+          <IonTitle className="Title-Techcollege">
+            <img src={Techcollege} alt=""></img>
+          </IonTitle>
+
 
         </IonToolbar>
       </IonHeader>
@@ -87,7 +88,7 @@ const Home: React.FC<any> = () => {
             <IonInput className="Input" onIonChange={(e) => { handlebwThickness(e) }} placeholder="Stumpsøm tykkelse i mm"></IonInput>
           </IonItem>
           <IonItem className="Ion-items">
-            <IonLabel className="Input-label">Brede</IonLabel>
+            <IonLabel className="Input-label">Bredde</IonLabel>
             <IonInput className="Input" onIonChange={(e) => { handleWidth(e) }} placeholder="Bredde i mm"></IonInput>
           </IonItem>
           { /*<IonItem className="Ion-items">
@@ -97,7 +98,7 @@ const Home: React.FC<any> = () => {
         </IonList>
 
         <IonHeader>
-          <IonToolbar>
+          <IonToolbar className="Ion-toolbar">
             <IonText className="Ion-errors">
               Fejlmeddelelser
             </IonText>
@@ -111,12 +112,12 @@ const Home: React.FC<any> = () => {
             )
           } else {
             return (
-              <IonList key={index}>
-                <IonItemDivider>
-                  <IonLabel>
+              <IonList key={index} className="Ion-list">
+                <IonItemDivider className="Ion-divider">
+                  <IonLabel className="Ion-label">
                     {item.id}
                   </IonLabel>
-                  <IonText>
+                  <IonText className="Ion-text">
                     {item.error}
                   </IonText>
                 </IonItemDivider>
@@ -124,10 +125,10 @@ const Home: React.FC<any> = () => {
                 {item.calc(thickness, fwThickness, bwThickness, width) && item.calc(thickness, fwThickness, bwThickness, width, angle).map((element: any, index: any) => {
                   return (
                     <IonItem onClick={() => { handleChooseElement(element) }} className="show" key={index}>
-                      <IonGrid>
+                      <IonGrid className="Ion-col">
                         <IonRow>
-                          <IonCol>{element.name}</IonCol>
-                          <IonCol>{element.message}</IonCol>
+                          <IonCol className="Ion-col">{element.name}</IonCol>
+                          <IonCol className="Ion-col">{element.message}</IonCol>
                         </IonRow>
                       </IonGrid>
                     </IonItem>
@@ -143,7 +144,7 @@ const Home: React.FC<any> = () => {
           <IonModal isOpen={modalOpen}>
             <IonHeader>
               <IonToolbar>
-                <IonTitle>{choosenElement.details.id} {choosenElement.details.error}</IonTitle>
+                <IonTitle>{choosenElement.details.id} <br />{choosenElement.details.error}</IonTitle>
               </IonToolbar>
             </IonHeader>
             {choosenElement.details.image.map((item: any, index: any) => {
@@ -151,7 +152,7 @@ const Home: React.FC<any> = () => {
                 <img key={index} src={item} alt="" />
               )
             })}
-            <IonButton expand="full" onClick={(e) => { setModalOpen(false) }}>Close Modal</IonButton>
+            <IonButton expand="full" onClick={(e) => { setModalOpen(false) }}>luk fane</IonButton>
           </IonModal>
         }
       </IonContent>

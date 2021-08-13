@@ -35,4 +35,43 @@
 
 .show {
     display: flex;
+    border-bottom: 1px #cecece solid;
+    padding: 10px 0px 10px 0px !important;
+}
+.Ion-toolbar {
+    border-bottom: 2px #cecece solid;
+    border-top: 2px #323232 solid;
+}
+.Ion-errors {
+    margin-left: 15px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+
+.Ion-divider {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 15px
+}
+
+.Ion-label {
+    margin-top: 0 !important;
+    font-size: 1.2rem !important;
+    color: #fff !important;
+}
+
+.Ion-text {
+    font-size: 1rem !important;
+    color: #fff;
+}
+
+.Ion-list {
+    padding: 0;
+    border-bottom: 2px solid #CECECE !important;
+}
+
+.Ion-col {
+    padding: 0;
 }
