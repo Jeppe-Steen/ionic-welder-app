@@ -90,10 +90,10 @@ const Home: React.FC<any> = () => {
             <IonLabel className="Input-label">Brede</IonLabel>
             <IonInput className="Input" onIonChange={(e) => { handleWidth(e) }} placeholder="Bredde i mm"></IonInput>
           </IonItem>
-          <IonItem className="Ion-items">
+          { /*<IonItem className="Ion-items">
             <IonLabel className="Input-label">Vinkel</IonLabel>
             <IonInput className="Input" onIonChange={(e) => { handleAngle(e) }} placeholder="Vinkel i grader"></IonInput>
-          </IonItem>
+          </IonItem>*/ }
         </IonList>
 
         <IonHeader>
