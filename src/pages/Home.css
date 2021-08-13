@@ -30,3 +30,7 @@
 .show {
     display: flex;
 }
+
+.Ion-errors {
+margin-left: 15px;
+}

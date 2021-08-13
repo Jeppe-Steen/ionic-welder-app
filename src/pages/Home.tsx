@@ -15,9 +15,9 @@ const Home: React.FC<any> = () => {
   const [angle, setAngle] = useState(Number);
   const [modalOpen, setModalOpen] = useState(false);
   const [choosenElement, setChoosenElement] = useState({ name: '', message: '', details: { id: Number, error: '', image: [] } });
-  
+
   let usedArray = database;
-  
+
   const handleThickness = (value: any) => { setThickness(value.currentTarget.value) };
   const handlebwThickness = (value: any) => { setbwThickness(value.currentTarget.value) };
   const handlefwThickness = (value: any) => { setfwThickness(value.currentTarget.value) };
@@ -31,13 +31,26 @@ const Home: React.FC<any> = () => {
     console.log(choosenElement);
   }
 
-useEffect(() => {
-  usedArray = database.filter(elements => elements.type.includes(weldingtype));
-  console.log(angle)
-}, [weldingtype, thickness, fwThickness, bwThickness, width, angle])
+  //darktheme enable
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+  toggleDarkTheme(prefersDark.matches);
+
+  // Listen for changes to the prefers-color-scheme media query
+  prefersDark.addListener((mediaQuery) => toggleDarkTheme(mediaQuery.matches));
+
+  // Add or remove the "dark" class based on if the media query matches
+  function toggleDarkTheme(shouldAdd: any) {
+    document.body.classList.toggle('dark', shouldAdd);
+  }
+
+  useEffect(() => {
+    usedArray = database.filter(elements => elements.type.includes(weldingtype));
+    console.log(angle)
+  }, [weldingtype, thickness, fwThickness, bwThickness, width, angle])
 
   return (
-    <IonPage className="mainpage">
+    <IonPage color="light" className="mainpage">
       <IonHeader>
         <IonToolbar>
           <IonTitle className="Title-logo">
@@ -83,7 +96,7 @@ useEffect(() => {
 
         <IonHeader>
           <IonToolbar>
-            <IonText>
+            <IonText className="Ion-errors">
               Fejlmeddelelser
             </IonText>
           </IonToolbar>
