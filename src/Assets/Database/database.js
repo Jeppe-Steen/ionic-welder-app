@@ -896,18 +896,6 @@ const callFunction = (weldingtype) => {
               }
             ]
           }    
-        } else {
-          return [
-            {
-              name: 'D, C & B',
-              message: 'Ikke tilladt',
-              details: {
-                id: 1.12,
-                error: "Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
-                image: [],
-              }
-            }
-          ]
         }
       },
     },
