@@ -1,9 +1,15 @@
 .Title-logo {
-    height: 70px !important;
+    height: 80px !important;
     background-color: black !important;
     display: grid !important;
     justify-content: center !important;
     align-items: center !important;
+    font-family:Stencil;
+}
+
+.Logo {
+    font-family:Stencil;
+    margin-top: 10px;
 }
 
 .Title-logo img{

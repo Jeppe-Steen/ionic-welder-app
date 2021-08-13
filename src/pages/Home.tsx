@@ -54,12 +54,13 @@ const Home: React.FC<any> = () => {
     <IonPage className="mainpage">
       <IonHeader>
         <IonToolbar>
-          <IonTitle className="Title-logo">
-            <img src={Logo} alt=""></img>
-          </IonTitle>
           <IonTitle className="Title-Techcollege">
             <img src={Techcollege} alt=""></img>
           </IonTitle>
+          <IonTitle className="Title-logo">
+            <img className="Logo" src={Logo} alt=""></img>
+          </IonTitle>
+
         </IonToolbar>
       </IonHeader>
 
