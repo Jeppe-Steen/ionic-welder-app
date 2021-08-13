@@ -29,16 +29,29 @@ const Home: React.FC<any> = () => {
     console.log(choosenElement);
   }
 
+  //darktheme enable
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+  toggleDarkTheme(prefersDark.matches);
+
+  // Listen for changes to the prefers-color-scheme media query
+  prefersDark.addListener((mediaQuery) => toggleDarkTheme(mediaQuery.matches));
+
+  // Add or remove the "dark" class based on if the media query matches
+  function toggleDarkTheme(shouldAdd: any) {
+    document.body.classList.toggle('dark', shouldAdd);
+  }
+
   let usedArray = callFunction(weldingtype);
+
 
   useEffect(() => {
     usedArray = usedArray.filter(elements => elements.type.includes(weldingtype));
     console.log(angle)
-
   }, [weldingtype, thickness, fwThickness, bwThickness, width, angle])
 
   return (
-    <IonPage className="mainpage">
+    <IonPage color="light" className="mainpage">
       <IonHeader>
         <IonToolbar>
           <IonTitle className="Title-logo">
@@ -84,7 +97,7 @@ const Home: React.FC<any> = () => {
 
         <IonHeader>
           <IonToolbar>
-            <IonText>
+            <IonText className="Ion-errors">
               Fejlmeddelelser
             </IonText>
           </IonToolbar>
