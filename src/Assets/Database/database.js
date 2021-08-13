@@ -73,7 +73,7 @@ const callFunction = (weldingtype) => {
               return [
                 {
                   name: 'D',
-                  message: 'd ≤ ' + 0.3 * a + 'mm',
+                  message: 'd ≤ ' + (0.3 * a) + 'mm',
                   details: {
                     id: 1.3,
                     error: "Overfladepore",
@@ -117,7 +117,7 @@ const callFunction = (weldingtype) => {
               return [
                 {
                   name: 'D',
-                  message: 'd ≤ ' + 0.3 * s + 'mm',
+                  message: 'd ≤ ' + (0.3 * s) + 'mm',
                   details: {
                     id: 1.3,
                     error: "Overfladepore",
@@ -164,7 +164,7 @@ const callFunction = (weldingtype) => {
                 return [
                   {
                     name: 'D',
-                    message: 'd ≤ ' + 0.3 * a + 'mm',
+                    message: 'd ≤ ' + (0.3 * a) + 'mm',
                     details: {
                       id: 1.3,
                       error: "Overfladepore",
@@ -176,7 +176,7 @@ const callFunction = (weldingtype) => {
                 return [
                   {
                     name: 'C',
-                    message: 'd ≤ ' + 0.2 * a + 'mm',
+                    message: 'd ≤ ' + (0.2 * a) + 'mm',
                     details: {
                       id: 1.3,
                       error: "Overfladepore",
@@ -217,7 +217,7 @@ const callFunction = (weldingtype) => {
                 return [
                   {
                     name: 'D',
-                    message: 'd ≤ ' + 0.3 * s + 'mm',
+                    message: 'd ≤ ' + (0.3 * s) + 'mm',
                     details: {
                       id: 1.3,
                       error: "Overfladepore",
@@ -229,7 +229,7 @@ const callFunction = (weldingtype) => {
                 return [
                   {
                     name: 'C',
-                    message: 'd ≤ ' + 0.2 * s + 'mm',
+                    message: 'd ≤ ' + (0.2 * s) + 'mm',
                     details: {
                       id: 1.3,
                       error: "Overfladepore",
@@ -253,7 +253,7 @@ const callFunction = (weldingtype) => {
             }
           }
         }
-      },
+      }
     },
     // 1.4
     {
@@ -265,7 +265,7 @@ const callFunction = (weldingtype) => {
           return [
             {
               name: 'D',
-              message: 'h ≤ ' + 0.2 * t + 'mm',
+              message: 'h ≤ ' + (0.2 * t) + 'mm',
               details: {
                 id: 1.4,
                 error: "Åben Kraterpore",
@@ -295,7 +295,7 @@ const callFunction = (weldingtype) => {
           return [
             {
               name: 'D',
-              message: 'h ≤ ' + 0.2 * t + 'mm',
+              message: 'h ≤ ' + (0.2 * t) + 'mm',
               details: {
                 id: 1.4,
                 error: "Åben Kraterpore",
@@ -304,7 +304,7 @@ const callFunction = (weldingtype) => {
             },
             {
               name: 'C',
-              message: 'h ≤ ' + 0.1 * t + 'mm',
+              message: 'h ≤ ' + (0.1 * t) + 'mm',
               details: {
                 id: 1.4,
                 error: "Åben Kraterpore",
@@ -321,8 +321,8 @@ const callFunction = (weldingtype) => {
               }
             }
           ]
-        }
-      },
+        } 
+      }
     },
     // 1.5
     {
@@ -355,7 +355,7 @@ const callFunction = (weldingtype) => {
           return [
             {
               name: 'D',
-              message: 'h ≤' + 0.2 * t + 'mm',
+              message: 'h ≤' + (0.2 * t) + 'mm',
               details: {
                 id: 1.6,
                 error: "Rodfejl",
@@ -394,7 +394,7 @@ const callFunction = (weldingtype) => {
           return [
             {
               name: 'D',
-              message: 'Korte fejl: h ≤ ' + 0.2 * t + 'mm',
+              message: 'Korte fejl: h ≤ ' + (0.2 * t) + 'mm',
               details: {
                 id: 1.7,
                 error: "Sidekærv",
@@ -403,7 +403,7 @@ const callFunction = (weldingtype) => {
             },
             {
               name: 'C',
-              message: 'Korte fejl: h ≤ ' + 0.1 * t + 'mm',
+              message: 'Korte fejl: h ≤ ' + (0.1 * t) + 'mm',
               details: {
                 id: 1.7,
                 error: "Sidekærv",
@@ -424,7 +424,7 @@ const callFunction = (weldingtype) => {
           if (0.2 * t <= 1) {
             return [{
               name: 'D',
-              message: 'h ≤ ' + 0.2 * t + 'mm',
+              message: 'h ≤ ' + (0.2 * t) + 'mm',
               details: {
                 id: 1.7,
                 error: "Sidekærv",
@@ -435,7 +435,7 @@ const callFunction = (weldingtype) => {
           else if (0.1 * t <= 0.5) {
             return [{
               name: 'C',
-              message: 'h ≤ ' + 0.1 * t + 'mm',
+              message: 'h ≤ ' + (0.1 * t) + 'mm',
               details: {
                 id: 1.7,
                 error: "Sidekærv",
@@ -447,7 +447,7 @@ const callFunction = (weldingtype) => {
             return [
               {
                 name: 'B',
-                message: 'h ≤ ' + 0.5 * t + 'mm',
+                message: 'h ≤ ' + (0.5 * t) + 'mm',
                 details: {
                   id: 1.7,
                   error: "Sidekærv",
@@ -469,7 +469,7 @@ const callFunction = (weldingtype) => {
           return [
             {
               name: 'D',
-              message: 'Korte fejl: h ≤ ' + 0.2 * t + 0.1 + "mm",
+              message: 'Korte fejl: h ≤ ' + (0.2 * t + 0.1).toFixed(1) + "mm",
               details: {
                 id: 1.8,
                 error: "Krympefuge(rodkærv)",
@@ -478,7 +478,7 @@ const callFunction = (weldingtype) => {
             },
             {
               name: 'C',
-              message: 'Korte fejl: h ≤ ' + 0.1 * t + 'mm',
+              message: 'Korte fejl: h ≤ ' + (0.1 * t) + 'mm',
               details: {
                 id: 1.8,
                 error: "Krympefuge(rodkærv)",
@@ -500,7 +500,7 @@ const callFunction = (weldingtype) => {
             return [
               {
                 name: 'D',
-                message: 'Korte fejl: h ≤ ' + 0.2 * t + 'mm',
+                message: 'Korte fejl: h ≤ ' + (0.2 * t) + 'mm',
                 details: {
                   id: 1.8,
                   error: "Krympefuge(rodkærv)",
@@ -513,7 +513,7 @@ const callFunction = (weldingtype) => {
             return [
               {
                 name: 'C',
-                message: 'Korte fejl: h ≤ ' + 0.1 * t + 'mm',
+                message: 'Korte fejl: h ≤ ' + (0.1 * t) + 'mm',
                 details: {
                   id: 1.8,
                   error: "Krympefuge(rodkærv)",
@@ -526,7 +526,7 @@ const callFunction = (weldingtype) => {
             return [
               {
                 name: 'B',
-                message: 'Korte fejl: h ≤ ' + 0.05 * t + 'mm',
+                message: 'Korte fejl: h ≤ ' + (0.05 * t) + 'mm',
                 details: {
                   id: 1.8,
                   error: "Krympefuge(rodkærv)",
@@ -550,7 +550,16 @@ const callFunction = (weldingtype) => {
               return [
                 {
                   name: 'D',
-                  message: 'h ≤ ' + 1 * t + 0.25 + b + 'mm',
+                  message: 'h ≤ ' + (1 * t + 0.25 + b) + 'mm',
+                  details: {
+                    id: 1.9,
+                    error: "Oversvulst(stumpsøm)",
+                    image: [],
+                  }
+                },
+                {
+                  name: 'C & B',
+                  message: 'Ikke tilladt',
                   details: {
                     id: 1.9,
                     error: "Oversvulst(stumpsøm)",
@@ -563,7 +572,16 @@ const callFunction = (weldingtype) => {
               return [
                 {
                   name: 'C',
-                  message: 'h ≤ ' + 1 * t + 0.15 + b + 'mm',
+                  message: 'h ≤ ' + (1 * t + 0.15 + b) + 'mm',
+                  details: {
+                    id: 1.9,
+                    error: "Oversvulst(stumpsøm)",
+                    image: [],
+                  }
+                },
+                {
+                  name: 'D & B',
+                  message: 'Ikke Tilladt',
                   details: {
                     id: 1.9,
                     error: "Oversvulst(stumpsøm)",
@@ -576,7 +594,16 @@ const callFunction = (weldingtype) => {
               return [
                 {
                   name: 'B',
-                  message: 'h ≤ ' + 1 * t + 0.1 + b + 'mm',
+                  message: 'h ≤ ' + (1 * t + 0.1 + b) + 'mm',
+                  details: {
+                    id: 1.9,
+                    error: "Oversvulst(stumpsøm)",
+                    image: [],
+                  }
+                },
+                {
+                  name: 'D & C',
+                  message: 'Ikke Tilladt',
                   details: {
                     id: 1.9,
                     error: "Oversvulst(stumpsøm)",
@@ -613,10 +640,19 @@ const callFunction = (weldingtype) => {
               return [
                 {
                   name: 'D',
-                  message: 'h ≤ ' + 1 * t + 0.25 + b + 'mm',
+                  message: 'h ≤ ' + (1 * t + 0.25 + b) + 'mm',
                   details: {
                     id: 1.10,
                     error: "Konveks sømoverflade(kantsøm)",
+                    image: [],
+                  }
+                },
+                {
+                  name: 'B & C',
+                  message: 'Ikke Tilladt',
+                  details: {
+                    id: 1.10,
+                    error: "Oversvulst(stumpsøm)",
                     image: [],
                   }
                 }
@@ -626,10 +662,19 @@ const callFunction = (weldingtype) => {
               return [
                 {
                   name: 'C',
-                  message: 'h ≤ ' + 1 * t + 0.15 + b + 'mm',
+                  message: 'h ≤ ' + (1 * t + 0.15 + b) + 'mm',
                   details: {
                     id: 1.10,
                     error: "Konveks sømoverflade(kantsøm)",
+                    image: [],
+                  }
+                },
+                {
+                  name: 'D & B',
+                  message: 'Ikke Tilladt',
+                  details: {
+                    id: 1.10,
+                    error: "Oversvulst(stumpsøm)",
                     image: [],
                   }
                 }
@@ -639,10 +684,19 @@ const callFunction = (weldingtype) => {
               return [
                 {
                   name: 'B',
-                  message: 'h ≤ ' + 1 * t + 0.1 + b + 'mm',
+                  message: 'h ≤ ' + (1 * t + 0.1 + b) + 'mm',
                   details: {
                     id: 1.10,
                     error: "Konveks sømoverflade(kantsøm)",
+                    image: [],
+                  }
+                },
+                {
+                  name: 'D & C',
+                  message: 'Ikke Tilladt',
+                  details: {
+                    id: 1.10,
+                    error: "Oversvulst(stumpsøm)",
                     image: [],
                   }
                 }
@@ -677,7 +731,7 @@ const callFunction = (weldingtype) => {
             return [
               {
                 name: 'D',
-                message: 'h ≤ ' + 1 * t + 0.6 + b + 'mm',
+                message: 'h ≤ ' + (1 * t + 0.6 + b) + 'mm',
                 details: {
                   id: 1.11,
                   error: "Gennomløb",
@@ -686,7 +740,7 @@ const callFunction = (weldingtype) => {
               },
               {
                 name: 'C',
-                message: 'h ≤ ' + 1 * t + 0.3 + b + 'mm',
+                message: 'h ≤ ' + (1 * t + 0.3 + b) + 'mm',
                 details: {
                   id: 1.11,
                   error: "Gennomløb",
@@ -695,7 +749,7 @@ const callFunction = (weldingtype) => {
               },
               {
                 name: 'B',
-                message: 'h ≤ ' + 1 * t + 0.1 + b + 'mm',
+                message: 'h ≤ ' + (1 * t + 0.1 + b) + 'mm',
                 details: {
                   id: 1.11,
                   error: "Gennomløb",
@@ -723,7 +777,7 @@ const callFunction = (weldingtype) => {
               return [
                 {
                   name: 'D',
-                  message: 'h ≤ ' + 1 * t + 1.0 + b + 'mm',
+                  message: 'h ≤ ' + (1 * t + 1.0 + b) + 'mm',
                   details: {
                     id: 1.11,
                     error: "Gennomløb",
@@ -736,7 +790,7 @@ const callFunction = (weldingtype) => {
               return [
                 {
                   name: 'C',
-                  message: 'h ≤ ' + 1 * t + 0.6 + b + 'mm',
+                  message: 'h ≤ ' + (1 * t + 0.6 + b) + 'mm',
                   details: {
                     id: 1.11,
                     error: "Gennomløb",
@@ -749,7 +803,7 @@ const callFunction = (weldingtype) => {
               return [
                 {
                   name: 'B',
-                  message: 'h ≤ ' + 1 * t + 0.2 + b + 'mm',
+                  message: 'h ≤ ' + (1 * t + 0.2 + b) + 'mm',
                   details: {
                     id: 1.11,
                     error: "Gennomløb",
@@ -780,128 +834,80 @@ const callFunction = (weldingtype) => {
       error: "Forkert overgang",
       type: ["BW", "FW"],
       calc: (t, a, s, b, v) => {
-        if (t >= 0.5 && t <= 3) {
-          if (v) {
-            if (t >= 0.5) {
-              if (weldingtype === 'BW') {
-                if (v >= 90) {
-                  return [
-                    {
-                      name: 'D',
-                      message: v + '≥' + 90 + 'grader',
-                      details: {
-                        id: 1.12,
-                        error: "Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
-                        image: [],
-                      }
-                    }
-                  ]
-                }
-                else if (v >= 110) {
-                  return [
-                    {
-                      name: 'C',
-                      message: v + '≥' + 110 + 'grader',
-                      details: {
-                        id: 1.12,
-                        error: "Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
-                        image: [],
-                      }
-                    }
-                  ]
-                }
-                else if (v >= 150) {
-                  return [
-                    {
-                      name: 'B',
-                      message: v + '≥' + 150 + 'grader',
-                      details: {
-                        id: 1.12,
-                        error: "Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
-                        image: [],
-                      }
-                    }
-                  ]
-                } else {
-                  return [
-                    {
-                      name: 'D, C & B',
-                      message: 'Ikke tilladt',
-                      details: {
-                        id: 1.12,
-                        error: '',
-                        image: [],
-                      }
-                    }
-                  ]
-                }
-              } else if (weldingtype === 'FW') {
-                if (v >= 90) {
-                  return [
-                    {
-                      name: 'D',
-                      message: v + '≥' + 90 + 'grader',
-                      details: {
-                        id: 1.12,
-                        error: "Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
-                        image: [],
-                      }
-                    }
-                  ]
-                }
-                else if (v >= 110) {
-                  return [
-                    {
-                      name: 'C',
-                      message: v + '≥' + 110 + 'grader',
-                      details: {
-                        id: 1.12,
-                        error: "Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
-                        image: [],
-                      }
-                    }
-                  ]
-                }
-                else if (v >= 150) {
-                  return [
-                    {
-                      name: 'B',
-                      message: v + '≥' + 150 + 'grader',
-                      details: {
-                        id: 1.12,
-                        error: "Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
-                        image: [],
-                      }
-                    }
-                  ]
-                } else {
-                  return [
-                    {
-                      name: 'D, C & B',
-                      message: 'Ikke tilladt',
-                      details: {
-                        id: 1.12,
-                        error: '',
-                        image: [],
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          } else {
+        if (t >= 0.5) {
+          if (weldingtype === 'BW') {
             return [
               {
-                name: 'Fejl',
-                message: angleErrorText,
+                name: 'D',
+                message: v + '≥' + 90 + 'grader',
                 details: {
-                  id: '',
-                  error: '',
+                  id: 1.12,
+                  error: "Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
+                  image: [],
+                }
+              },
+              {
+                name: 'C',
+                message: v + '≥' + 110 + 'grader',
+                details: {
+                  id: 1.12,
+                  error: "Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
+                  image: [],
+                }
+              },
+              {
+                name: 'B',
+                message: v + '≥' + 150 + 'grader',
+                details: {
+                  id: 1.12,
+                  error: "Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
                   image: [],
                 }
               }
             ]
-          }
+          } else if (weldingtype === 'FW') {
+            return [
+              {
+                name: 'D',
+                message: 'vinkel ≥ ' + 90 + 'grader',
+                details: {
+                  id: 1.12,
+                  error: "Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
+                  image: [],
+                }
+              },
+              {
+                name: 'C',
+                message: 'vinkel ≥ ' + 110 + 'grader',
+                details: {
+                  id: 1.12,
+                  error: "Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
+                  image: [],
+                }
+              },
+              {
+                name: 'B',
+                message: 'vinkel ≥ ' + 150 + 'grader',
+                details: {
+                  id: 1.12,
+                  error: "Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
+                  image: [],
+                }
+              }
+            ]
+          }    
+        } else {
+          return [
+            {
+              name: 'D, C & B',
+              message: 'Ikke tilladt',
+              details: {
+                id: 1.12,
+                error: "Forkert overgang (mellem grund- materialets overflade og svejsesøm)",
+                image: [],
+              }
+            }
+          ]
         }
       },
     },
@@ -916,7 +922,7 @@ const callFunction = (weldingtype) => {
             return [
               {
                 name: 'D',
-                message: 'h ≤ ' + 0.2 * b,
+                message: 'h ≤ ' + (0.2 * b),
                 details: {
                   id: 1.13,
                   error: "Overløbning af svejsemetal",
@@ -969,7 +975,7 @@ const callFunction = (weldingtype) => {
           return [
             {
               name: 'D',
-              message: 'Korte fejl: h ≤ ' + 0.25 * t + 'mm',
+              message: 'Korte fejl: h ≤ ' + (0.25 * t) + 'mm',
               details: {
                 id: 1.14,
                 error: "Nedøbet svejsemetal",
@@ -978,7 +984,7 @@ const callFunction = (weldingtype) => {
             },
             {
               name: 'C',
-              message: 'Korte fejl: h ≤ ' + 0.1 * t + 'mm',
+              message: 'Korte fejl: h ≤ ' + (0.1 * t) + 'mm',
               details: {
                 id: 1.14,
                 error: "Nedøbet svejsemetal",
@@ -1000,7 +1006,7 @@ const callFunction = (weldingtype) => {
             return [
               {
                 name: 'D',
-                message: 'Korte fejl: h ≤ ' + 0.2 * t + 'mm',
+                message: 'Korte fejl: h ≤ ' + (0.2 * t) + 'mm',
                 details: {
                   id: 1.14,
                   error: "Manglende opfyldning",
@@ -1013,7 +1019,7 @@ const callFunction = (weldingtype) => {
             return [
               {
                 name: 'C',
-                message: 'Korte fejl: h ≤ ' + 0.1 * t + 'mm',
+                message: 'Korte fejl: h ≤ ' + (0.1 * t) + 'mm',
                 details: {
                   id: 1.14,
                   error: "Manglende opfyldning",
@@ -1026,7 +1032,7 @@ const callFunction = (weldingtype) => {
             return [
               {
                 name: 'B',
-                message: 'Korte fejl: h ≤ ' + 0.05 * t + 'mm',
+                message: 'Korte fejl: h ≤ ' + (0.05 * t) + 'mm',
                 details: {
                   id: 1.14,
                   error: "Manglende opfyldning",
@@ -1070,7 +1076,7 @@ const callFunction = (weldingtype) => {
             return [
               {
                 name: 'D',
-                message: 'h ≤' + 2 * t + 0.2 * a + 'mm',
+                message: 'h ≤ ' + (2 + 0.2 * a) + 'mm',
                 details: {
                   id: 1.16,
                   error: "Ulige store kateter(z-mål) ved kantsøm",
@@ -1078,8 +1084,8 @@ const callFunction = (weldingtype) => {
                 }
               },
               {
-                name: 'D',
-                message: 'h ≤' + 2 * t + 0.15 * a + 'mm',
+                name: 'C',
+                message: 'h ≤ ' + (2 + 0.15 * a) + 'mm',
                 details: {
                   id: 1.16,
                   error: "Ulige store kateter(z-mål) ved kantsøm",
@@ -1087,8 +1093,8 @@ const callFunction = (weldingtype) => {
                 }
               },
               {
-                name: 'D',
-                message: 'h ≤' + 1.5 * t + 0.15 * a + 'mm',
+                name: 'B',
+                message: 'h ≤ ' + (1.5 + 0.15 * a) + 'mm',
                 details: {
                   id: 1.16,
                   error: "Ulige store kateter(z-mål) ved kantsøm",
@@ -1123,7 +1129,7 @@ const callFunction = (weldingtype) => {
           return [
             {
               name: 'D',
-              message: 'h ≤ ' + 0.2 + 1 + t + 'mm',
+              message: 'h ≤ ' + (0.2 + 1 + t) + 'mm',
               details: {
                 id: 1.17,
                 error: "Indadhvælvning i roden",
@@ -1132,7 +1138,7 @@ const callFunction = (weldingtype) => {
             },
             {
               name: 'C',
-              message: 'Korte fejl: h ≤ ' + 0.1 * t + 'mm',
+              message: 'Korte fejl: h ≤ ' + (0.1 * t) + 'mm',
               details: {
                 id: 1.17,
                 error: "Indadhvælvning i roden",
@@ -1154,7 +1160,7 @@ const callFunction = (weldingtype) => {
             return [
               {
                 name: 'D',
-                message: 'Korte fejl: h ≤ ' + 0.2 * t + 'mm',
+                message: 'Korte fejl: h ≤ ' + (0.2 * t) + 'mm',
                 details: {
                   id: 1.17,
                   error: "Indadhvælvning i roden",
@@ -1167,7 +1173,7 @@ const callFunction = (weldingtype) => {
             return [
               {
                 name: 'C',
-                message: 'Korte fejl: h ≤ ' + 0.1 * t + 'mm',
+                message: 'Korte fejl: h ≤ ' + (0.1 * t) + 'mm',
                 details: {
                   id: 1.17,
                   error: "Indadhvælvning i roden",
@@ -1180,7 +1186,7 @@ const callFunction = (weldingtype) => {
             return [
               {
                 name: 'B',
-                message: 'Korte fejl: h ≤ ' + 0.05 * t + 'mm',
+                message: 'Korte fejl: h ≤ ' + (0.05 * t) + 'mm',
                 details: {
                   id: 1.17,
                   error: "Indadhvælvning i roden",
@@ -1211,7 +1217,7 @@ const callFunction = (weldingtype) => {
               }
             },
             {
-              name: 'D',
+              name: 'C',
               message: 'Ikke tilladt',
               details: {
                 id: 1.18,
@@ -1220,7 +1226,7 @@ const callFunction = (weldingtype) => {
               }
             },
             {
-              name: 'D',
+              name: 'B',
               message: 'Ikke tilladt',
               details: {
                 id: 1.18,
@@ -1251,7 +1257,7 @@ const callFunction = (weldingtype) => {
               }
             },
             {
-              name: 'D',
+              name: 'C',
               message: 'Ikke tilladt',
               details: {
                 id: 1.19,
@@ -1260,7 +1266,7 @@ const callFunction = (weldingtype) => {
               }
             },
             {
-              name: 'D',
+              name: 'B',
               message: 'Ikke tilladt',
               details: {
                 id: 1.19,
@@ -1284,7 +1290,7 @@ const callFunction = (weldingtype) => {
             return [
               {
                 name: 'D',
-                message: 'Korte fejl: h ≤ ' + 0.2 * t + 0.1 * a + 'mm',
+                message: 'Korte fejl: h ≤ ' + (0.2 * t + 0.1 * a) + 'mm',
                 details: {
                   id: 1.20,
                   error: "Utilstrækkeligt a-mål",
@@ -1293,7 +1299,7 @@ const callFunction = (weldingtype) => {
               },
               {
                 name: 'C',
-                message: 'Korte fejl: h ≤ ' + 0.2 * t + 'mm',
+                message: 'Korte fejl: h ≤ ' + (0.2 * t) + 'mm',
                 details: {
                   id: 1.20,
                   error: "Utilstrækkeligt a-mål",
@@ -1315,7 +1321,7 @@ const callFunction = (weldingtype) => {
               return [
                 {
                   name: 'D',
-                  message: 'Korte fejl: h ≤ ' + 0.3 * t + 0.1 * a + 'mm',
+                  message: 'Korte fejl: h ≤ ' + (0.3 * t + 0.1 * a) + 'mm',
                   details: {
                     id: 1.20,
                     error: "Utilstrækkeligt a-mål",
@@ -1328,7 +1334,7 @@ const callFunction = (weldingtype) => {
               return [
                 {
                   name: 'C',
-                  message: 'Korte fejl: h ≤ ' + 0.3 * t + 0.1 * a + 'mm',
+                  message: 'Korte fejl: h ≤ ' + (0.3 * t + 0.1 * a) + 'mm',
                   details: {
                     id: 1.20,
                     error: "Utilstrækkeligt a-mål",
@@ -1379,27 +1385,45 @@ const callFunction = (weldingtype) => {
             if (1 * t + 0.2 * a <= 4) {
               return [
                 {
-                  name: 'D',
-                  message: 'h ≤' + 1 * t + 'mm' + 0.2 * a + 'Max. 4mm',
+                  name: 'C',
+                  message: 'h ≤' + (1 * t) + 'mm' + (0.2 * a) + 'Max. 4mm',
                   details: {
                     id: 1.21,
                     error: "Uforholdsmæssigt stort s-mål",
                     image: []
                   }
                 },
+                {
+                  name: 'D & B',
+                  message: 'Ikke tilladt',
+                  details: {
+                    id: 1.21,
+                    error: "Uforholdsmæssigt stort s-mål",
+                    image: []
+                  }
+                }
               ]
             }
             else if (1 * t + 0.15 * a <= 3) {
               return [
                 {
-                  name: 'D',
-                  message: 'h ≤' + 1 * t + 'mm' + 0.15 * a + 'Max. 3mm',
+                  name: 'B',
+                  message: 'h ≤' + (1 * t) + 'mm' + (0.15 * a) + 'Max. 3mm',
                   details: {
                     id: 1.21,
                     error: "Uforholdsmæssigt stort s-mål",
                     image: []
                   }
                 },
+                {
+                  name: 'D & C',
+                  message: 'Ikke tilladt',
+                  details: {
+                    id: 1.21,
+                    error: "Uforholdsmæssigt stort s-mål",
+                    image: []
+                  }
+                }
               ]
             }
             else {
@@ -1413,6 +1437,15 @@ const callFunction = (weldingtype) => {
                     image: []
                   }
                 },
+                {
+                  name: 'B & C',
+                  message: 'Ikke tilladt',
+                  details: {
+                    id: 1.21,
+                    error: "Uforholdsmæssigt stort s-mål",
+                    image: []
+                  }
+                }
               ]
             }
           }
@@ -1499,7 +1532,7 @@ const callFunction = (weldingtype) => {
     // 2.6
     {
       id: '2.6',
-      error: '',
+      error: 'Lang pore ormehuller',
       type: ['FW', 'BW'],
       calc: (t, a, s, b, v) => {
         if (t >= 0.5) {
@@ -1508,10 +1541,10 @@ const callFunction = (weldingtype) => {
               return [
                 {
                   name: 'D',
-                  message: 'h ≤ ' + 0.4 * a,
+                  message: 'h ≤ ' + (0.4 * a),
                   details: {
                     id: '',
-                    error: '',
+                    error: 'Lang pore ormehuller',
                     image: [],
                   }
                 }
@@ -1521,10 +1554,10 @@ const callFunction = (weldingtype) => {
               return [
                 {
                   name: 'D',
-                  message: 'l ≤ ' + a,
+                  message: 'l ≤ ' + (a),
                   details: {
                     id: '',
-                    error: '',
+                    error: 'Lang pore ormehuller',
                     image: [],
                   }
                 }
@@ -1534,10 +1567,10 @@ const callFunction = (weldingtype) => {
               return [
                 {
                   name: 'C',
-                  message: 'h ≤ ' + 0.3 * a,
+                  message: 'h ≤ ' + (0.3 * a),
                   details: {
                     id: '',
-                    error: '',
+                    error: 'Lang pore ormehuller',
                     image: [],
                   }
                 }
@@ -1547,10 +1580,10 @@ const callFunction = (weldingtype) => {
               return [
                 {
                   name: 'C',
-                  message: 'l ≤ ' + a,
+                  message: 'l ≤ ' + (a),
                   details: {
                     id: '',
-                    error: '',
+                    error: 'Lang pore ormehuller',
                     image: [],
                   }
                 }
@@ -1560,10 +1593,10 @@ const callFunction = (weldingtype) => {
               return [
                 {
                   name: 'B',
-                  message: 'h ≤ ' + 0.2 * a,
+                  message: 'h ≤ ' + (0.2 * a),
                   details: {
                     id: '',
-                    error: '',
+                    error: 'Lang pore ormehuller',
                     image: [],
                   }
                 }
@@ -1573,10 +1606,10 @@ const callFunction = (weldingtype) => {
               return [
                 {
                   name: 'B',
-                  message: 'l ≤ ' + a,
+                  message: 'l ≤ ' + (a),
                   details: {
                     id: '',
-                    error: '',
+                    error: 'Lang pore ormehuller',
                     image: [],
                   }
                 }
@@ -1588,10 +1621,10 @@ const callFunction = (weldingtype) => {
               return [
                 {
                   name: 'D, C & B',
-                  message: 'l ≤ ' + s,
+                  message: 'l ≤ ' + (s),
                   details: {
                     id: '',
-                    error: '',
+                    error: 'Lang pore ormehuller',
                     image: [],
                   }
                 }
@@ -1601,10 +1634,10 @@ const callFunction = (weldingtype) => {
               return [
                 {
                   name: 'D',
-                  message: 'h ≤ ' + 0.4 * s,
+                  message: 'h ≤ ' + (0.4 * s),
                   details: {
                     id: '',
-                    error: '',
+                    error: 'Lang pore ormehuller',
                     image: [],
                   }
                 }
@@ -1614,10 +1647,10 @@ const callFunction = (weldingtype) => {
               return [
                 {
                   name: 'C',
-                  message: 'h ≤ ' + 0.3 * s,
+                  message: 'h ≤ ' + (0.3 * s),
                   details: {
                     id: '',
-                    error: '',
+                    error: 'Lang pore ormehuller',
                     image: [],
                   }
                 }
@@ -1627,10 +1660,10 @@ const callFunction = (weldingtype) => {
               return [
                 {
                   name: 'B',
-                  message: 'h ≤ ' + 0.2 * s,
+                  message: 'h ≤ ' + (0.2 * s),
                   details: {
                     id: '',
-                    error: '',
+                    error: 'Lang pore ormehuller',
                     image: [],
                   }
                 }
@@ -1680,7 +1713,7 @@ const callFunction = (weldingtype) => {
           return [
             {
               name: 'D',
-              message: 'h eller l ≤ ' + 0.2 * t,
+              message: 'h eller l ≤ ' + (0.2 * t),
               details: {
                 id: '',
                 error: '',
@@ -1702,7 +1735,7 @@ const callFunction = (weldingtype) => {
             return [
               {
                 name: 'D',
-                message: 'h eller l ≤ ' + 0.2 * t,
+                message: 'h eller l ≤ ' + (0.2 * t),
                 details: {
                   id: '',
                   error: '',
@@ -1760,7 +1793,7 @@ const callFunction = (weldingtype) => {
                 return [
                   {
                     name: 'D',
-                    message: 'h ≤ ' + 0.4 * a,
+                    message: 'h ≤ ' + (0.4 * a),
                     details: {
                       id: '',
                       error: '',
@@ -1772,7 +1805,7 @@ const callFunction = (weldingtype) => {
                 return [
                   {
                     name: 'D',
-                    message: 'l ≤ ' + a,
+                    message: 'l ≤ ' + (a),
                     details: {
                       id: '',
                       error: '',
@@ -1785,7 +1818,7 @@ const callFunction = (weldingtype) => {
                 return [
                   {
                     name: 'C',
-                    message: 'h ≤ ' + 0.3 * a,
+                    message: 'h ≤ ' + (0.3 * a),
                     details: {
                       id: '',
                       error: '',
@@ -1797,7 +1830,7 @@ const callFunction = (weldingtype) => {
                 return [
                   {
                     name: 'C',
-                    message: 'l ≤ ' + a,
+                    message: 'l ≤ ' + (a),
                     details: {
                       id: '',
                       error: '',
@@ -1810,7 +1843,7 @@ const callFunction = (weldingtype) => {
                 return [
                   {
                     name: 'B',
-                    message: 'h ≤ ' + 0.2 * a,
+                    message: 'h ≤ ' + (0.2 * a),
                     details: {
                       id: '',
                       error: '',
@@ -1822,7 +1855,7 @@ const callFunction = (weldingtype) => {
                 return [
                   {
                     name: 'B',
-                    message: 'l ≤ ' + a,
+                    message: 'l ≤ ' + (a),
                     details: {
                       id: '',
                       error: '',
@@ -1851,7 +1884,7 @@ const callFunction = (weldingtype) => {
                 return [
                   {
                     name: 'D',
-                    message: 'h ≤ ' + 0.4 * s,
+                    message: 'h ≤ ' + (0.4 * s),
                     details: {
                       id: '',
                       error: '',
@@ -1863,7 +1896,7 @@ const callFunction = (weldingtype) => {
                 return [
                   {
                     name: 'D',
-                    message: 'l ≤ ' + s,
+                    message: 'l ≤ ' + (s),
                     details: {
                       id: '',
                       error: '',
@@ -1876,7 +1909,7 @@ const callFunction = (weldingtype) => {
                 return [
                   {
                     name: '',
-                    message: 'h ≤ ' + 0.3 * s,
+                    message: 'h ≤ ' + (0.3 * s),
                     details: {
                       id: '',
                       error: '',
@@ -1888,7 +1921,7 @@ const callFunction = (weldingtype) => {
                 return [
                   {
                     name: '',
-                    message: 'l ≤ ' + s,
+                    message: 'l ≤ ' + (s),
                     details: {
                       id: '',
                       error: '',
@@ -1901,7 +1934,7 @@ const callFunction = (weldingtype) => {
                 return [
                   {
                     name: '',
-                    message: 'h ≤ ' + 0.2 * s,
+                    message: 'h ≤ ' + (0.2 * s),
                     details: {
                       id: '',
                       error: '',
@@ -1913,7 +1946,7 @@ const callFunction = (weldingtype) => {
                 return [
                   {
                     name: '',
-                    message: 'l ≤ ' + s,
+                    message: 'l ≤ ' + (s),
                     details: {
                       id: '',
                       error: '',
@@ -1952,7 +1985,7 @@ const callFunction = (weldingtype) => {
                 return [
                   {
                     name: 'D',
-                    message: 'h ≤ ' + 0.4 * a,
+                    message: 'h ≤ ' + (0.4 * a),
                     details: {
                       id: '',
                       error: '',
@@ -1965,7 +1998,7 @@ const callFunction = (weldingtype) => {
                 return [
                   {
                     name: 'C',
-                    message: 'h ≤ ' + 0.3 * a,
+                    message: 'h ≤ ' + (0.3 * a),
                     details: {
                       id: '',
                       error: '',
@@ -1978,7 +2011,7 @@ const callFunction = (weldingtype) => {
                 return [
                   {
                     name: 'B',
-                    message: 'h ≤ ' + 0.2 * a,
+                    message: 'h ≤ ' + (0.2 * a),
                     details: {
                       id: '',
                       error: '',
@@ -2007,7 +2040,7 @@ const callFunction = (weldingtype) => {
                 return [
                   {
                     name: 'D',
-                    message: 'h ≤ ' + 0.4 * s,
+                    message: 'h ≤ ' + (0.4 * s),
                     details: {
                       id: '',
                       error: '',
@@ -2020,7 +2053,7 @@ const callFunction = (weldingtype) => {
                 return [
                   {
                     name: 'C',
-                    message: 'h ≤ ' + 0.3 * s,
+                    message: 'h ≤ ' + (0.3 * s),
                     details: {
                       id: '',
                       error: '',
@@ -2033,7 +2066,7 @@ const callFunction = (weldingtype) => {
                 return [
                   {
                     name: 'B',
-                    message: 'h ≤ ' + 0.2 * s,
+                    message: 'h ≤ ' + (0.2 * s),
                     details: {
                       id: '',
                       error: '',
@@ -2093,7 +2126,7 @@ const callFunction = (weldingtype) => {
                 return [
                   {
                     name: 'D',
-                    message: 'h ≤ ' + 0.4 * a,
+                    message: 'h ≤ ' + (0.4 * a),
                     details: {
                       id: '',
                       error: '',
@@ -2133,7 +2166,7 @@ const callFunction = (weldingtype) => {
                 return [
                   {
                     name: 'D',
-                    message: 'h ≤ ' + 0.4 * s,
+                    message: 'h ≤ ' + (0.4 * s),
                     details: {
                       id: '',
                       error: '',
@@ -2171,7 +2204,7 @@ const callFunction = (weldingtype) => {
             return [
               {
                 name: 'D',
-                message: 'h ≤ ' + 0.2 + 0.25 * t,
+                message: 'h ≤ ' + (0.2 + 0.25 * t),
                 details: {
                   id: '',
                   error: '',
@@ -2180,7 +2213,7 @@ const callFunction = (weldingtype) => {
               },
               {
                 name: 'C',
-                message: 'h ≤ ' + 0.2 + 0.15 * t,
+                message: 'h ≤ ' + (0.2 + 0.15 * t),
                 details: {
                   id: '',
                   error: '',
@@ -2189,7 +2222,7 @@ const callFunction = (weldingtype) => {
               },
               {
                 name: 'B',
-                message: 'h ≤ ' + 0.2 + 0.1 * t,
+                message: 'h ≤ ' + (0.2 + 0.1 * t),
                 details: {
                   id: '',
                   error: '',
@@ -2202,7 +2235,7 @@ const callFunction = (weldingtype) => {
               return [
                 {
                   name: 'D',
-                  message: 'h ≤ ' + 0.2 + 0.25 * t,
+                  message: 'h ≤ ' + (0.2 + 0.25 * t),
                   details: {
                     id: '',
                     error: '',
@@ -2215,7 +2248,7 @@ const callFunction = (weldingtype) => {
               return [
                 {
                   name: 'C',
-                  message: 'h ≤ ' + 0.2 + 0.15 * t,
+                  message: 'h ≤ ' + (0.2 + 0.15 * t),
                   details: {
                     id: '',
                     error: '',
@@ -2228,7 +2261,7 @@ const callFunction = (weldingtype) => {
               return [
                 {
                   name: 'B',
-                  message: 'h ≤ ' + 0.2 + 0.1 * t,
+                  message: 'h ≤ ' + (0.2 + 0.1 * t),
                   details: {
                     id: '',
                     error: '',
@@ -2253,7 +2286,7 @@ const callFunction = (weldingtype) => {
               return [
                 {
                   name: 'D',
-                  message: 'h ≤ ' + 0.5 * t,
+                  message: 'h ≤ ' + (0.5 * t),
                   details: {
                     id: '',
                     error: '',
@@ -2266,7 +2299,7 @@ const callFunction = (weldingtype) => {
               return [
                 {
                   name: 'C',
-                  message: 'h ≤ ' + 0.5 * t,
+                  message: 'h ≤ ' + (0.5 * t),
                   details: {
                     id: '',
                     error: '',
@@ -2279,7 +2312,7 @@ const callFunction = (weldingtype) => {
               return [
                 {
                   name: 'B',
-                  message: 'h ≤ ' + 0.5 * t,
+                  message: 'h ≤ ' + (0.5 * t),
                   details: {
                     id: '',
                     error: '',
@@ -2302,7 +2335,7 @@ const callFunction = (weldingtype) => {
           return [
             {
               name: 'D',
-              message: 'h ≤ ' + 0.5 + 0.1 * a,
+              message: 'h ≤ ' + (0.5 + 0.1 * a),
               details: {
                 id: '',
                 error: '',
@@ -2311,7 +2344,7 @@ const callFunction = (weldingtype) => {
             },
             {
               name: 'C',
-              message: 'h ≤ ' + 0.5 + 0.1 * a,
+              message: 'h ≤ ' + (0.5 + 0.1 * a),
               details: {
                 id: '',
                 error: '',
@@ -2320,7 +2353,7 @@ const callFunction = (weldingtype) => {
             },
             {
               name: 'B',
-              message: 'h ≤ ' + 0.2 + 0.1 * a,
+              message: 'h ≤ ' + (0.2 + 0.1 * a),
               details: {
                 id: '',
                 error: '',
@@ -2333,7 +2366,7 @@ const callFunction = (weldingtype) => {
             return [
               {
                 name: 'D',
-                message: 'h ≤ ' + 1 + 0.3 * a,
+                message: 'h ≤ ' + (1 + 0.3 * a),
                 details: {
                   id: '',
                   error: '',
@@ -2345,7 +2378,7 @@ const callFunction = (weldingtype) => {
             return [
               {
                 name: 'C',
-                message: 'h ≤ ' + 0.5 + 0.2 * a,
+                message: 'h ≤ ' + (0.5 + 0.2 * a),
                 details: {
                   id: '',
                   error: '',
@@ -2357,7 +2390,7 @@ const callFunction = (weldingtype) => {
             return [
               {
                 name: 'B',
-                message: 'h ≤ ' + 0.2 + 0.1 * a,
+                message: 'h ≤ ' + (0.2 + 0.1 * a),
                 details: {
                   id: '',
                   error: '',
