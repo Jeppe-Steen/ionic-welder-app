@@ -51,7 +51,7 @@ const Home: React.FC<any> = () => {
   }, [weldingtype, thickness, fwThickness, bwThickness, width, angle])
 
   return (
-    <IonPage color="light" className="mainpage">
+    <IonPage className="mainpage">
       <IonHeader>
         <IonToolbar>
           <IonTitle className="Title-logo">
