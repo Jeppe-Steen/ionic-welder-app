@@ -2379,6 +2379,24 @@ const callFunction = (weldingtype) => {
       }
     },
     // 2.13 Mangler..
+    {
+      id: 2.13,
+      error: 'Mangelfuld indtrængning',
+      type: ['BW', 'FW'],
+      calc: (t, a, s, b , v) => {
+        if (t >= 0.5) {
+          if(weldingtype === 'FW') {
+            if(a) {
+              return []
+            }
+          } else if(weldingtype === 'BW') {
+            if(s) {
+              return []
+            }
+          }
+        }
+      }
+    },
     // 3.1 kun plader
     {
       id: '3.1 Kun for plader',
