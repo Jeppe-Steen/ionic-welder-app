@@ -5,6 +5,8 @@ import Logo from "../img/logo.svg"
 import Techcollege from "../img/techcollege.svg"
 import callFunction from '../Assets/Database/database';
 
+import image_one_one from '../Assets/errorTypes/fejltype1_1.png';
+
 const Home: React.FC<any> = () => {
 
   const [thickness, setThickness] = useState(Number);
@@ -12,16 +14,16 @@ const Home: React.FC<any> = () => {
   const [fwThickness, setfwThickness] = useState(Number);
   const [weldingtype, setWeldingtype] = useState(String);
   const [width, setWidth] = useState(Number);
-  const [angle, setAngle] = useState(Number);
+  // const [angle, setAngle] = useState(Number);
   const [modalOpen, setModalOpen] = useState(false);
-  const [choosenElement, setChoosenElement] = useState({ name: '', message: '', details: { id: Number, error: '', image: [] } });
+  const [choosenElement, setChoosenElement] = useState({ name: '', message: '', details: { id: Number, error: '', image: [], remark: [] } });
 
   const handleThickness = (value: any) => { setThickness(value.currentTarget.value) };
   const handlebwThickness = (value: any) => { setbwThickness(value.currentTarget.value) };
   const handlefwThickness = (value: any) => { setfwThickness(value.currentTarget.value) };
   const handleWeldingtype = (value: any) => { value.preventDefault(); setWeldingtype(value.currentTarget.value) };
   const handleWidth = (value: any) => { setWidth(value.currentTarget.value) };
-  const handleAngle = (value: any) => { setAngle(value.currentTarget.value) };
+  // const handleAngle = (value: any) => { setAngle(value.currentTarget.value) };
 
   const handleChooseElement = (value: any) => {
     setChoosenElement(value);
@@ -47,8 +49,7 @@ const Home: React.FC<any> = () => {
 
   useEffect(() => {
     usedArray = usedArray.filter(elements => elements.type.includes(weldingtype));
-    console.log(angle)
-  }, [weldingtype, thickness, fwThickness, bwThickness, width, angle])
+  }, [weldingtype, thickness, fwThickness, bwThickness, width])
 
   return (
     <IonPage className="mainpage">
@@ -60,8 +61,6 @@ const Home: React.FC<any> = () => {
           <IonTitle className="Title-Techcollege">
             <img src={Techcollege} alt=""></img>
           </IonTitle>
-
-
         </IonToolbar>
       </IonHeader>
 
@@ -122,7 +121,7 @@ const Home: React.FC<any> = () => {
                   </IonText>
                 </IonItemDivider>
 
-                {item.calc(thickness, fwThickness, bwThickness, width) && item.calc(thickness, fwThickness, bwThickness, width, angle).map((element: any, index: any) => {
+                {item.calc(thickness, fwThickness, bwThickness, width) && item.calc(thickness, fwThickness, bwThickness, width).map((element: any, index: any) => {
                   return (
                     <IonItem onClick={() => { handleChooseElement(element) }} className="show" key={index}>
                       <IonGrid className="Ion-col">
@@ -147,9 +146,14 @@ const Home: React.FC<any> = () => {
                 <IonTitle>{choosenElement.details.id} <br />{choosenElement.details.error}</IonTitle>
               </IonToolbar>
             </IonHeader>
-            {choosenElement.details.image.map((item: any, index: any) => {
+            {choosenElement.details.image && choosenElement.details.image.map((item: any, index: any) => {
               return (
                 <img key={index} src={item} alt="" />
+              )
+            })}
+            {choosenElement.details.remark && choosenElement.details.remark.map((item: any, index: any) => {
+              return (
+                <p key={index}>{item}</p>
               )
             })}
             <IonButton expand="full" onClick={(e) => { setModalOpen(false) }}>luk fane</IonButton>
