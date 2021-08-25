@@ -75,3 +75,14 @@
 .Ion-col {
     padding: 0;
 }
+
+.Ion-title {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.Ion-toolbar-modal {
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+}

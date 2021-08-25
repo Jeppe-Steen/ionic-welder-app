@@ -142,8 +142,8 @@ const Home: React.FC<any> = () => {
           choosenElement.name === 'Fejl' ? null :
           <IonModal isOpen={modalOpen}>
             <IonHeader>
-              <IonToolbar>
-                <IonTitle>{choosenElement.details.id} <br />{choosenElement.details.error}</IonTitle>
+              <IonToolbar className="Ion-toolbar-modal">
+                <IonTitle className="Ion-title">{choosenElement.details.id} <br />{choosenElement.details.error}</IonTitle>
               </IonToolbar>
             </IonHeader>
             {choosenElement.details.image && choosenElement.details.image.map((item: any, index: any) => {
