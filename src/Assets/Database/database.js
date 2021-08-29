@@ -1675,10 +1675,11 @@ const callFunction = (weldingtype) => {
       error: 'Lang pore ormehuller',
       type: ['FW', 'BW'],
       calc: (t, a, s, b, v) => {
+        let returnedArray = [];
         if (t >= 0.5) {
           if (weldingtype === 'FW') {
             if (0.4 * a <= 4) {
-              return [
+              returnedArray.push(
                 {
                   name: 'D',
                   message: 'h ≤ ' + (0.4 * a),
@@ -1689,24 +1690,11 @@ const callFunction = (weldingtype) => {
                     remark: []
                   }
                 }
-              ]
+              )
             }
-            else if (a <= 75) {
-              return [
-                {
-                  name: 'D',
-                  message: 'l ≤ ' + (a),
-                  details: {
-                    id: 2.6,
-                    error: 'Lang pore ormehuller',
-                    image: [image_two_six], 
-                    remark: []
-                  }
-                }
-              ]
-            }
-            else if (0.3 * a <= 3) {
-              return [
+
+            if (0.3 * a <= 3) {
+              returnedArray.push(
                 {
                   name: 'C',
                   message: 'h ≤ ' + (0.3 * a),
@@ -1717,24 +1705,11 @@ const callFunction = (weldingtype) => {
                     remark: []
                   }
                 }
-              ]
+              )
             }
-            else if (a <= 50) {
-              return [
-                {
-                  name: 'C',
-                  message: 'l ≤ ' + (a),
-                  details: {
-                    id: 2.6,
-                    error: 'Lang pore ormehuller',
-                    image: [image_two_six], 
-                    remark: []
-                  }
-                }
-              ]
-            }
-            else if (0.2 * a <= 2) {
-              return [
+
+            if (0.2 * a <= 2) {
+              returnedArray.push(
                 {
                   name: 'B',
                   message: 'h ≤ ' + (0.2 * a),
@@ -1745,40 +1720,12 @@ const callFunction = (weldingtype) => {
                     remark: []
                   }
                 }
-              ]
-            }
-            else if (a <= 25) {
-              return [
-                {
-                  name: 'B',
-                  message: 'l ≤ ' + (a),
-                  details: {
-                    id: 2.6,
-                    error: 'Lang pore ormehuller',
-                    image: [image_two_six], 
-                    remark: []
-                  }
-                }
-              ]
+              )
             }
           }
           else if (weldingtype === 'BW') {
-            if (s <= 75) {
-              return [
-                {
-                  name: 'D, C & B',
-                  message: 'l ≤ ' + (s),
-                  details: {
-                    id: 2.6,
-                    error: 'Lang pore ormehuller',
-                    image: [image_two_six], 
-                    remark: []
-                  }
-                }
-              ]
-            }
-            else if (0.4 * s <= 4) {
-              return [
+            if (0.4 * s <= 4) {
+              returnedArray.push(
                 {
                   name: 'D',
                   message: 'h ≤ ' + (0.4 * s),
@@ -1789,10 +1736,11 @@ const callFunction = (weldingtype) => {
                     remark: []
                   }
                 }
-              ]
+              )
             }
-            else if (0.3 * s <= 3) {
-              return [
+            
+            if (0.3 * s <= 3) {
+              returnedArray.push(
                 {
                   name: 'C',
                   message: 'h ≤ ' + (0.3 * s),
@@ -1803,10 +1751,11 @@ const callFunction = (weldingtype) => {
                     remark: []
                   }
                 }
-              ]
+              )
             }
-            else if (0.2 * s <= 2) {
-              return [
+
+            if (0.2 * s <= 2) {
+              returnedArray.push(
                 {
                   name: 'B',
                   message: 'h ≤ ' + (0.2 * s),
@@ -1817,10 +1766,11 @@ const callFunction = (weldingtype) => {
                     remark: []
                   }
                 }
-              ]
+              )
             }
           }
         }
+        return returnedArray;
       }
     },
     // 2.7
@@ -1931,10 +1881,12 @@ const callFunction = (weldingtype) => {
       error: 'Indeslutning, Slaggeindeslutninger, Flux eller Oxidindeslutninger',
       type: ['FW', 'BW'],
       calc: (t, a, s, b, v) => {
+        let returnedArray = [];
+
         if (t > 0.5) {
           if (weldingtype === 'FW') {
             if (!a) {
-              return [
+              returnedArray.push(
                 {
                   name: 'Fejl',
                   message: FWErrorText,
@@ -1945,10 +1897,10 @@ const callFunction = (weldingtype) => {
                     remark: []
                   }
                 }
-              ]
+              )
             } else {
               if (0.4 * a <= 4) {
-                return [
+                returnedArray.push(
                   {
                     name: 'D',
                     message: 'h ≤ ' + (0.4 * a),
@@ -1959,23 +1911,11 @@ const callFunction = (weldingtype) => {
                       remark: []
                     }
                   }
-                ]
-              } else if (a <= 75) {
-                return [
-                  {
-                    name: 'D',
-                    message: 'l ≤ ' + (a),
-                    details: {
-                      id: 2.9,
-                      error: 'Indeslutning, Slaggeindeslutninger, Flux eller Oxidindeslutninger',
-                      image: [image_two_nine], 
-                      remark: []
-                    }
-                  },
-                ]
+                )
               }
-              else if (0.3 * a <= 3) {
-                return [
+              
+              if (0.3 * a <= 3) {
+                returnedArray.push(
                   {
                     name: 'C',
                     message: 'h ≤ ' + (0.3 * a),
@@ -1986,23 +1926,11 @@ const callFunction = (weldingtype) => {
                       remark: []
                     }
                   }
-                ]
-              } else if (a <= 50) {
-                return [
-                  {
-                    name: 'C',
-                    message: 'l ≤ ' + (a),
-                    details: {
-                      id: 2.9,
-                      error: 'Indeslutning, Slaggeindeslutninger, Flux eller Oxidindeslutninger',
-                      image: [image_two_nine], 
-                      remark: []
-                    }
-                  },
-                ]
+                )
               }
-              else if (0.2 * a <= 2) {
-                return [
+
+              if (0.2 * a <= 2) {
+                returnedArray.push(
                   {
                     name: 'B',
                     message: 'h ≤ ' + (0.2 * a),
@@ -2013,26 +1941,13 @@ const callFunction = (weldingtype) => {
                       remark: []
                     }
                   }
-                ]
-              } else if (a <= 25) {
-                return [
-                  {
-                    name: 'B',
-                    message: 'l ≤ ' + (a),
-                    details: {
-                      id: 2.9,
-                      error: 'Indeslutning, Slaggeindeslutninger, Flux eller Oxidindeslutninger',
-                      image: [image_two_nine], 
-                      remark: []
-                    }
-                  },
-                ]
-              }
+                )
+              } 
             }
           }
           else if (weldingtype === 'BW') {
             if (!s) {
-              return [
+              returnedArray.push(
                 {
                   name: 'Fejl',
                   message: BWErrorText,
@@ -2043,10 +1958,10 @@ const callFunction = (weldingtype) => {
                     remark: []
                   }
                 }
-              ]
+              )
             } else {
               if (0.4 * s <= 4) {
-                return [
+                returnedArray.push(
                   {
                     name: 'D',
                     message: 'h ≤ ' + (0.4 * s),
@@ -2057,23 +1972,11 @@ const callFunction = (weldingtype) => {
                       remark: []
                     }
                   }
-                ]
-              } else if (s <= 75) {
-                return [
-                  {
-                    name: 'D',
-                    message: 'l ≤ ' + (s),
-                    details: {
-                      id: 2.9,
-                      error: 'Indeslutning, Slaggeindeslutninger, Flux eller Oxidindeslutninger',
-                      image: [image_two_nine], 
-                      remark: []
-                    }
-                  }
-                ]
-              }
-              else if (0.3 * s <= 3) {
-                return [
+                )
+              } 
+
+              if (0.3 * s <= 3) {
+                returnedArray.push(
                   {
                     name: '',
                     message: 'h ≤ ' + (0.3 * s),
@@ -2084,23 +1987,11 @@ const callFunction = (weldingtype) => {
                       remark: []
                     }
                   }
-                ]
-              } else if (s <= 50) {
-                return [
-                  {
-                    name: '',
-                    message: 'l ≤ ' + (s),
-                    details: {
-                      id: 2.9,
-                      error: 'Indeslutning, Slaggeindeslutninger, Flux eller Oxidindeslutninger',
-                      image: [image_two_nine], 
-                      remark: []
-                    }
-                  },
-                ]
-              }
+                )
+              } 
+
               else if (0.2 * s <= 2) {
-                return [
+                returnedArray.push(
                   {
                     name: '',
                     message: 'h ≤ ' + (0.2 * s),
@@ -2111,36 +2002,26 @@ const callFunction = (weldingtype) => {
                       remark: []
                     }
                   },
-                ]
-              } else if (s <= 25) {
-                return [
-                  {
-                    name: '',
-                    message: 'l ≤ ' + (s),
-                    details: {
-                      id: 2.9,
-                      error: 'Indeslutning, Slaggeindeslutninger, Flux eller Oxidindeslutninger',
-                      image: [image_two_nine], 
-                      remark: []
-                    }
-                  },
-                ]
+                )
               }
             }
           }
         }
+        return returnedArray;
       }
     },
     // 2.10
     {
-      id: 2.10,
+      id: '2.10',
       error: 'Metalliske indeslutninger undtagen kobber',
       type: ['FW', 'BW'],
       calc: (t, a, s, b, v) => {
+        let returnedArray = [];
+
         if (t >= 0.5) {
           if (weldingtype === 'FW') {
             if (!a) {
-              return [
+              returnedArray.push(
                 {
                   name: 'Fejl',
                   message: FWErrorText,
@@ -2151,10 +2032,10 @@ const callFunction = (weldingtype) => {
                     remark: []
                   }
                 }
-              ]
+              )
             } else {
               if (0.4 * a <= 4) {
-                return [
+                returnedArray.push(
                   {
                     name: 'D',
                     message: 'h ≤ ' + (0.4 * a),
@@ -2165,10 +2046,11 @@ const callFunction = (weldingtype) => {
                       remark: []
                     }
                   }
-                ]
+                )
               }
-              else if (0.3 * a <= 3) {
-                return [
+
+              if (0.3 * a <= 3) {
+                returnedArray.push(
                   {
                     name: 'C',
                     message: 'h ≤ ' + (0.3 * a),
@@ -2179,10 +2061,11 @@ const callFunction = (weldingtype) => {
                       remark: []
                     }
                   }
-                ]
+                )
               }
-              else if (0.2 * a <= 2) {
-                return [
+
+              if (0.2 * a <= 2) {
+                returnedArray.push(
                   {
                     name: 'B',
                     message: 'h ≤ ' + (0.2 * a),
@@ -2193,13 +2076,14 @@ const callFunction = (weldingtype) => {
                       remark: []
                     }
                   }
-                ]
+                )
               }
             }
           }
+
           else if (weldingtype === 'BW') {
             if (!s) {
-              return [
+              returnedArray.push(
                 {
                   name: 'Fejl',
                   message: BWErrorText,
@@ -2210,10 +2094,10 @@ const callFunction = (weldingtype) => {
                     remark: []
                   }
                 }
-              ]
+              )
             } else {
               if (0.4 * s <= 4) {
-                return [
+                returnedArray.push(
                   {
                     name: 'D',
                     message: 'h ≤ ' + (0.4 * s),
@@ -2224,10 +2108,11 @@ const callFunction = (weldingtype) => {
                       remark: []
                     }
                   }
-                ]
+                )
               }
-              else if (0.3 * s <= 3) {
-                return [
+              
+              if (0.3 * s <= 3) {
+                returnedArray.push(
                   {
                     name: 'C',
                     message: 'h ≤ ' + (0.3 * s),
@@ -2238,10 +2123,10 @@ const callFunction = (weldingtype) => {
                       remark: []
                     }
                   }
-                ]
+                )
               }
               else if (0.2 * s <= 2) {
-                return [
+                returnedArray.push(
                   {
                     name: 'B',
                     message: 'h ≤ ' + (0.2 * s),
@@ -2252,11 +2137,12 @@ const callFunction = (weldingtype) => {
                       remark: []
                     }
                   }
-                ]
+                )
               }
             }
           }
         }
+        return returnedArray;
       }
     },
     // 2.11
@@ -2287,10 +2173,12 @@ const callFunction = (weldingtype) => {
       error: 'Bindingsfejl i siden, mellem de enkelte strenge eller i riden',
       type: ['FW', 'BW'],
       calc: (t, a, s, b, v) => {
+        let returnedArray = [];
+
         if (t >= 0.5) {
           if (weldingtype === 'FW') {
             if (!a) {
-              return [
+              returnedArray.push(
                 {
                   name: 'Fejl',
                   message: FWErrorText,
@@ -2301,10 +2189,10 @@ const callFunction = (weldingtype) => {
                     remark: []
                   }
                 }
-              ]
+              )
             } else {
               if (0.4 * a <= 4) {
-                return [
+                returnedArray.push(
                   {
                     name: 'D',
                     message: 'h ≤ ' + (0.4 * a),
@@ -2315,9 +2203,9 @@ const callFunction = (weldingtype) => {
                       remark: []
                     }
                   }
-                ]
-              } else {
-                return [
+                )
+
+                returnedArray.push(
                   {
                     name: 'D & C',
                     message: notAllowedText,
@@ -2328,12 +2216,12 @@ const callFunction = (weldingtype) => {
                       remark: []
                     }
                   }
-                ]
+                )
               }
             }
           } else if (weldingtype === 'BW') {
             if (!s) {
-              return [
+              returnedArray.push(
                 {
                   name: 'Fejl',
                   message: 'Du skal udfylde stumsøms tykkelse',
@@ -2344,10 +2232,10 @@ const callFunction = (weldingtype) => {
                     remark: []
                   }
                 }
-              ]
+              )
             } else {
               if (0.4 * s <= 4) {
-                return [
+                returnedArray.push(
                   {
                     name: 'D',
                     message: 'h ≤ ' + (0.4 * s),
@@ -2358,9 +2246,9 @@ const callFunction = (weldingtype) => {
                       remark: []
                     }
                   }
-                ]
-              } else {
-                return [
+                )
+
+                returnedArray.push(
                   {
                     name: 'D & C',
                     message: notAllowedText,
@@ -2371,30 +2259,102 @@ const callFunction = (weldingtype) => {
                       remark: []
                     }
                   }
-                ]
+                )
               }
             }
           }
         }
+        return returnedArray;
       }
     },
-    // 2.13 Mangler..
+    // 2.13
     {
       id: 2.13,
       error: 'Mangelfuld indtrængning',
       type: ['BW', 'FW'],
       calc: (t, a, s, b , v) => {
+        let returnedArray = [];
         if (t >= 0.5) {
           if(weldingtype === 'FW') {
             if(a) {
-              return []
+              if(0.2 * a <= 2) {
+                returnedArray.push({
+                  name: 'D',
+                  message: 'h ≤ ' + (0.2 * a),
+                  details: {
+                    id: 2.13,
+                    error: 'Mangelfuld indtrængning',
+                    image: [], 
+                    remark: []
+                  }
+                })
+              }
+
+              if(0.1 * a <= 1.5) {
+                returnedArray.push({
+                  name: 'C',
+                  message: 'h ≤ ' + (0.1 * a),
+                  details: {
+                    id: 2.13,
+                    error: 'Mangelfuld indtrængning',
+                    image: [], 
+                    remark: []
+                  }
+                })
+              }
+
+              returnedArray.push({
+                name: 'B',
+                message: notAllowedText,
+                details: {
+                  id: 2.13,
+                  error: 'Mangelfuld indtrængning',
+                  image: [], 
+                  remark: []
+                }
+              })
             }
           } else if(weldingtype === 'BW') {
             if(s) {
-              return []
+              if(0.2 * s <= 2) {
+                returnedArray.push({
+                  name: 'D',
+                  message: 'h ≤ ' + (0.2 * s),
+                  details: {
+                    id: 2.13,
+                    error: 'Mangelfuld indtrængning',
+                    image: [], 
+                    remark: []
+                  }
+                })
+              }
+              if(0.1 * s <= 1.5) {
+                returnedArray.push({
+                  name: 'C',
+                  message: 'h ≤ ' + (0.1 * s),
+                  details: {
+                    id: 2.13,
+                    error: 'Mangelfuld indtrængning',
+                    image: [], 
+                    remark: []
+                  }
+                })
+              }
+              returnedArray.push({
+                name: 'B',
+                  message: notAllowedText,
+                  details: {
+                    id: 2.13,
+                    error: 'Mangelfuld indtrængning',
+                    image: [], 
+                    remark: []
+                }
+              })
             }
           }
         }
+
+        return returnedArray;
       }
     },
     // 3.1 kun plader
